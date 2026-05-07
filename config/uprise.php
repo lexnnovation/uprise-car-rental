@@ -21,9 +21,9 @@ return [
     */
     'brand' => [
         'name' => env('APP_NAME', 'Uprise'),
-        'tagline' => 'Premium Chauffeur & Transportation Services in Ghana',
-        'short_tagline' => 'Chauffeur-driven transportation, redefined.',
-        'legal_name' => env('UPRISE_LEGAL_NAME', 'Uprise Transport Ltd.'),
+        'tagline' => 'West Africa\'s Premier Chauffeur & Car Rental Service',
+        'short_tagline' => 'Car & driver hire across Ghana and West Africa.',
+        'legal_name' => env('UPRISE_LEGAL_NAME', 'Uprise Travel Ltd.'),
     ],
 
     /*
@@ -34,9 +34,9 @@ return [
     | site footer, contact page, JSON-LD Organization, and inquiry mail.
     */
     'contact' => [
-        'email' => env('UPRISE_CONTACT_EMAIL', 'hello@uprise.com.gh'),
-        'phone' => env('UPRISE_CONTACT_PHONE', '+233 20 000 0000'),
-        'phone_e164' => env('UPRISE_CONTACT_PHONE_E164', '+233200000000'),
+        'email' => env('UPRISE_CONTACT_EMAIL', 'tours@uprisetravel.com'),
+        'phone' => env('UPRISE_CONTACT_PHONE', '+233 (0) 249 507 413'),
+        'phone_e164' => env('UPRISE_CONTACT_PHONE_E164', '+233249507413'),
         'address' => [
             'street' => env('UPRISE_ADDRESS_STREET', 'Airport Residential Area'),
             'city' => env('UPRISE_ADDRESS_CITY', 'Accra'),
@@ -44,7 +44,9 @@ return [
             'country' => env('UPRISE_ADDRESS_COUNTRY', 'Ghana'),
             'country_code' => env('UPRISE_ADDRESS_COUNTRY_CODE', 'GH'),
         ],
-        'hours' => env('UPRISE_HOURS', 'Mon–Sun, 24/7'),
+        'hours' => env('UPRISE_HOURS', 'Mon–Fri, 9am–5pm GMT'),
+        'hours_us' => env('UPRISE_HOURS_US', 'Mon–Fri, 1pm–7pm ET'),
+        'phone_us' => env('UPRISE_PHONE_US', '+1 888 646 2266'),
     ],
 
     /*
@@ -55,11 +57,21 @@ return [
     | e.g. "233200000000". Used by WhatsAppLinkBuilder to compose wa.me URLs.
     */
     'whatsapp' => [
-        'number' => env('UPRISE_WHATSAPP_NUMBER', '233200000000'),
+        'number' => env('UPRISE_WHATSAPP_NUMBER', '233249507413'),
         'default_message' => env(
             'UPRISE_WHATSAPP_DEFAULT_MESSAGE',
-            'Hi Uprise, I would like to make a transportation inquiry.',
+            'Hi Uprise Travel, I would like to inquire about car rental and driver services in Ghana.',
         ),
+    ],
+
+    /*
+    |--------------------------------------------------------------------------
+    | Policy
+    |--------------------------------------------------------------------------
+    */
+    'policy' => [
+        'no_self_drive' => true,
+        'driver_included_notice' => 'All vehicle rentals include a professional driver. We do not offer self-drive rentals.',
     ],
 
     /*
@@ -68,8 +80,8 @@ return [
     |--------------------------------------------------------------------------
     */
     'social' => [
-        'instagram' => env('UPRISE_SOCIAL_INSTAGRAM'),
-        'facebook' => env('UPRISE_SOCIAL_FACEBOOK'),
+        'instagram' => env('UPRISE_SOCIAL_INSTAGRAM', 'https://www.instagram.com/uprisetravel/'),
+        'facebook' => env('UPRISE_SOCIAL_FACEBOOK', 'https://www.facebook.com/uprisetravel/'),
         'linkedin' => env('UPRISE_SOCIAL_LINKEDIN'),
         'tiktok' => env('UPRISE_SOCIAL_TIKTOK'),
         'twitter' => env('UPRISE_SOCIAL_TWITTER'),
@@ -92,7 +104,7 @@ return [
     |--------------------------------------------------------------------------
     */
     'inquiry' => [
-        'notification_email' => env('UPRISE_INQUIRY_NOTIFICATION_EMAIL', env('UPRISE_CONTACT_EMAIL', 'hello@uprise.com.gh')),
+        'notification_email' => env('UPRISE_INQUIRY_NOTIFICATION_EMAIL', env('UPRISE_CONTACT_EMAIL', 'tours@uprisetravel.com')),
         'rate_limit_per_minute' => env('UPRISE_INQUIRY_RATE_LIMIT', 5),
     ],
 

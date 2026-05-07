@@ -25,16 +25,19 @@
 
         <div class="container-page relative z-10 pb-20 pt-16 lg:pb-28 lg:pt-20">
 
-            <p class="eyebrow text-gold mb-6 lg:mb-8">Accra · Kumasi · West Africa</p>
+            <p class="eyebrow text-gold mb-6 lg:mb-8">Ghana · Togo · Benin · Senegal · Gambia</p>
 
             <h1
                 class="font-display font-bold text-white leading-[1.02] tracking-tight mb-6 max-w-3xl
                    text-[2.5rem] sm:text-[3.5rem] lg:text-[4.5rem]">
-                Arrive in complete<br class="hidden sm:block"> distinction.
+                Car & driver hire<br class="hidden sm:block"> across West Africa.
             </h1>
 
-            <p class="text-stone-soft text-base sm:text-lg max-w-xl mb-10 leading-relaxed">
+            <p class="text-stone-soft text-base sm:text-lg max-w-xl mb-4 leading-relaxed">
                 {{ config('uprise.brand.tagline') }}
+            </p>
+            <p class="text-stone text-sm mb-10 max-w-lg">
+                {{ config('uprise.policy.driver_included_notice') }}
             </p>
 
             <div class="flex flex-col xs:flex-row gap-3 sm:gap-4">
@@ -66,7 +69,7 @@
         <div class="container-page py-10 lg:py-12">
             <dl class="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-0 lg:divide-x lg:divide-charcoal-soft">
 
-                @foreach ([['value' => '10+', 'label' => 'Premium vehicles'], ['value' => '7', 'label' => 'Services offered'], ['value' => '24/7', 'label' => 'Always available'], ['value' => 'GH + 5', 'label' => 'Countries covered']] as $stat)
+                @foreach ([['value' => '10+', 'label' => 'Premium vehicles'], ['value' => '8', 'label' => 'Services offered'], ['value' => '5+', 'label' => 'Countries covered'], ['value' => 'Always', 'label' => 'Driver included']] as $stat)
                     <div class="text-center lg:px-8">
                         <dt class="font-display font-bold text-white text-3xl lg:text-4xl tracking-tight mb-1">
                             {{ $stat['value'] }}

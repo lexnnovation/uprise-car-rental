@@ -12,34 +12,40 @@ class FaqSeeder extends Seeder
         $faqs = [
             // General
             [
-                'question' => 'Do you operate 24 hours a day, 7 days a week?',
-                'answer' => 'Yes. Uprise operates around the clock, 365 days a year — including public holidays. Whether your flight lands at 3 AM or you need an early-morning corporate pickup, we\'re available.',
+                'question' => 'Do you offer self-drive car rentals?',
+                'answer' => 'No. All Uprise vehicle rentals include a professional driver — we do not offer self-drive options. This is a firm policy for insurance and safety reasons. Every booking comes with a vetted, trained driver who knows the local roads, border crossings, and park routes.',
                 'category' => 'General',
                 'sort_order' => 1,
             ],
             [
-                'question' => 'Which areas of Ghana do you cover?',
-                'answer' => 'We operate primarily in Greater Accra and cover the full country for long-distance transfers. Popular routes include Accra–Kumasi, Accra–Cape Coast, Accra–Tamale, and connections to all regional airports. We also handle cross-border trips into Togo, Benin, Ivory Coast and Nigeria.',
+                'question' => 'When is your team available to take bookings?',
+                'answer' => 'Our Ghana office is available Monday to Friday, 9 am – 5 pm GMT (+233 (0) 249 507 413). Our US line is available Monday to Friday, 1 pm – 7 pm Eastern (+1 888 646 2266). For urgent requests outside these hours, WhatsApp us and we will respond as soon as possible. Vehicles can be arranged for early-morning and late-night pickups with advance booking.',
                 'category' => 'General',
                 'sort_order' => 2,
             ],
             [
-                'question' => 'How do I make a booking?',
-                'answer' => 'The fastest way is to use our inquiry form or WhatsApp us directly. Provide your pickup location, destination, date and time, and passenger count — and our team will confirm your booking within 30 minutes during business hours.',
+                'question' => 'Which areas of Ghana and West Africa do you cover?',
+                'answer' => 'We cover all of Ghana — Accra, Cape Coast, Kumasi, Tamale, Bolgatanga, Wa, the Volta Region and the Upper Regions. We also operate cross-border routes into Togo, Benin, Ivory Coast, Senegal and Gambia. Popular routes: Accra–Cape Coast, Accra–Tamale, Accra–Kumasi, Accra–Mole National Park, Takoradi–Cape Coast.',
                 'category' => 'General',
                 'sort_order' => 3,
             ],
             [
-                'question' => 'What payment methods do you accept?',
-                'answer' => 'We accept Mobile Money (MTN, Vodafone, AirtelTigo), bank transfer, and cash. Corporate accounts are invoiced monthly. Card payments are available on request.',
+                'question' => 'How do I make a booking?',
+                'answer' => 'The fastest way is to WhatsApp us directly or fill in our inquiry form. Provide your pickup location, destination, date and time, and passenger count — our team will confirm your booking within a few hours during business hours.',
                 'category' => 'General',
                 'sort_order' => 4,
             ],
             [
-                'question' => 'Can I cancel or change a booking?',
-                'answer' => 'Yes. Cancellations made more than 4 hours before the scheduled pickup are fully refunded. Changes to time or pickup location can be made up to 2 hours before departure via WhatsApp.',
+                'question' => 'What payment methods do you accept?',
+                'answer' => 'We accept bank transfer, Mobile Money (MTN, Vodafone, AirtelTigo), and cash. Corporate accounts can be invoiced. Contact us to discuss payment options for your booking.',
                 'category' => 'General',
                 'sort_order' => 5,
+            ],
+            [
+                'question' => 'Can I cancel or change a booking?',
+                'answer' => 'Yes. Please contact us as early as possible if you need to cancel or adjust your booking. Reach out via WhatsApp or email at tours@uprisetravel.com with your booking details.',
+                'category' => 'General',
+                'sort_order' => 6,
             ],
 
             // Airport
