@@ -1,9 +1,9 @@
 @extends('layouts.app')
 
 @php
-    $title = 'Uprise | Premium Chauffeur & Transportation Services in Ghana';
+    $title = 'Car Rental with Driver in Ghana & West Africa | Uprise Travel';
     $metaDescription =
-        'Accra\'s finest chauffeur service. Airport transfers, executive hire, corporate travel, safari tours and more. Available 24/7 across Ghana and West Africa.';
+        'Hire a car and driver in Ghana, Togo, Benin, Senegal and Gambia. Airport transfers, safari tours, executive hire, Cape Coast day tours and cross-border travel. All rentals include a professional driver.';
     $whatsappUrl =
         'https://wa.me/' .
         config('uprise.whatsapp.number') .
@@ -18,10 +18,25 @@
      ============================================================ --}}
     <section class="relative min-h-[92svh] flex flex-col justify-end bg-ink-deep overflow-hidden">
 
-        {{-- Decorative elements --}}
-        <div class="absolute inset-0 bg-linear-to-br from-ink-deep via-charcoal/40 to-ink-deep pointer-events-none"></div>
-        <div class="absolute top-0 inset-x-0 h-px bg-linear-to-r from-transparent via-gold to-transparent opacity-60"></div>
-        <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-px h-32 bg-linear-to-b from-gold/50 to-transparent"></div>
+        {{-- Background image --}}
+        @if ($heroBg)
+            <div class="absolute inset-0" aria-hidden="true">
+                <img src="{{ $heroBg }}" alt="" class="w-full h-full object-cover object-center"
+                    fetchpriority="high" loading="eager">
+            </div>
+        @endif
+
+        {{-- Layered dark overlays: base tint + directional vignette --}}
+        <div class="absolute inset-0 bg-ink-deep/65" aria-hidden="true"></div>
+        <div class="absolute inset-0 bg-linear-to-t from-ink-deep via-ink-deep/30 to-transparent" aria-hidden="true"></div>
+        <div class="absolute inset-0 bg-linear-to-r from-ink-deep/60 via-transparent to-transparent" aria-hidden="true">
+        </div>
+
+        {{-- Gold accent lines --}}
+        <div class="absolute top-0 inset-x-0 h-px bg-linear-to-r from-transparent via-gold to-transparent opacity-50"
+            aria-hidden="true"></div>
+        <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-px h-32 bg-linear-to-b from-gold/40 to-transparent"
+            aria-hidden="true"></div>
 
         <div class="container-page relative z-10 pb-20 pt-16 lg:pb-28 lg:pt-20">
 
