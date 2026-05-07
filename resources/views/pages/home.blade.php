@@ -32,15 +32,15 @@
         <div class="absolute inset-0 bg-linear-to-r from-ink-deep/60 via-transparent to-transparent" aria-hidden="true">
         </div>
 
-        {{-- Gold accent lines --}}
-        <div class="absolute top-0 inset-x-0 h-px bg-linear-to-r from-transparent via-gold to-transparent opacity-50"
+        {{-- Accent lines --}}
+        <div class="absolute top-0 inset-x-0 h-px bg-linear-to-r from-transparent via-accent to-transparent opacity-50"
             aria-hidden="true"></div>
-        <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-px h-32 bg-linear-to-b from-gold/40 to-transparent"
+        <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-px h-32 bg-linear-to-b from-accent/40 to-transparent"
             aria-hidden="true"></div>
 
         <div class="container-page relative z-10 pb-20 pt-16 lg:pb-28 lg:pt-20">
 
-            <p class="eyebrow text-gold mb-6 lg:mb-8">Ghana · Togo · Benin · Senegal · Gambia</p>
+            <p class="eyebrow text-accent mb-6 lg:mb-8">Ghana · Togo · Benin · Senegal · Gambia</p>
 
             <h1
                 class="font-display font-bold text-white leading-[1.02] tracking-tight mb-6 max-w-3xl
@@ -57,8 +57,8 @@
 
             <div class="flex flex-col xs:flex-row gap-3 sm:gap-4">
                 <a href="{{ $whatsappUrl }}" target="_blank" rel="noopener"
-                    class="inline-flex items-center justify-center gap-2.5 bg-gold text-ink font-semibold
-                      px-7 py-4 rounded-sm hover:bg-gold-soft active:bg-gold-deep transition-colors duration-200
+                    class="inline-flex items-center justify-center gap-2.5 bg-accent text-white font-semibold
+                      px-7 py-4 rounded-sm hover:bg-accent-soft active:bg-accent-deep transition-colors duration-200
                       text-sm tracking-wide shrink-0">
                     <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                         <path
@@ -67,8 +67,8 @@
                     Book via WhatsApp
                 </a>
                 <a href="#fleet"
-                    class="inline-flex items-center justify-center gap-2 border border-white/25 text-white font-semibold
-                      px-7 py-4 rounded-sm hover:border-white/60 transition-colors duration-200
+                    class="inline-flex items-center justify-center gap-2 border border-accent/25 text-white font-semibold
+                      px-7 py-4 rounded-sm hover:border-accent/60 transition-colors duration-200
                       text-sm tracking-wide">
                     Browse Fleet →
                 </a>
@@ -105,7 +105,7 @@
 
             <div class="flex items-end justify-between mb-12 lg:mb-16">
                 <div>
-                    <p class="eyebrow text-gold mb-3">Our Fleet</p>
+                    <p class="eyebrow text-accent mb-3">Our Fleet</p>
                     <h2 class="font-display font-bold text-white text-display-md tracking-tight">
                         The vehicles
                     </h2>
@@ -120,7 +120,7 @@
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
                     @foreach ($vehicles as $vehicle)
                         <article
-                            class="group relative bg-charcoal rounded-md overflow-hidden hover:ring-1 hover:ring-gold/30 transition-all duration-300">
+                            class="group relative bg-charcoal rounded-md overflow-hidden hover:ring-1 hover:ring-accent/30 transition-all duration-300">
 
                             {{-- Image / placeholder --}}
                             @if ($vehicle->hasMedia('hero'))
@@ -139,9 +139,9 @@
                             @endif
 
                             <div class="p-5">
-                                <p class="eyebrow text-gold mb-1">{{ $vehicle->category->name }}</p>
+                                <p class="eyebrow text-accent mb-1">{{ $vehicle->category->name }}</p>
                                 <h3
-                                    class="font-display font-semibold text-white text-lg mb-3 group-hover:text-gold-soft transition-colors duration-200">
+                                    class="font-display font-semibold text-white text-lg mb-3 group-hover:text-accent-soft transition-colors duration-200">
                                     {{ $vehicle->name }}
                                 </h3>
                                 <div class="flex items-center gap-4 text-stone-soft text-xs mb-4">
@@ -163,7 +163,7 @@
                                     </span>
                                 </div>
                                 <a href="/fleet/{{ $vehicle->slug }}"
-                                    class="inline-flex items-center text-xs font-semibold text-gold hover:text-gold-soft transition-colors gap-1 tracking-wide">
+                                    class="inline-flex items-center text-xs font-semibold text-accent hover:text-accent-soft transition-colors gap-1 tracking-wide">
                                     View details →
                                 </a>
                             </div>
@@ -200,7 +200,8 @@
                     <article
                         class="bg-white rounded-md p-6 shadow-card hover:shadow-card-hover transition-shadow duration-300 group flex flex-col">
                         <div class="w-10 h-10 rounded-full bg-ink flex items-center justify-center mb-5 shrink-0">
-                            <span class="text-gold text-xs font-bold">{{ strtoupper(substr($service->name, 0, 2)) }}</span>
+                            <span
+                                class="text-accent text-xs font-bold">{{ strtoupper(substr($service->name, 0, 2)) }}</span>
                         </div>
                         <h3 class="font-display font-semibold text-ink text-base mb-2">{{ $service->name }}</h3>
                         <p class="text-stone text-sm leading-relaxed flex-1 mb-5">{{ $service->short_description }}</p>
@@ -222,7 +223,7 @@
         <div class="container-page">
 
             <div class="text-center mb-14 lg:mb-18">
-                <p class="eyebrow text-gold mb-3">Why Uprise</p>
+                <p class="eyebrow text-accent mb-3">Why Uprise</p>
                 <h2 class="font-display font-bold text-white text-display-md tracking-tight">
                     The Uprise standard.
                 </h2>
@@ -283,7 +284,7 @@
                             <div class="flex gap-0.5 mb-5" aria-label="{{ $testimonial->rating }} out of 5 stars">
                                 @for ($i = 1; $i <= 5; $i++)
                                     <span
-                                        class="{{ $i <= $testimonial->rating ? 'text-gold' : 'text-mist' }} text-base leading-none">★</span>
+                                        class="{{ $i <= $testimonial->rating ? 'text-accent' : 'text-mist' }} text-base leading-none">★</span>
                                 @endfor
                             </div>
                             {{-- Quote --}}
@@ -321,10 +322,10 @@
      ============================================================ --}}
     <section class="bg-ink-deep relative overflow-hidden">
         <div class="absolute inset-0 bg-linear-to-r from-ink-deep via-charcoal/30 to-ink-deep pointer-events-none"></div>
-        <div class="absolute top-0 inset-x-0 h-px bg-linear-to-r from-transparent via-gold/50 to-transparent"></div>
-        <div class="absolute bottom-0 inset-x-0 h-px bg-linear-to-r from-transparent via-gold/30 to-transparent"></div>
+        <div class="absolute top-0 inset-x-0 h-px bg-linear-to-r from-transparent via-accent/50 to-transparent"></div>
+        <div class="absolute bottom-0 inset-x-0 h-px bg-linear-to-r from-transparent via-accent/30 to-transparent"></div>
         <div class="container-page relative z-10 py-20 lg:py-24 text-center">
-            <p class="eyebrow text-gold mb-4">Ready to travel?</p>
+            <p class="eyebrow text-accent mb-4">Ready to travel?</p>
             <h2 class="font-display font-bold text-white text-display-lg tracking-tight mb-4 max-w-2xl mx-auto">
                 Your ride is one message away.
             </h2>
@@ -332,8 +333,8 @@
                 Reach us on WhatsApp for instant booking confirmation. 24/7, every day of the year.
             </p>
             <a href="{{ $whatsappUrl }}" target="_blank" rel="noopener"
-                class="inline-flex items-center gap-2.5 bg-gold text-ink font-semibold px-8 py-4 rounded-sm
-                  hover:bg-gold-soft transition-colors duration-200 text-sm tracking-wide">
+                class="inline-flex items-center gap-2.5 bg-accent text-white font-semibold px-8 py-4 rounded-sm
+                  hover:bg-accent-soft transition-colors duration-200 text-sm tracking-wide">
                 <svg class="w-4 h-4 shrink-0" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                     <path
                         d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
@@ -368,7 +369,7 @@
                                     {{ $faq->question }}
                                 </span>
                                 <span
-                                    class="text-gold text-xl font-light leading-none shrink-0 mt-0.5 transition-transform duration-200"
+                                    class="text-accent text-xl font-light leading-none shrink-0 mt-0.5 transition-transform duration-200"
                                     :class="active === {{ $i }} ? 'rotate-45' : ''">+</span>
                             </button>
                             <div x-show="active === {{ $i }}"

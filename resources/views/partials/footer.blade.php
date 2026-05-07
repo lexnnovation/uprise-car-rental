@@ -38,7 +38,7 @@
                     {{ config('uprise.brand.tagline') }}
                 </p>
                 <a href="{{ $whatsappUrl }}" target="_blank" rel="noopener"
-                    class="inline-flex items-center gap-2 border border-gold text-gold text-xs font-semibold px-4 py-2.5 rounded-sm hover:bg-gold hover:text-ink transition-colors duration-200 tracking-wide">
+                    class="inline-flex items-center gap-2 border border-accent text-accent text-xs font-semibold px-4 py-2.5 rounded-sm hover:bg-accent hover:text-white transition-colors duration-200 tracking-wide">
                     Book via WhatsApp
                 </a>
             </div>
