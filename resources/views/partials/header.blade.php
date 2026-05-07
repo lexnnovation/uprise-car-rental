@@ -7,7 +7,7 @@
     $nav = [
         ['label' => 'Fleet', 'href' => '/fleet'],
         [
-            'label' => 'How We Serve You',
+            'label' => 'Our Services',
             'href' => '/services',
             'children' => [
                 ['label' => 'Airport Transfer', 'href' => '/services/airport-transfer'],
