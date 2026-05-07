@@ -1,0 +1,380 @@
+@extends('layouts.app')
+
+@php
+    $title = 'Uprise | Premium Chauffeur & Transportation Services in Ghana';
+    $metaDescription =
+        'Accra\'s finest chauffeur service. Airport transfers, executive hire, corporate travel, safari tours and more. Available 24/7 across Ghana and West Africa.';
+    $whatsappUrl =
+        'https://wa.me/' .
+        config('uprise.whatsapp.number') .
+        '?text=' .
+        urlencode(config('uprise.whatsapp.default_message'));
+@endphp
+
+@section('content')
+
+    {{-- ============================================================
+     HERO
+     ============================================================ --}}
+    <section class="relative min-h-[92svh] flex flex-col justify-end bg-ink-deep overflow-hidden">
+
+        {{-- Decorative elements --}}
+        <div class="absolute inset-0 bg-linear-to-br from-ink-deep via-charcoal/40 to-ink-deep pointer-events-none"></div>
+        <div class="absolute top-0 inset-x-0 h-px bg-linear-to-r from-transparent via-gold to-transparent opacity-60"></div>
+        <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-px h-32 bg-linear-to-b from-gold/50 to-transparent"></div>
+
+        <div class="container-page relative z-10 pb-20 pt-16 lg:pb-28 lg:pt-20">
+
+            <p class="eyebrow text-gold mb-6 lg:mb-8">Accra · Kumasi · West Africa</p>
+
+            <h1
+                class="font-display font-bold text-white leading-[1.02] tracking-tight mb-6 max-w-3xl
+                   text-[2.5rem] sm:text-[3.5rem] lg:text-[4.5rem]">
+                Arrive in complete<br class="hidden sm:block"> distinction.
+            </h1>
+
+            <p class="text-stone-soft text-base sm:text-lg max-w-xl mb-10 leading-relaxed">
+                {{ config('uprise.brand.tagline') }}
+            </p>
+
+            <div class="flex flex-col xs:flex-row gap-3 sm:gap-4">
+                <a href="{{ $whatsappUrl }}" target="_blank" rel="noopener"
+                    class="inline-flex items-center justify-center gap-2.5 bg-gold text-ink font-semibold
+                      px-7 py-4 rounded-sm hover:bg-gold-soft active:bg-gold-deep transition-colors duration-200
+                      text-sm tracking-wide shrink-0">
+                    <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                        <path
+                            d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+                    </svg>
+                    Book via WhatsApp
+                </a>
+                <a href="#fleet"
+                    class="inline-flex items-center justify-center gap-2 border border-white/25 text-white font-semibold
+                      px-7 py-4 rounded-sm hover:border-white/60 transition-colors duration-200
+                      text-sm tracking-wide">
+                    Browse Fleet →
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+    {{-- ============================================================
+     TRUST BAR
+     ============================================================ --}}
+    <section class="bg-charcoal border-y border-charcoal-soft">
+        <div class="container-page py-10 lg:py-12">
+            <dl class="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-0 lg:divide-x lg:divide-charcoal-soft">
+
+                @foreach ([['value' => '10+', 'label' => 'Premium vehicles'], ['value' => '7', 'label' => 'Services offered'], ['value' => '24/7', 'label' => 'Always available'], ['value' => 'GH + 5', 'label' => 'Countries covered']] as $stat)
+                    <div class="text-center lg:px-8">
+                        <dt class="font-display font-bold text-white text-3xl lg:text-4xl tracking-tight mb-1">
+                            {{ $stat['value'] }}
+                        </dt>
+                        <dd class="eyebrow text-stone">{{ $stat['label'] }}</dd>
+                    </div>
+                @endforeach
+
+            </dl>
+        </div>
+    </section>
+
+    {{-- ============================================================
+     FLEET
+     ============================================================ --}}
+    <section id="fleet" class="bg-ink py-20 lg:py-28">
+        <div class="container-page">
+
+            <div class="flex items-end justify-between mb-12 lg:mb-16">
+                <div>
+                    <p class="eyebrow text-gold mb-3">Our Fleet</p>
+                    <h2 class="font-display font-bold text-white text-display-md tracking-tight">
+                        The vehicles
+                    </h2>
+                </div>
+                <a href="/fleet"
+                    class="hidden sm:inline-flex items-center gap-1 text-sm text-stone-soft hover:text-white transition-colors font-medium">
+                    View all &rarr;
+                </a>
+            </div>
+
+            @if ($vehicles->isNotEmpty())
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+                    @foreach ($vehicles as $vehicle)
+                        <article
+                            class="group relative bg-charcoal rounded-md overflow-hidden hover:ring-1 hover:ring-gold/30 transition-all duration-300">
+
+                            {{-- Image / placeholder --}}
+                            @if ($vehicle->hasMedia('hero'))
+                                <img src="{{ $vehicle->getFirstMediaUrl('hero', 'card') }}" alt="{{ $vehicle->name }}"
+                                    class="w-full h-52 object-cover group-hover:scale-105 transition-transform duration-500"
+                                    loading="lazy">
+                            @else
+                                <div
+                                    class="w-full h-52 flex items-center justify-center bg-linear-to-br from-charcoal-soft to-ink">
+                                    <svg class="w-16 h-16 text-charcoal-soft opacity-50" fill="none"
+                                        stroke="currentColor" stroke-width="1" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="M8.25 18.75a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h6m-9 0H3.375a1.125 1.125 0 01-1.125-1.125V14.25m17.25 4.5a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h1.125c.621 0 1.129-.504 1.09-1.124a17.902 17.902 0 00-3.213-9.193 2.056 2.056 0 00-1.58-.86H14.25M16.5 18.75h-2.25m0-11.177v-.958c0-.568-.422-1.048-.987-1.106a48.554 48.554 0 00-10.026 0 1.106 1.106 0 00-.987 1.106v7.635m12-6.677v6.677m0 4.5v-4.5m0 0h-12" />
+                                    </svg>
+                                </div>
+                            @endif
+
+                            <div class="p-5">
+                                <p class="eyebrow text-gold mb-1">{{ $vehicle->category->name }}</p>
+                                <h3
+                                    class="font-display font-semibold text-white text-lg mb-3 group-hover:text-gold-soft transition-colors duration-200">
+                                    {{ $vehicle->name }}
+                                </h3>
+                                <div class="flex items-center gap-4 text-stone-soft text-xs mb-4">
+                                    <span class="flex items-center gap-1">
+                                        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2"
+                                            viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                d="M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 018.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0111.964-3.07M12 6.375a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zm8.25 2.25a2.625 2.625 0 11-5.25 0 2.625 2.625 0 015.25 0z" />
+                                        </svg>
+                                        {{ $vehicle->passenger_count }} passengers
+                                    </span>
+                                    <span class="flex items-center gap-1">
+                                        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2"
+                                            viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                d="M20.25 7.5l-.625 10.632a2.25 2.25 0 01-2.247 2.118H6.622a2.25 2.25 0 01-2.247-2.118L3.75 7.5M10 11.25h4M3.375 7.5h17.25c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125H3.375c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125z" />
+                                        </svg>
+                                        {{ $vehicle->luggage_count }} bags
+                                    </span>
+                                </div>
+                                <a href="/fleet/{{ $vehicle->slug }}"
+                                    class="inline-flex items-center text-xs font-semibold text-gold hover:text-gold-soft transition-colors gap-1 tracking-wide">
+                                    View details →
+                                </a>
+                            </div>
+                        </article>
+                    @endforeach
+                </div>
+
+                <div class="mt-10 text-center sm:hidden">
+                    <a href="/fleet"
+                        class="inline-flex items-center gap-1 text-sm text-stone-soft hover:text-white transition-colors font-medium">
+                        View all vehicles →
+                    </a>
+                </div>
+            @endif
+
+        </div>
+    </section>
+
+    {{-- ============================================================
+     SERVICES
+     ============================================================ --}}
+    <section id="services" class="bg-bone py-20 lg:py-28">
+        <div class="container-page">
+
+            <div class="text-center mb-12 lg:mb-16">
+                <p class="eyebrow text-stone mb-3">How We Serve You</p>
+                <h2 class="font-display font-bold text-ink text-display-md tracking-tight max-w-xl mx-auto">
+                    Every journey, perfected.
+                </h2>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
+                @foreach ($services as $service)
+                    <article
+                        class="bg-white rounded-md p-6 shadow-card hover:shadow-card-hover transition-shadow duration-300 group flex flex-col">
+                        <div class="w-10 h-10 rounded-full bg-ink flex items-center justify-center mb-5 shrink-0">
+                            <span class="text-gold text-xs font-bold">{{ strtoupper(substr($service->name, 0, 2)) }}</span>
+                        </div>
+                        <h3 class="font-display font-semibold text-ink text-base mb-2">{{ $service->name }}</h3>
+                        <p class="text-stone text-sm leading-relaxed flex-1 mb-5">{{ $service->short_description }}</p>
+                        <a href="/services/{{ $service->slug }}"
+                            class="inline-flex items-center text-xs font-semibold text-ink hover:text-stone transition-colors gap-1 tracking-wide mt-auto">
+                            Learn more →
+                        </a>
+                    </article>
+                @endforeach
+            </div>
+
+        </div>
+    </section>
+
+    {{-- ============================================================
+     WHY UPRISE
+     ============================================================ --}}
+    <section class="bg-charcoal py-20 lg:py-28 border-y border-charcoal-soft">
+        <div class="container-page">
+
+            <div class="text-center mb-14 lg:mb-18">
+                <p class="eyebrow text-gold mb-3">Why Uprise</p>
+                <h2 class="font-display font-bold text-white text-display-md tracking-tight">
+                    The Uprise standard.
+                </h2>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-6">
+                @foreach ([
+            [
+                'num' => '01',
+                'title' => 'Flight Monitoring',
+                'body' => 'We track every incoming flight in real time. Your driver adjusts automatically — no waiting, no surprises.',
+            ],
+            [
+                'num' => '02',
+                'title' => 'Professional Drivers',
+                'body' => 'Vetted, uniformed, trained in hospitality. Every Uprise driver is a professional representative of your journey.',
+            ],
+            [
+                'num' => '03',
+                'title' => '24/7 Availability',
+                'body' => 'Early flights, late arrivals, midnight requests. We operate around the clock, every day of the year.',
+            ],
+            [
+                'num' => '04',
+                'title' => 'Immaculate Fleet',
+                'body' => 'Every vehicle is cleaned, inspected and prepared before each assignment. The standard never slips.',
+            ],
+        ] as $pillar)
+                    <div class="flex flex-col">
+                        <span class="font-display font-bold text-4xl text-charcoal-soft mb-5">{{ $pillar['num'] }}</span>
+                        <h3 class="font-display font-semibold text-white text-lg mb-3">{{ $pillar['title'] }}</h3>
+                        <p class="text-stone text-sm leading-relaxed">{{ $pillar['body'] }}</p>
+                    </div>
+                @endforeach
+            </div>
+
+        </div>
+    </section>
+
+    {{-- ============================================================
+     TESTIMONIALS
+     ============================================================ --}}
+    @if ($testimonials->isNotEmpty())
+        <section id="testimonials" class="bg-bone-soft py-20 lg:py-28">
+            <div class="container-page">
+
+                <div class="text-center mb-12 lg:mb-16">
+                    <p class="eyebrow text-stone mb-3">Client Stories</p>
+                    <h2 class="font-display font-bold text-ink text-display-md tracking-tight">
+                        What our clients say.
+                    </h2>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-{{ min($testimonials->count(), 3) }} gap-6">
+                    @foreach ($testimonials->take(3) as $testimonial)
+                        <article class="bg-white rounded-md p-7 shadow-card flex flex-col">
+                            {{-- Stars --}}
+                            <div class="flex gap-0.5 mb-5" aria-label="{{ $testimonial->rating }} out of 5 stars">
+                                @for ($i = 1; $i <= 5; $i++)
+                                    <span
+                                        class="{{ $i <= $testimonial->rating ? 'text-gold' : 'text-mist' }} text-base leading-none">★</span>
+                                @endfor
+                            </div>
+                            {{-- Quote --}}
+                            <blockquote class="text-ink text-sm leading-relaxed flex-1 mb-6">
+                                &ldquo;{{ $testimonial->content }}&rdquo;
+                            </blockquote>
+                            {{-- Author --}}
+                            <footer class="flex items-center gap-3 pt-5 border-t border-mist-soft">
+                                @if ($testimonial->hasMedia('avatar'))
+                                    <img src="{{ $testimonial->getFirstMediaUrl('avatar', 'avatar') }}"
+                                        alt="{{ $testimonial->author_name }}"
+                                        class="w-10 h-10 rounded-full object-cover shrink-0" loading="lazy">
+                                @else
+                                    <div class="w-10 h-10 rounded-full bg-ink flex items-center justify-center shrink-0">
+                                        <span
+                                            class="text-bone font-semibold text-sm">{{ substr($testimonial->author_name, 0, 1) }}</span>
+                                    </div>
+                                @endif
+                                <div>
+                                    <p class="font-semibold text-ink text-sm leading-tight">
+                                        {{ $testimonial->author_name }}</p>
+                                    <p class="text-stone text-xs mt-0.5">{{ $testimonial->author_role }}</p>
+                                </div>
+                            </footer>
+                        </article>
+                    @endforeach
+                </div>
+
+            </div>
+        </section>
+    @endif
+
+    {{-- ============================================================
+     CTA BAND
+     ============================================================ --}}
+    <section class="bg-ink-deep relative overflow-hidden">
+        <div class="absolute inset-0 bg-linear-to-r from-ink-deep via-charcoal/30 to-ink-deep pointer-events-none"></div>
+        <div class="absolute top-0 inset-x-0 h-px bg-linear-to-r from-transparent via-gold/50 to-transparent"></div>
+        <div class="absolute bottom-0 inset-x-0 h-px bg-linear-to-r from-transparent via-gold/30 to-transparent"></div>
+        <div class="container-page relative z-10 py-20 lg:py-24 text-center">
+            <p class="eyebrow text-gold mb-4">Ready to travel?</p>
+            <h2 class="font-display font-bold text-white text-display-lg tracking-tight mb-4 max-w-2xl mx-auto">
+                Your ride is one message away.
+            </h2>
+            <p class="text-stone-soft text-base mb-10 max-w-md mx-auto">
+                Reach us on WhatsApp for instant booking confirmation. 24/7, every day of the year.
+            </p>
+            <a href="{{ $whatsappUrl }}" target="_blank" rel="noopener"
+                class="inline-flex items-center gap-2.5 bg-gold text-ink font-semibold px-8 py-4 rounded-sm
+                  hover:bg-gold-soft transition-colors duration-200 text-sm tracking-wide">
+                <svg class="w-4 h-4 shrink-0" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <path
+                        d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+                </svg>
+                Book via WhatsApp
+            </a>
+        </div>
+    </section>
+
+    {{-- ============================================================
+     FAQ
+     ============================================================ --}}
+    @if ($faqs->isNotEmpty())
+        <section id="faq" class="bg-bone py-20 lg:py-28">
+            <div class="container-page">
+
+                <div class="text-center mb-12 lg:mb-16">
+                    <p class="eyebrow text-stone mb-3">Frequently Asked</p>
+                    <h2 class="font-display font-bold text-ink text-display-md tracking-tight">
+                        Questions & answers.
+                    </h2>
+                </div>
+
+                <div class="max-w-3xl mx-auto" x-data="{ active: null }">
+                    @foreach ($faqs as $i => $faq)
+                        <div class="border-b border-mist first:border-t">
+                            <button @click="active = active === {{ $i }} ? null : {{ $i }}"
+                                class="w-full flex items-start justify-between gap-6 py-5 text-left group"
+                                :aria-expanded="active === {{ $i }}">
+                                <span
+                                    class="font-semibold text-ink text-sm sm:text-base group-hover:text-stone transition-colors leading-snug">
+                                    {{ $faq->question }}
+                                </span>
+                                <span
+                                    class="text-gold text-xl font-light leading-none shrink-0 mt-0.5 transition-transform duration-200"
+                                    :class="active === {{ $i }} ? 'rotate-45' : ''">+</span>
+                            </button>
+                            <div x-show="active === {{ $i }}"
+                                x-transition:enter="transition ease-out duration-200"
+                                x-transition:enter-start="opacity-0 -translate-y-1"
+                                x-transition:enter-end="opacity-100 translate-y-0"
+                                x-transition:leave="transition ease-in duration-150"
+                                x-transition:leave-start="opacity-100 translate-y-0"
+                                x-transition:leave-end="opacity-0 -translate-y-1" class="pb-5 pr-10">
+                                <p class="text-stone text-sm sm:text-base leading-relaxed">{{ $faq->answer }}</p>
+                            </div>
+                        </div>
+                    @endforeach
+                </div>
+
+                <div class="text-center mt-10">
+                    <a href="/faqs"
+                        class="text-sm font-semibold text-ink hover:text-stone transition-colors underline underline-offset-4">
+                        View all FAQs →
+                    </a>
+                </div>
+
+            </div>
+        </section>
+    @endif
+
+@endsection
