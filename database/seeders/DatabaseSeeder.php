@@ -16,6 +16,13 @@ class DatabaseSeeder extends Seeder
     {
         $this->call([
             AdminUserSeeder::class,
+            // Content — order matters: categories + features before vehicles
+            VehicleCategorySeeder::class,
+            FeatureSeeder::class,
+            VehicleSeeder::class,
+            ServiceSeeder::class,
+            TestimonialSeeder::class,
+            FaqSeeder::class,
         ]);
     }
 }
