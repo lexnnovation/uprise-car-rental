@@ -6,7 +6,20 @@
         urlencode(config('uprise.whatsapp.default_message'));
     $nav = [
         ['label' => 'Fleet', 'href' => '/fleet'],
-        ['label' => 'Services', 'href' => '/services'],
+        [
+            'label' => 'How We Serve You',
+            'href' => '/services',
+            'children' => [
+                ['label' => 'Airport Transfer', 'href' => '/services/airport-transfer'],
+                ['label' => 'Executive Chauffeur', 'href' => '/services/executive-chauffeur'],
+                ['label' => 'Corporate Travel', 'href' => '/services/corporate-travel'],
+                ['label' => 'Safari & Wildlife Tours', 'href' => '/services/safari-wildlife'],
+                ['label' => 'Cape Coast Day Tours', 'href' => '/services/cape-coast-day-tours'],
+                ['label' => 'Group & Event Transfers', 'href' => '/services/group-event-transfers'],
+                ['label' => 'Wedding Car Service', 'href' => '/services/wedding-car'],
+                ['label' => 'Cross-Border Travel', 'href' => '/services/cross-border-travel'],
+            ],
+        ],
         ['label' => 'About', 'href' => '/about'],
         ['label' => 'Contact', 'href' => '/contact'],
     ];
@@ -32,10 +45,46 @@
             {{-- Desktop nav --}}
             <nav class="hidden lg:flex items-center gap-8" aria-label="Main navigation">
                 @foreach ($nav as $item)
-                    <a href="{{ $item['href'] }}"
-                        class="text-sm font-medium text-stone-soft hover:text-white transition-colors duration-150 tracking-wide">
-                        {{ $item['label'] }}
-                    </a>
+                    @if (isset($item['children']))
+                        <div class="relative" x-data="{ drop: false }" @mouseenter="drop = true"
+                            @mouseleave="drop = false">
+                            <button @click="drop = !drop"
+                                class="flex items-center gap-1 text-sm font-medium text-stone-soft hover:text-white transition-colors duration-150 tracking-wide"
+                                :aria-expanded="drop">
+                                {{ $item['label'] }}
+                                <svg class="w-3 h-3 transition-transform duration-200" :class="drop ? 'rotate-180' : ''"
+                                    fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"
+                                    aria-hidden="true">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+                                </svg>
+                            </button>
+                            <div x-show="drop" x-transition:enter="transition ease-out duration-150"
+                                x-transition:enter-start="opacity-0 translate-y-1"
+                                x-transition:enter-end="opacity-100 translate-y-0"
+                                x-transition:leave="transition ease-in duration-100"
+                                x-transition:leave-start="opacity-100 translate-y-0"
+                                x-transition:leave-end="opacity-0 translate-y-1"
+                                class="absolute top-full left-1/2 -translate-x-1/2 mt-3 w-60 bg-charcoal border border-charcoal-soft rounded-md shadow-lg py-1.5 z-50">
+                                @foreach ($item['children'] as $child)
+                                    <a href="{{ $child['href'] }}"
+                                        class="block px-4 py-2.5 text-sm text-stone-soft hover:text-white hover:bg-charcoal-soft transition-colors duration-150">
+                                        {{ $child['label'] }}
+                                    </a>
+                                @endforeach
+                                <div class="border-t border-charcoal-soft mt-1.5 pt-1.5">
+                                    <a href="{{ $item['href'] }}"
+                                        class="block px-4 py-2.5 text-sm text-accent font-semibold hover:text-accent-soft transition-colors duration-150">
+                                        View All Services &rarr;
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    @else
+                        <a href="{{ $item['href'] }}"
+                            class="text-sm font-medium text-stone-soft hover:text-white transition-colors duration-150 tracking-wide">
+                            {{ $item['label'] }}
+                        </a>
+                    @endif
                 @endforeach
             </nav>
 
@@ -76,10 +125,39 @@
         x-transition:leave-end="opacity-0 -translate-y-2" class="lg:hidden border-t border-charcoal-soft bg-charcoal">
         <nav class="container-page py-4 flex flex-col gap-1" aria-label="Mobile navigation">
             @foreach ($nav as $item)
-                <a href="{{ $item['href'] }}" @click="open = false"
-                    class="py-3 text-sm font-medium text-stone-soft hover:text-white transition-colors border-b border-charcoal-soft/50 last:border-0">
-                    {{ $item['label'] }}
-                </a>
+                @if (isset($item['children']))
+                    <div x-data="{ expanded: false }">
+                        <button @click="expanded = !expanded"
+                            class="w-full flex items-center justify-between py-3 text-sm font-medium text-stone-soft hover:text-white transition-colors border-b border-charcoal-soft/50"
+                            :aria-expanded="expanded">
+                            {{ $item['label'] }}
+                            <svg class="w-4 h-4 transition-transform duration-200" :class="expanded ? 'rotate-180' : ''"
+                                fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"
+                                aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </button>
+                        <div x-show="expanded" x-transition:enter="transition ease-out duration-150"
+                            x-transition:enter-start="opacity-0 -translate-y-1"
+                            x-transition:enter-end="opacity-100 translate-y-0" class="pl-4">
+                            @foreach ($item['children'] as $child)
+                                <a href="{{ $child['href'] }}" @click="open = false"
+                                    class="block py-2.5 text-sm text-stone-soft hover:text-white transition-colors border-b border-charcoal-soft/30 last:border-0">
+                                    {{ $child['label'] }}
+                                </a>
+                            @endforeach
+                            <a href="{{ $item['href'] }}" @click="open = false"
+                                class="block py-2.5 text-sm text-accent font-semibold hover:text-accent-soft transition-colors">
+                                View All Services &rarr;
+                            </a>
+                        </div>
+                    </div>
+                @else
+                    <a href="{{ $item['href'] }}" @click="open = false"
+                        class="py-3 text-sm font-medium text-stone-soft hover:text-white transition-colors border-b border-charcoal-soft/50 last:border-0">
+                        {{ $item['label'] }}
+                    </a>
+                @endif
             @endforeach
             <a href="{{ $whatsappUrl }}" target="_blank" rel="noopener"
                 class="mt-3 inline-flex items-center justify-center gap-2 bg-accent text-white text-sm font-semibold px-5 py-3 rounded-sm">
