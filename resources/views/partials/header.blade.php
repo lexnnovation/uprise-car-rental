@@ -5,23 +5,23 @@
         '?text=' .
         urlencode(config('uprise.whatsapp.default_message'));
     $nav = [
-        ['label' => 'Fleet', 'href' => '/fleet'],
+        ['label' => 'Fleet', 'href' => route('fleet.index')],
         [
             'label' => 'Our Services',
-            'href' => '/services',
+            'href' => route('services.index'),
             'children' => [
-                ['label' => 'Airport Transfer', 'href' => '/services/airport-transfer'],
-                ['label' => 'Executive Chauffeur', 'href' => '/services/executive-chauffeur'],
-                ['label' => 'Corporate Travel', 'href' => '/services/corporate-travel'],
-                ['label' => 'Safari & Wildlife Tours', 'href' => '/services/safari-wildlife'],
-                ['label' => 'Cape Coast Day Tours', 'href' => '/services/cape-coast-day-tours'],
-                ['label' => 'Group & Event Transfers', 'href' => '/services/group-event-transfers'],
-                ['label' => 'Wedding Car Service', 'href' => '/services/wedding-car'],
-                ['label' => 'Cross-Border Travel', 'href' => '/services/cross-border-travel'],
+                ['label' => 'Airport Transfer', 'href' => route('services.show', 'airport-transfer')],
+                ['label' => 'Executive Chauffeur', 'href' => route('services.show', 'executive-chauffeur')],
+                ['label' => 'Corporate Travel', 'href' => route('services.show', 'corporate-travel')],
+                ['label' => 'Safari & Wildlife Tours', 'href' => route('services.show', 'safari-wildlife')],
+                ['label' => 'Cape Coast Day Tours', 'href' => route('services.show', 'cape-coast-day-tours')],
+                ['label' => 'Group & Event Transfers', 'href' => route('services.show', 'group-event-transfers')],
+                ['label' => 'Wedding Car Service', 'href' => route('services.show', 'wedding-car')],
+                ['label' => 'Cross-Border Travel', 'href' => route('services.show', 'cross-border-travel')],
             ],
         ],
-        ['label' => 'About', 'href' => '/about'],
-        ['label' => 'Contact', 'href' => '/contact'],
+        ['label' => 'About', 'href' => route('about')],
+        ['label' => 'Contact', 'href' => route('contact')],
     ];
 @endphp
 

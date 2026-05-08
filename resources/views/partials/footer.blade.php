@@ -7,19 +7,19 @@
     $contact = config('uprise.contact');
     $social = config('uprise.social');
     $quickLinks = [
-        ['label' => 'Fleet', 'href' => '/fleet'],
-        ['label' => 'Services', 'href' => '/services'],
-        ['label' => 'About', 'href' => '/about'],
-        ['label' => 'Contact', 'href' => '/contact'],
-        ['label' => 'FAQs', 'href' => '/faqs'],
+        ['label' => 'Fleet', 'href' => route('fleet.index')],
+        ['label' => 'Services', 'href' => route('services.index')],
+        ['label' => 'About', 'href' => route('about')],
+        ['label' => 'Contact', 'href' => route('contact')],
+        ['label' => 'FAQs', 'href' => route('faq')],
     ];
     $serviceLinks = [
-        ['label' => 'Airport Transfer', 'href' => '/services/airport-transfer'],
-        ['label' => 'Executive Chauffeur', 'href' => '/services/executive-chauffeur'],
-        ['label' => 'Corporate Travel', 'href' => '/services/corporate-travel'],
-        ['label' => 'Safari & Wildlife', 'href' => '/services/safari-wildlife'],
-        ['label' => 'Wedding Car', 'href' => '/services/wedding-car'],
-        ['label' => 'Cross-Border', 'href' => '/services/cross-border-travel'],
+        ['label' => 'Airport Transfer', 'href' => route('services.show', 'airport-transfer')],
+        ['label' => 'Executive Chauffeur', 'href' => route('services.show', 'executive-chauffeur')],
+        ['label' => 'Corporate Travel', 'href' => route('services.show', 'corporate-travel')],
+        ['label' => 'Safari & Wildlife', 'href' => route('services.show', 'safari-wildlife')],
+        ['label' => 'Wedding Car', 'href' => route('services.show', 'wedding-car')],
+        ['label' => 'Cross-Border', 'href' => route('services.show', 'cross-border-travel')],
     ];
 @endphp
 
@@ -87,8 +87,7 @@
                     @if (config('uprise.contact.phone_us'))
                         <li>
                             <span class="text-stone-soft text-xs tracking-wide">USA</span><br>
-                            <a href="tel:{{ config('uprise.contact.phone_us') }}"
-                                class="hover:text-white transition-colors duration-150">
+                            <a href="tel:+18886462266" class="hover:text-white transition-colors duration-150">
                                 {{ config('uprise.contact.phone_us') }}
                             </a>
                         </li>

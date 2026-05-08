@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AboutController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\FaqController;
 use App\Http\Controllers\FleetController;
@@ -18,4 +19,5 @@ Route::get('/services/{service:slug}', [ServiceController::class, 'show'])->name
 Route::get('/contact', [ContactController::class, 'show'])->name('contact');
 Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
 
+Route::get('/about', AboutController::class)->name('about');
 Route::get('/faq', FaqController::class)->name('faq');
