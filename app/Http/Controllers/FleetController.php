@@ -12,9 +12,9 @@ class FleetController extends Controller
     {
         $categories = VehicleCategory::active()
             ->ordered()
-            ->withCount(['vehicles' => fn ($q) => $q->published()->available()])
-            ->having('vehicles_count', '>', 0)
-            ->get();
+            ->withCount(['vehicles' => fn($q) => $q->published()->available()])
+            ->get()
+            ->filter(fn($cat) => $cat->vehicles_count > 0);
 
         $query = Vehicle::published()
             ->available()
@@ -22,7 +22,7 @@ class FleetController extends Controller
             ->ordered();
 
         if ($request->filled('category')) {
-            $query->whereHas('category', fn ($q) => $q->where('slug', $request->category));
+            $query->whereHas('category', fn($q) => $q->where('slug', $request->category));
         }
 
         $vehicles = $query->get();
