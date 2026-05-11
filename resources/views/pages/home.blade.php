@@ -48,8 +48,8 @@
             ];
             $fanCount = count($fanCars);
             $fanCenter = (int) floor($fanCount / 2);
-            $cardW = 320;
-            $gap = 190;
+            $cardW = 360;
+            $gap = 210;
         @endphp
 
         @foreach ($fanCars as $i => $car)
@@ -67,19 +67,20 @@
                 left: calc(50% - {{ $half }}px + {{ $xOff }}px);
                 z-index: {{ $z }};
                 width: {{ $cardW }}px;
+                height: 100%;
                 transform: scale({{ $scale }});
                 transform-origin: bottom center;
             ">
                 <img src="{{ $car['src'] }}" alt="{{ $car['label'] }}"
-                    style="width:100%; height:300px; object-fit:cover; object-position:center 55%;"
+                    style="width:100%; height:100%; object-fit:cover; object-position:center center;"
                     loading="{{ $i === $fanCenter ? 'eager' : 'lazy' }}"
                     {{ $i === $fanCenter ? 'fetchpriority="high"' : '' }}>
             </div>
         @endforeach
 
-        {{-- Floor fade — blends car bottoms into white --}}
-        <div class="absolute inset-x-0 bottom-0 h-24 pointer-events-none"
-            style="z-index:30; background:linear-gradient(to top,#ffffff 30%,transparent);" aria-hidden="true"></div>
+        {{-- Floor fade — blends car bottom edges into white --}}
+        <div class="absolute inset-x-0 bottom-0 h-36 pointer-events-none"
+            style="z-index:30; background:linear-gradient(to top,#ffffff 20%,transparent);" aria-hidden="true"></div>
 
         {{-- Top gradient — nav readability on white bg --}}
         <div class="absolute inset-x-0 top-0 h-28 pointer-events-none"
