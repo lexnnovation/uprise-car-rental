@@ -1,9 +1,9 @@
 @extends('layouts.app')
 
 @php
-    $title = 'About Uprise Travel | Car & Driver Hire in West Africa';
+    $title = 'About Uprise Travel | Car & Driver Hire in Ghana';
     $metaDescription =
-        'Uprise Travel is West Africa\'s premier chauffeur and car rental service, operating in Ghana, Togo, Benin, Senegal and The Gambia with professional drivers and reliable vehicles.';
+        'Uprise Travel is Ghana\'s premier chauffeur and car rental service. Based in Accra, we cover all major destinations including Cape Coast, Kumasi, Mole, Tamale, Bolgatanga and Wa — plus cross-border hire to Togo and Benin.';
 @endphp
 
 @section('content')
@@ -20,11 +20,11 @@
             <h1
                 class="font-display font-bold text-white tracking-tight mb-4
                         text-[2rem] sm:text-[2.75rem] lg:text-[3.25rem] max-w-2xl">
-                West Africa's premier chauffeur &amp; car rental service.
+                Ghana's premier chauffeur &amp; car rental service.
             </h1>
             <p class="text-stone-soft text-base max-w-xl leading-relaxed">
-                Based in Accra, Ghana — operating across five countries with professional drivers
-                who know every road, border crossing, and destination.
+                Based in Accra — covering Accra, Cape Coast, Kumasi, Mole, Tamale, Bolgatanga, Wa and cross-border to Togo
+                &amp; Benin with professional drivers who know every road.
             </p>
         </div>
     </section>
@@ -41,7 +41,7 @@
                     <div class="space-y-4 text-stone text-sm leading-relaxed">
                         <p>
                             Uprise Travel was built to solve a real problem — the difficulty of finding
-                            safe, reliable, and professional ground transportation across West Africa.
+                            safe, reliable, and professional ground transportation in Ghana.
                             Whether you're landing at Kotoka International Airport, planning a safari
                             through Mole National Park, or need an executive car for a multi-day
                             corporate itinerary, we deliver without compromise.
@@ -54,7 +54,7 @@
                         </p>
                         <p>
                             We serve diaspora visitors, corporate travellers, NGO and development sector
-                            professionals, tour groups, and anyone who wants to experience West Africa
+                            professionals, tour groups, and anyone who wants to explore Ghana
                             without the stress of navigating it alone.
                         </p>
                     </div>
@@ -62,7 +62,7 @@
 
                 {{-- Stat cards --}}
                 <div class="grid grid-cols-2 gap-4">
-                    @foreach ([['num' => '5', 'label' => 'Countries covered', 'sub' => 'Ghana · Togo · Benin · Senegal · Gambia'], ['num' => '100%', 'label' => 'Driver-included bookings', 'sub' => 'No self-drive — ever'], ['num' => '24 / 7', 'label' => 'WhatsApp availability', 'sub' => 'Reach us any time'], ['num' => '10+', 'label' => 'Years in West Africa travel', 'sub' => 'Experience you can rely on']] as $stat)
+                    @foreach ([['num' => '7', 'label' => 'Destinations in Ghana', 'sub' => 'Accra · Cape Coast · Kumasi · Mole · Tamale · Bolgatanga · Wa'], ['num' => '100%', 'label' => 'Driver-included bookings', 'sub' => 'No self-drive — ever'], ['num' => '24 / 7', 'label' => 'WhatsApp availability', 'sub' => 'Reach us any time'], ['num' => '10+', 'label' => 'Years in Ghana travel', 'sub' => 'Experience you can rely on']] as $stat)
                         <div class="bg-white rounded-md p-5 shadow-card">
                             <p class="font-display font-bold text-accent text-3xl leading-none mb-2">{{ $stat['num'] }}</p>
                             <p class="font-semibold text-ink text-sm mb-1">{{ $stat['label'] }}</p>
@@ -84,7 +84,7 @@
                 </h2>
             </div>
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 max-w-4xl mx-auto">
-                @foreach ([['country' => 'Ghana', 'cities' => 'Accra · Kumasi · Cape Coast · Tamale · Takoradi'], ['country' => 'Togo', 'cities' => 'Lomé · Kpalimé · Atakpamé'], ['country' => 'Benin', 'cities' => 'Cotonou · Porto-Novo · Abomey'], ['country' => 'Senegal', 'cities' => 'Dakar · Saint-Louis · Ziguinchor'], ['country' => 'The Gambia', 'cities' => 'Banjul · Serrekunda · Bakau'], ['country' => 'Cross-Border', 'cities' => 'Multi-country itineraries on request']] as $loc)
+                @foreach ([['country' => 'Accra', 'cities' => 'Kotoka Airport · Osu · Airport Hills · East Legon'], ['country' => 'Cape Coast', 'cities' => 'Cape Coast Castle · Kakum · Elmina'], ['country' => 'Kumasi', 'cities' => 'Kumasi Central · Manhyia · Kejetia'], ['country' => 'Mole', 'cities' => 'Mole National Park · Larabanga'], ['country' => 'Tamale · Bolgatanga · Wa', 'cities' => 'Northern Region destinations'], ['country' => 'Cross-Border', 'cities' => 'Togo (Lomé) · Benin (Cotonou) — on request']] as $loc)
                     <div class="bg-ink rounded-md p-5">
                         <p class="font-display font-semibold text-white text-base mb-2">{{ $loc['country'] }}</p>
                         <p class="text-stone-soft text-xs leading-relaxed">{{ $loc['cities'] }}</p>
@@ -109,7 +109,7 @@
             ['icon' => 'M6 12L3.269 3.126A59.768 59.768 0 0121.485 12 59.77 59.77 0 013.27 20.876L5.999 12zm0 0h7.5', 'title' => 'Flight Monitoring', 'body' => 'We track every incoming flight in real time. Your driver adjusts for delays automatically — no waiting, no surprises.'],
             ['icon' => 'M8.625 12a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H8.25m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H12m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0h-.375M21 12c0 4.556-4.03 8.25-9 8.25a9.764 9.764 0 01-2.555-.337A5.972 5.972 0 015.41 20.97a5.969 5.969 0 01-.474-.065 4.48 4.48 0 00.978-2.025c.09-.457-.133-.901-.467-1.226C3.93 16.178 3 14.189 3 12c0-4.556 4.03-8.25 9-8.25s9 3.694 9 8.25z', 'title' => 'WhatsApp Booking', 'body' => 'Send us a message and get a confirmation within hours. No complicated forms, no waiting on hold.'],
             ['icon' => 'M9 6.75V15m6-6v8.25m.503 3.498l4.875-2.437c.381-.19.622-.58.622-1.006V4.82c0-.836-.88-1.38-1.628-1.006l-3.869 1.934c-.317.159-.69.159-1.006 0L9.503 3.252a1.125 1.125 0 00-1.006 0L3.622 5.689C3.24 5.88 3 6.27 3 6.695V19.18c0 .836.88 1.38 1.628 1.006l3.869-1.934c.317-.159.69-.159 1.006 0l4.994 2.497c.317.158.69.158 1.006 0z', 'title' => 'Flexible Itineraries', 'body' => 'Half-day, full-day, multi-day or one-way transfers — we adapt to your schedule, not the other way around.'],
-            ['icon' => 'M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0112 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 013 12c0-1.605.42-3.113 1.157-4.418', 'title' => 'Cross-Border Expertise', 'body' => 'Togo, Benin, Senegal, The Gambia — our drivers handle border crossings, documentation, and local logistics.'],
+            ['icon' => 'M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0112 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 013 12c0-1.605.42-3.113 1.157-4.418', 'title' => 'Cross-Border Available', 'body' => 'Need to travel from Ghana into Togo or Benin? Our drivers handle border crossings, documentation, and local logistics.'],
             ['icon' => 'M2.25 8.25h19.5M2.25 9h19.5m-16.5 5.25h6m-6 2.25h3m-3.75 3h15a2.25 2.25 0 002.25-2.25V6.75A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25v10.5A2.25 2.25 0 004.5 19.5z', 'title' => 'Transparent Pricing', 'body' => 'Quotes are clear, all-inclusive, and confirmed before your trip. No surprise charges at the end of the journey.'],
         ] as $item)
                     <div class="bg-white rounded-md p-6 shadow-card">
