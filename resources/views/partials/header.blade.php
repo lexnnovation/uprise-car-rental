@@ -30,11 +30,10 @@
 
     {{-- Announcement bar --}}
     <div class="bg-orange">
-        <p class="text-center text-[11px] text-white tracking-wide py-2 px-4">
+        <p class="text-center text-[11px] text-ink tracking-wide py-2 px-4">
             Every booking includes a professional driver &nbsp;&middot;&nbsp;
             <a href="{{ $whatsappUrl }}"
-                class="text-white font-semibold underline underline-offset-2 hover:text-white/80 transition-colors">Book
-                via
+                class="text-ink font-semibold underline underline-offset-2 hover:text-ink/70 transition-colors">Book via
                 WhatsApp &rarr;</a>
         </p>
     </div>
