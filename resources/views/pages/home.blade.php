@@ -18,48 +18,64 @@
      ============================================================ --}}
     <section class="relative bg-white overflow-hidden" style="height:72vh; min-height:420px; max-height:640px;">
 
-        @if ($vehicles->isNotEmpty())
-            @php
-                $heroVehicles = $vehicles->take(5)->values();
-                $count = $heroVehicles->count();
-                $center = (int) floor($count / 2);
-                $cardW = 320; // px — width of each vehicle card
-                $gap = 190; // px — horizontal step per position
-            @endphp
+        @php
+            $fanCars = [
+                [
+                    'src' =>
+                        'https://images.unsplash.com/photo-1555215695-3004980ad54e?w=640&auto=format&fit=crop&q=80',
+                    'label' => 'Executive Sedan',
+                ],
+                [
+                    'src' =>
+                        'https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?w=640&auto=format&fit=crop&q=80',
+                    'label' => 'Premium SUV',
+                ],
+                [
+                    'src' =>
+                        'https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=640&auto=format&fit=crop&q=80',
+                    'label' => 'Luxury Coupé',
+                ],
+                [
+                    'src' =>
+                        'https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?w=640&auto=format&fit=crop&q=80',
+                    'label' => '4WD Safari',
+                ],
+                [
+                    'src' =>
+                        'https://images.unsplash.com/photo-1603584173870-7f23fdae1b7a?w=640&auto=format&fit=crop&q=80',
+                    'label' => 'Business Class',
+                ],
+            ];
+            $fanCount = count($fanCars);
+            $fanCenter = (int) floor($fanCount / 2);
+            $cardW = 320;
+            $gap = 190;
+        @endphp
 
-            @foreach ($heroVehicles as $i => $vehicle)
-                @php
-                    $pos = $i - $center; // -2,-1,0,+1,+2
-                    $scale = round(1.0 - abs($pos) * 0.15, 2); // 1.0 → 0.85 → 0.70
-                    $xOff = $pos * $gap; // pixels from center
-                    $z = 10 - abs($pos);
-                    $half = (int) ($cardW / 2);
-                @endphp
-                <div
-                    style="
-                    position: absolute;
-                    bottom: 0;
-                    left: calc(50% - {{ $half }}px + {{ $xOff }}px);
-                    z-index: {{ $z }};
-                    width: {{ $cardW }}px;
-                    transform: scale({{ $scale }});
-                    transform-origin: bottom center;
-                ">
-                    @if ($vehicle->hasMedia('hero'))
-                        <img src="{{ $vehicle->getFirstMediaUrl('hero', 'card') }}" alt="{{ $vehicle->name }}"
-                            style="width:100%; height:280px; object-fit:cover; object-position:center 60%;"
-                            loading="{{ $i === $center ? 'eager' : 'lazy' }}"
-                            {{ $i === $center ? 'fetchpriority="high"' : '' }}>
-                    @else
-                        <div style="width:100%; height:280px; background:linear-gradient(135deg,#1c1c1c,#0a0a0a);"></div>
-                    @endif
-                </div>
-            @endforeach
-        @else
-            {{-- Fallback: single hero photo --}}
-            <img src="{{ $heroBg }}" alt="Uprise Travel fleet" class="w-full h-full object-cover object-center"
-                fetchpriority="high" loading="eager">
-        @endif
+        @foreach ($fanCars as $i => $car)
+            @php
+                $pos = $i - $fanCenter;
+                $scale = round(1.0 - abs($pos) * 0.15, 2);
+                $xOff = $pos * $gap;
+                $z = 10 - abs($pos);
+                $half = (int) ($cardW / 2);
+            @endphp
+            <div
+                style="
+                position: absolute;
+                bottom: 0;
+                left: calc(50% - {{ $half }}px + {{ $xOff }}px);
+                z-index: {{ $z }};
+                width: {{ $cardW }}px;
+                transform: scale({{ $scale }});
+                transform-origin: bottom center;
+            ">
+                <img src="{{ $car['src'] }}" alt="{{ $car['label'] }}"
+                    style="width:100%; height:300px; object-fit:cover; object-position:center 55%;"
+                    loading="{{ $i === $fanCenter ? 'eager' : 'lazy' }}"
+                    {{ $i === $fanCenter ? 'fetchpriority="high"' : '' }}>
+            </div>
+        @endforeach
 
         {{-- Floor fade — blends car bottoms into white --}}
         <div class="absolute inset-x-0 bottom-0 h-24 pointer-events-none"
