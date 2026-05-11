@@ -14,86 +14,86 @@
 @section('content')
 
     {{-- ============================================================
-     HERO
+     HERO — clean full-bleed image (Sixt style)
      ============================================================ --}}
-    <section class="relative min-h-[92svh] flex flex-col justify-end bg-ink-deep overflow-hidden">
+    <section class="relative h-[72vh] min-h-110 max-h-195 overflow-hidden bg-ink">
 
-        {{-- Background image --}}
+        {{-- Vehicle image --}}
         @if ($heroBg)
-            <div class="absolute inset-0" aria-hidden="true">
-                <img src="{{ $heroBg }}" alt="" class="w-full h-full object-cover object-center"
-                    fetchpriority="high" loading="eager">
-            </div>
+            <img src="{{ $heroBg }}" alt="Uprise Travel fleet" class="w-full h-full object-cover object-center"
+                fetchpriority="high" loading="eager">
+        @else
+            <div class="w-full h-full bg-linear-to-br from-charcoal to-ink"></div>
         @endif
 
-        {{-- Layered dark overlays: base tint + directional vignette --}}
-        <div class="absolute inset-0 bg-ink-deep/65" aria-hidden="true"></div>
-        <div class="absolute inset-0 bg-linear-to-t from-ink-deep via-ink-deep/30 to-transparent" aria-hidden="true"></div>
-        <div class="absolute inset-0 bg-linear-to-r from-ink-deep/60 via-transparent to-transparent" aria-hidden="true">
-        </div>
+        {{-- Subtle top gradient so nav text stays readable --}}
+        <div class="absolute inset-x-0 top-0 h-32 bg-linear-to-b from-ink/55 to-transparent" aria-hidden="true"></div>
 
-        {{-- Accent lines --}}
-        <div class="absolute top-0 inset-x-0 h-px bg-linear-to-r from-transparent via-accent to-transparent opacity-50"
-            aria-hidden="true"></div>
-        <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-px h-32 bg-linear-to-b from-accent/40 to-transparent"
-            aria-hidden="true"></div>
+    </section>
 
-        <div class="container-page relative z-10 pb-20 pt-16 lg:pb-28 lg:pt-20">
-
-            <p class="eyebrow text-accent mb-6 lg:mb-8">Ghana · Togo · Benin · Senegal · Gambia</p>
-
+    {{-- ============================================================
+     ACCENT BAND — Sixt orange → Uprise blue
+     ============================================================ --}}
+    <section class="bg-accent py-12 lg:py-16">
+        <div class="container-page text-center">
             <h1
-                class="font-display font-bold text-white leading-[1.02] tracking-tight mb-6 max-w-3xl
-                   text-[2.5rem] sm:text-[3.5rem] lg:text-[4.5rem]">
-                Car & driver hire<br class="hidden sm:block"> across West Africa.
+                class="font-display font-black text-white uppercase tracking-tight leading-none mb-4
+                       text-[2rem] sm:text-[2.75rem] lg:text-[3.75rem]">
+                Car &amp; Driver Hire<br class="sm:hidden"> Across West Africa.
             </h1>
-
-            <p class="text-stone-soft text-base sm:text-lg max-w-xl mb-4 leading-relaxed">
-                {{ config('uprise.brand.tagline') }}
+            <p class="text-white/70 text-xs sm:text-sm tracking-[0.18em] uppercase mb-8">
+                Ghana &nbsp;&middot;&nbsp; Togo &nbsp;&middot;&nbsp; Benin &nbsp;&middot;&nbsp; Senegal &nbsp;&middot;&nbsp;
+                The Gambia
             </p>
-            <p class="text-stone text-sm mb-10 max-w-lg">
-                {{ config('uprise.policy.driver_included_notice') }}
-            </p>
-
-            <div class="flex flex-col xs:flex-row gap-3 sm:gap-4">
-                <a href="{{ $whatsappUrl }}" target="_blank" rel="noopener"
-                    class="inline-flex items-center justify-center gap-2.5 bg-accent text-white font-semibold
-                      px-7 py-4 rounded-sm hover:bg-accent-soft active:bg-accent-deep transition-colors duration-200
-                      text-sm tracking-wide shrink-0">
-                    <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                        <path
-                            d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
-                    </svg>
-                    Book via WhatsApp
-                </a>
-                <a href="#fleet"
-                    class="inline-flex items-center justify-center gap-2 border border-accent/25 text-white font-semibold
-                      px-7 py-4 rounded-sm hover:border-accent/60 transition-colors duration-200
-                      text-sm tracking-wide">
-                    Browse Fleet →
-                </a>
-            </div>
-
+            <a href="{{ $whatsappUrl }}" target="_blank" rel="noopener"
+                class="inline-flex items-center gap-2.5 bg-white text-accent font-bold text-sm
+                      px-8 py-3.5 rounded-sm hover:bg-bone transition-colors duration-200 tracking-wide">
+                <svg class="w-4 h-4 shrink-0" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <path
+                        d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+                </svg>
+                Book via WhatsApp
+            </a>
         </div>
     </section>
 
     {{-- ============================================================
-     TRUST BAR
+     FEATURES — Sixt-style 3-col icon + title + body
      ============================================================ --}}
-    <section class="bg-white border-y border-mist">
-        <div class="container-page py-10 lg:py-12">
-            <dl class="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-0 lg:divide-x lg:divide-mist">
+    <section class="bg-white border-b border-mist py-14 lg:py-16">
+        <div class="container-page">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10 md:divide-x md:divide-mist">
 
-                @foreach ([['value' => '10+', 'label' => 'Premium vehicles'], ['value' => '8', 'label' => 'Services offered'], ['value' => '5+', 'label' => 'Countries covered'], ['value' => 'Always', 'label' => 'Driver included']] as $stat)
-                    <div class="text-center lg:px-8">
-                        <dt class="font-display font-bold text-ink text-3xl lg:text-4xl tracking-tight mb-1">
-                            {{ $stat['value'] }}
-                        </dt>
-                        <dd class="eyebrow text-stone">{{ $stat['label'] }}</dd>
+                @foreach ([
+            [
+                'icon' => 'M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z',
+                'title' => 'Driver Always Included',
+                'body' => 'Every booking comes with a vetted, uniformed professional driver. No self-drive — ever.',
+            ],
+            [
+                'icon' => 'M8.25 18.75a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h6m-9 0H3.375a1.125 1.125 0 01-1.125-1.125V14.25m17.25 4.5a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h1.125c.621 0 1.129-.504 1.09-1.124a17.902 17.902 0 00-3.213-9.193 2.056 2.056 0 00-1.58-.86H14.25M16.5 18.75h-2.25m0-11.177v-.958c0-.568-.422-1.048-.987-1.106a48.554 48.554 0 00-10.026 0 1.106 1.106 0 00-.987 1.106v7.635m12-6.677v6.677m0 4.5v-4.5m0 0h-12',
+                'title' => 'Premium Fleet',
+                'body' => 'From executive sedans to 4WD safari vehicles — every car cleaned, inspected and prepared before each journey.',
+            ],
+            [
+                'icon' => 'M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z',
+                'title' => '24 / 7 Service',
+                'body' => 'Early flights, late arrivals, midnight transfers. We operate around the clock, every day of the year.',
+            ],
+        ] as $feat)
+                    <div class="flex items-start gap-4 md:px-10 first:pl-0 last:pr-0">
+                        <svg class="w-8 h-8 text-ink shrink-0 mt-0.5" fill="none" stroke="currentColor"
+                            stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="{{ $feat['icon'] }}" />
+                        </svg>
+                        <div>
+                            <h3 class="font-display font-bold text-ink text-base mb-1.5">{{ $feat['title'] }}</h3>
+                            <p class="text-stone text-sm leading-relaxed">{{ $feat['body'] }}</p>
+                        </div>
                     </div>
                 @endforeach
 
-            </dl>
+            </div>
         </div>
     </section>
 

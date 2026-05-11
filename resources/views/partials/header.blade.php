@@ -25,11 +25,20 @@
     ];
 @endphp
 
-<header x-data="{ open: false, scrolled: false }" x-init="window.addEventListener('scroll', () => { scrolled = window.scrollY > 40 })"
-    :class="scrolled ? 'border-b border-charcoal-soft shadow-sticky' : 'border-b border-transparent'"
-    class="fixed inset-x-0 top-0 z-50 bg-ink transition-[border-color,box-shadow] duration-300">
+<header x-data="{ open: false, scrolled: false }" x-init="window.addEventListener('scroll', () => { scrolled = window.scrollY > 40 })" :class="scrolled ? 'shadow-sticky' : ''"
+    class="fixed inset-x-0 top-0 z-50 bg-ink transition-shadow duration-300">
+
+    {{-- Announcement bar --}}
+    <div class="bg-black border-b border-charcoal-soft">
+        <p class="text-center text-[11px] text-stone-soft tracking-wide py-2 px-4">
+            Every booking includes a professional driver &nbsp;&middot;&nbsp;
+            <a href="{{ $whatsappUrl }}" class="text-accent font-semibold hover:text-accent-soft transition-colors">Book
+                via WhatsApp &rarr;</a>
+        </p>
+    </div>
+
     <div class="container-page">
-        <div class="flex h-16 items-center justify-between lg:h-20">
+        <div class="flex h-14 items-center justify-between lg:h-16">
 
             {{-- Logo --}}
             <a href="{{ route('home') }}" class="flex items-center gap-2 shrink-0">
@@ -167,5 +176,5 @@
     </div>
 </header>
 
-{{-- Spacer so content doesn't hide behind fixed header --}}
-<div class="h-16 lg:h-20 bg-ink"></div>
+{{-- Spacer so content doesn't hide behind fixed header (nav h-14/h-16 + bar ~33px) --}}
+<div class="h-20.25 lg:h-22.25 bg-ink"></div>
