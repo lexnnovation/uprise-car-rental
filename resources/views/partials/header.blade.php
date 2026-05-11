@@ -29,10 +29,11 @@
     class="fixed inset-x-0 top-0 z-50 bg-ink transition-shadow duration-300">
 
     {{-- Announcement bar --}}
-    <div class="bg-black border-b border-charcoal-soft">
-        <p class="text-center text-[11px] text-stone-soft tracking-wide py-2 px-4">
+    <div class="bg-accent">
+        <p class="text-center text-[11px] text-white tracking-wide py-2 px-4">
             Every booking includes a professional driver &nbsp;&middot;&nbsp;
-            <a href="{{ $whatsappUrl }}" class="text-accent font-semibold hover:text-accent-soft transition-colors">Book
+            <a href="{{ $whatsappUrl }}"
+                class="text-white font-semibold underline underline-offset-2 hover:text-white/80 transition-colors">Book
                 via WhatsApp &rarr;</a>
         </p>
     </div>
