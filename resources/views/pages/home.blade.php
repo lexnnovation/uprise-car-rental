@@ -14,78 +14,43 @@
 @section('content')
 
     {{-- ============================================================
-     HERO — Fleet fan layout (multiple cars, centre-dominant)
+     HERO — Two car types side by side
      ============================================================ --}}
-    <section class="relative bg-white overflow-hidden" style="height:72vh; min-height:420px; max-height:640px;">
+    <section class="relative overflow-hidden bg-ink" style="height:72vh; min-height:420px; max-height:680px;">
 
-        @php
-            $fanCars = [
-                [
-                    'src' =>
-                        'https://images.unsplash.com/photo-1555215695-3004980ad54e?w=640&auto=format&fit=crop&q=80',
-                    'label' => 'Executive Sedan',
-                ],
-                [
-                    'src' =>
-                        'https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?w=640&auto=format&fit=crop&q=80',
-                    'label' => 'Premium SUV',
-                ],
-                [
-                    'src' =>
-                        'https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=640&auto=format&fit=crop&q=80',
-                    'label' => 'Luxury Coupé',
-                ],
-                [
-                    'src' =>
-                        'https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?w=640&auto=format&fit=crop&q=80',
-                    'label' => '4WD Safari',
-                ],
-                [
-                    'src' =>
-                        'https://images.unsplash.com/photo-1603584173870-7f23fdae1b7a?w=640&auto=format&fit=crop&q=80',
-                    'label' => 'Business Class',
-                ],
-            ];
-            $fanCount = count($fanCars);
-            $fanCenter = (int) floor($fanCount / 2);
-            $cardW = 360;
-            $gap = 210;
-        @endphp
+        <div class="flex h-full divide-x divide-white/10">
 
-        @foreach ($fanCars as $i => $car)
-            @php
-                $pos = $i - $fanCenter;
-                $scale = round(1.0 - abs($pos) * 0.15, 2);
-                $xOff = $pos * $gap;
-                $z = 10 - abs($pos);
-                $half = (int) ($cardW / 2);
-            @endphp
-            <div
-                style="
-                position: absolute;
-                bottom: 0;
-                left: calc(50% - {{ $half }}px + {{ $xOff }}px);
-                z-index: {{ $z }};
-                width: {{ $cardW }}px;
-                height: 100%;
-                transform: scale({{ $scale }});
-                transform-origin: bottom center;
-            ">
-                <img src="{{ $car['src'] }}" alt="{{ $car['label'] }}"
-                    style="width:100%; height:100%; object-fit:cover; object-position:center center;"
-                    loading="{{ $i === $fanCenter ? 'eager' : 'lazy' }}"
-                    {{ $i === $fanCenter ? 'fetchpriority="high"' : '' }}>
+            {{-- Panel 1: SUV / Highlander --}}
+            <div class="group relative flex-1 overflow-hidden">
+                <img src="https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?w=960&auto=format&fit=crop&q=85"
+                    alt="Toyota Highlander SUV"
+                    class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700"
+                    fetchpriority="high" loading="eager">
+                <div class="absolute inset-0 bg-ink/30 group-hover:bg-ink/15 transition-colors duration-500"></div>
+                <div class="absolute bottom-0 inset-x-0 px-8 py-7 bg-linear-to-t from-ink/80 to-transparent">
+                    <p class="eyebrow text-accent mb-1">Premium SUV</p>
+                    <p class="font-display font-bold text-white text-xl">Toyota Highlander &amp; More</p>
+                </div>
             </div>
-        @endforeach
 
-        {{-- Floor fade — blends car bottom edges into white --}}
-        <div class="absolute inset-x-0 bottom-0 h-36 pointer-events-none"
-            style="z-index:30; background:linear-gradient(to top,#ffffff 20%,transparent);" aria-hidden="true"></div>
+            {{-- Panel 2: 4WD / Land Cruiser --}}
+            <div class="group relative flex-1 overflow-hidden">
+                <img src="https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?w=960&auto=format&fit=crop&q=85"
+                    alt="4WD Land Cruiser Safari"
+                    class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700"
+                    loading="lazy">
+                <div class="absolute inset-0 bg-ink/30 group-hover:bg-ink/15 transition-colors duration-500"></div>
+                <div class="absolute bottom-0 inset-x-0 px-8 py-7 bg-linear-to-t from-ink/80 to-transparent">
+                    <p class="eyebrow text-accent mb-1">4WD Safari</p>
+                    <p class="font-display font-bold text-white text-xl">Land Cruiser &amp; 4WD</p>
+                </div>
+            </div>
 
-        {{-- Top gradient — nav readability on white bg --}}
-        <div class="absolute inset-x-0 top-0 h-28 pointer-events-none"
-            style="z-index:30; background:linear-gradient(to bottom,rgba(0,0,0,0.22),transparent);" aria-hidden="true">
         </div>
+
+        {{-- Top gradient for nav readability --}}
+        <div class="absolute inset-x-0 top-0 h-28 bg-linear-to-b from-ink/50 to-transparent pointer-events-none z-10"
+            aria-hidden="true"></div>
 
     </section>
 
