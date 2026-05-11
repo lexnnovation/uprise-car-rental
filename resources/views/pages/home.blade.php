@@ -80,7 +80,7 @@
     {{-- ============================================================
      TRUST BAR
      ============================================================ --}}
-    <section class="bg-charcoal border-y border-charcoal-soft">
+    <section class="bg-ink border-y border-charcoal-soft">
         <div class="container-page py-10 lg:py-12">
             <dl class="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-0 lg:divide-x lg:divide-charcoal-soft">
 
@@ -246,7 +246,7 @@
     {{-- ============================================================
      WHY UPRISE
      ============================================================ --}}
-    <section class="bg-charcoal py-20 lg:py-28 border-y border-charcoal-soft">
+    <section class="bg-ink py-20 lg:py-28 border-y border-charcoal-soft">
         <div class="container-page">
 
             <div class="text-center mb-14 lg:mb-18">
@@ -294,7 +294,7 @@
      TESTIMONIALS
      ============================================================ --}}
     @if ($testimonials->isNotEmpty())
-        <section id="testimonials" class="bg-bone-soft py-20 lg:py-28">
+        <section id="testimonials" class="bg-white py-20 lg:py-28">
             <div class="container-page">
 
                 <div class="text-center mb-12 lg:mb-16">
@@ -413,7 +413,7 @@
                 </div>
 
                 <div class="text-center mt-10">
-                    <a href="/faqs"
+                    <a href="{{ route('faq') }}"
                         class="text-sm font-semibold text-ink hover:text-stone transition-colors underline underline-offset-4">
                         View all FAQs →
                     </a>

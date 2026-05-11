@@ -17,17 +17,17 @@
 
 @theme {
     /* -------- Brand colors -------- */
-    --color-ink: #0b0b0c; /* near-black, primary surface for premium sections */
-    --color-ink-deep: #050506; /* deepest black for hero overlays */
-    --color-charcoal: #1a1a1d; /* secondary dark */
-    --color-charcoal-soft: #2a2a2e; /* dark borders, dividers */
-    --color-bone: #f7f6f2; /* off-white, primary light surface */
-    --color-bone-soft: #fbfaf7; /* lightest bone */
-    --color-mist: #e5e5e5; /* soft gray, dividers on light */
-    --color-mist-soft: #f0efec; /* lightest gray */
-    --color-stone: #6b6b70; /* muted text on light */
-    --color-stone-soft: #9a9aa0; /* placeholder text */
-    --color-accent: #00599a; /* Uprise brand blue — primary accent */
+    --color-ink: #0a0a0a; /* pure near-black — Sixt-style primary dark */
+    --color-ink-deep: #000000; /* pure black for hero overlays */
+    --color-charcoal: #111111; /* dark sections — close to Sixt black */
+    --color-charcoal-soft: #1c1c1c; /* dark borders, dividers */
+    --color-bone: #f5f5f5; /* Sixt-style light gray — alternate sections */
+    --color-bone-soft: #fafafa; /* near-white — card / testimonial bg */
+    --color-mist: #e0e0e0; /* cool border gray — Sixt card borders */
+    --color-mist-soft: #eeeeee; /* lightest divider */
+    --color-stone: #717171; /* Sixt-style muted text — cool neutral */
+    --color-stone-soft: #a0a0a0; /* placeholder — cool neutral */
+    --color-accent: #00599a; /* Uprise brand blue — replaces Sixt orange */
     --color-accent-soft: #1a6eb4; /* accent hover — lighter */
     --color-accent-deep: #004b82; /* accent pressed — darker */
 
@@ -76,11 +76,10 @@
     --radius-xl: 16px;
 
     /* -------- Shadows — restrained -------- */
-    --shadow-card:
-        0 1px 2px 0 rgb(0 0 0 / 0.04), 0 4px 12px -2px rgb(0 0 0 / 0.06);
+    --shadow-card: 0 0 0 1px rgb(0 0 0 / 0.06), 0 1px 3px 0 rgb(0 0 0 / 0.07);
     --shadow-card-hover:
-        0 2px 4px 0 rgb(0 0 0 / 0.05), 0 12px 24px -4px rgb(0 0 0 / 0.1);
-    --shadow-sticky: 0 -4px 24px -8px rgb(0 0 0 / 0.15);
+        0 0 0 1px rgb(0 0 0 / 0.1), 0 4px 12px -2px rgb(0 0 0 / 0.12);
+    --shadow-sticky: 0 1px 0 0 rgb(0 0 0 / 0.12);
 
     /* -------- Animation -------- */
     --ease-soft: cubic-bezier(0.4, 0, 0.2, 1);
@@ -103,7 +102,7 @@
         font-family: var(--font-sans);
         font-feature-settings: "cv11", "ss01", "ss03";
         color: var(--color-ink);
-        background-color: var(--color-bone);
+        background-color: #ffffff;
     }
 
     h1,
@@ -121,7 +120,7 @@
     /* Selection color */
     ::selection {
         background-color: var(--color-ink);
-        color: var(--color-bone);
+        color: #ffffff;
     }
 
     /* Improve focus visibility for keyboard users */
