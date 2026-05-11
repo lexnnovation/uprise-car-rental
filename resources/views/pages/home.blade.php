@@ -1,9 +1,9 @@
 @extends('layouts.app')
 
 @php
-    $title = 'Car Rental with Driver in Ghana & West Africa | Uprise Travel';
+    $title = 'Car Rental with Driver in Ghana | Uprise Travel';
     $metaDescription =
-        'Hire a car and driver in Ghana, Togo, Benin, Senegal and Gambia. Airport transfers, safari tours, executive hire, Cape Coast day tours and cross-border travel. All rentals include a professional driver.';
+        'Hire a car and driver anywhere in Ghana — Accra, Cape Coast, Kumasi, Mole, Tamale, Bolgatanga and Wa. Airport transfers, safari tours, executive hire and cross-border travel to Togo & Benin. All rentals include a professional driver.';
     $whatsappUrl =
         'https://wa.me/' .
         config('uprise.whatsapp.number') .
@@ -84,11 +84,13 @@
             <h1
                 class="font-display font-black text-white uppercase tracking-tight leading-none mb-4
                        text-[2rem] sm:text-[2.75rem] lg:text-[3.75rem]">
-                Car &amp; Driver Hire<br class="sm:hidden"> Across West Africa.
+                Car &amp; Driver Hire<br class="sm:hidden"> Across Ghana.
             </h1>
             <p class="text-white/70 text-xs sm:text-sm tracking-[0.18em] uppercase mb-8">
-                Ghana &nbsp;&middot;&nbsp; Togo &nbsp;&middot;&nbsp; Benin &nbsp;&middot;&nbsp; Senegal &nbsp;&middot;&nbsp;
-                The Gambia
+                Accra &nbsp;&middot;&nbsp; Cape Coast &nbsp;&middot;&nbsp; Kumasi &nbsp;&middot;&nbsp; Mole
+                &nbsp;&middot;&nbsp; Tamale &nbsp;&middot;&nbsp; Bolgatanga &nbsp;&middot;&nbsp; Wa
+                <span class="block mt-1 text-white/50 text-[10px] normal-case tracking-widest">Cross-border hire available
+                    to Togo &amp; Benin</span>
             </p>
             <a href="{{ $whatsappUrl }}" target="_blank" rel="noopener"
                 class="inline-flex items-center gap-2.5 bg-white text-accent font-bold text-sm
