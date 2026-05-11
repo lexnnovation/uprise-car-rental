@@ -14,57 +14,15 @@
 @section('content')
 
     {{-- ============================================================
-     HERO — Fleet showcase grid
+     HERO — full-bleed fleet image
      ============================================================ --}}
-    <section class="relative bg-ink overflow-hidden">
+    <section class="relative h-[72vh] min-h-110 max-h-195 overflow-hidden bg-ink">
 
-        {{-- Vehicle panels --}}
-        @if ($vehicles->isNotEmpty())
-            <div class="flex h-[70vh] min-h-110 max-h-195 divide-x divide-charcoal-soft">
-                @foreach ($vehicles->take(4) as $vehicle)
-                    <a href="{{ route('fleet.show', $vehicle) }}"
-                        class="group relative overflow-hidden flex-1 {{ $loop->iteration > 2 ? 'hidden md:block' : '' }}">
+        <img src="{{ $heroBg }}" alt="Uprise Travel fleet" class="w-full h-full object-cover object-center"
+            fetchpriority="high" loading="eager">
 
-                        {{-- Vehicle photo --}}
-                        @if ($vehicle->hasMedia('hero'))
-                            <img src="{{ $vehicle->getFirstMediaUrl('hero') }}" alt="{{ $vehicle->name }}"
-                                class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700"
-                                loading="{{ $loop->first ? 'eager' : 'lazy' }}"
-                                {{ $loop->first ? 'fetchpriority=high' : '' }}>
-                        @else
-                            <div class="w-full h-full bg-linear-to-br from-charcoal to-ink flex items-center justify-center">
-                                <svg class="w-12 h-12 text-charcoal-soft" fill="none" stroke="currentColor"
-                                    stroke-width="1" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round"
-                                        d="M8.25 18.75a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h6m-9 0H3.375a1.125 1.125 0 01-1.125-1.125V14.25m17.25 4.5a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h1.125c.621 0 1.129-.504 1.09-1.124a17.902 17.902 0 00-3.213-9.193 2.056 2.056 0 00-1.58-.86H14.25M16.5 18.75h-2.25m0-11.177v-.958c0-.568-.422-1.048-.987-1.106a48.554 48.554 0 00-10.026 0 1.106 1.106 0 00-.987 1.106v7.635m12-6.677v6.677m0 4.5v-4.5m0 0h-12" />
-                                </svg>
-                            </div>
-                        @endif
-
-                        {{-- Dark tint + hover lift --}}
-                        <div class="absolute inset-0 bg-ink/40 group-hover:bg-ink/20 transition-colors duration-500"></div>
-
-                        {{-- Bottom label --}}
-                        <div
-                            class="absolute bottom-0 inset-x-0 px-5 py-5
-                                    bg-linear-to-t from-ink via-ink/70 to-transparent">
-                            <p class="eyebrow text-accent mb-1">{{ $vehicle->category->name }}</p>
-                            <p class="font-display font-semibold text-white text-sm leading-snug">
-                                {{ $vehicle->name }}
-                            </p>
-                        </div>
-
-                    </a>
-                @endforeach
-            </div>
-        @else
-            {{-- Fallback when no vehicles seeded --}}
-            <div class="h-[70vh] min-h-110 max-h-195 bg-linear-to-br from-charcoal to-ink"></div>
-        @endif
-
-        {{-- Top gradient — keeps nav text readable --}}
-        <div class="absolute inset-x-0 top-0 h-32 bg-linear-to-b from-ink/60 to-transparent pointer-events-none z-10"
-            aria-hidden="true"></div>
+        {{-- Subtle top gradient so nav text stays readable --}}
+        <div class="absolute inset-x-0 top-0 h-32 bg-linear-to-b from-ink/55 to-transparent" aria-hidden="true"></div>
 
     </section>
 
