@@ -80,13 +80,13 @@
     {{-- ============================================================
      TRUST BAR
      ============================================================ --}}
-    <section class="bg-ink border-y border-charcoal-soft">
+    <section class="bg-white border-y border-mist">
         <div class="container-page py-10 lg:py-12">
-            <dl class="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-0 lg:divide-x lg:divide-charcoal-soft">
+            <dl class="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-0 lg:divide-x lg:divide-mist">
 
                 @foreach ([['value' => '10+', 'label' => 'Premium vehicles'], ['value' => '8', 'label' => 'Services offered'], ['value' => '5+', 'label' => 'Countries covered'], ['value' => 'Always', 'label' => 'Driver included']] as $stat)
                     <div class="text-center lg:px-8">
-                        <dt class="font-display font-bold text-white text-3xl lg:text-4xl tracking-tight mb-1">
+                        <dt class="font-display font-bold text-ink text-3xl lg:text-4xl tracking-tight mb-1">
                             {{ $stat['value'] }}
                         </dt>
                         <dd class="eyebrow text-stone">{{ $stat['label'] }}</dd>
@@ -100,18 +100,18 @@
     {{-- ============================================================
      FLEET
      ============================================================ --}}
-    <section id="fleet" class="bg-ink py-20 lg:py-28">
+    <section id="fleet" class="bg-bone py-20 lg:py-28">
         <div class="container-page">
 
             <div class="flex items-end justify-between mb-12 lg:mb-16">
                 <div>
                     <p class="eyebrow text-accent mb-3">Our Fleet</p>
-                    <h2 class="font-display font-bold text-white text-display-md tracking-tight">
+                    <h2 class="font-display font-bold text-ink text-display-md tracking-tight">
                         The vehicles
                     </h2>
                 </div>
-                <a href="/fleet"
-                    class="hidden sm:inline-flex items-center gap-1 text-sm text-stone-soft hover:text-white transition-colors font-medium">
+                <a href="{{ route('fleet.index') }}"
+                    class="hidden sm:inline-flex items-center gap-1 text-sm text-stone hover:text-ink transition-colors font-medium">
                     View all &rarr;
                 </a>
             </div>
@@ -120,7 +120,7 @@
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
                     @foreach ($vehicles as $vehicle)
                         <article
-                            class="group relative bg-charcoal rounded-md overflow-hidden hover:ring-1 hover:ring-accent/30 transition-all duration-300">
+                            class="group relative bg-white rounded-md overflow-hidden border border-mist hover:border-accent/40 hover:shadow-card-hover transition-all duration-300">
 
                             {{-- Image / placeholder --}}
                             @if ($vehicle->hasMedia('hero'))
@@ -128,10 +128,9 @@
                                     class="w-full h-52 object-cover group-hover:scale-105 transition-transform duration-500"
                                     loading="lazy">
                             @else
-                                <div
-                                    class="w-full h-52 flex items-center justify-center bg-linear-to-br from-charcoal-soft to-ink">
-                                    <svg class="w-16 h-16 text-charcoal-soft opacity-50" fill="none"
-                                        stroke="currentColor" stroke-width="1" viewBox="0 0 24 24">
+                                <div class="w-full h-52 flex items-center justify-center bg-bone">
+                                    <svg class="w-16 h-16 text-mist" fill="none" stroke="currentColor" stroke-width="1"
+                                        viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round"
                                             d="M8.25 18.75a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h6m-9 0H3.375a1.125 1.125 0 01-1.125-1.125V14.25m17.25 4.5a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h1.125c.621 0 1.129-.504 1.09-1.124a17.902 17.902 0 00-3.213-9.193 2.056 2.056 0 00-1.58-.86H14.25M16.5 18.75h-2.25m0-11.177v-.958c0-.568-.422-1.048-.987-1.106a48.554 48.554 0 00-10.026 0 1.106 1.106 0 00-.987 1.106v7.635m12-6.677v6.677m0 4.5v-4.5m0 0h-12" />
                                     </svg>
@@ -141,10 +140,10 @@
                             <div class="p-5">
                                 <p class="eyebrow text-accent mb-1">{{ $vehicle->category->name }}</p>
                                 <h3
-                                    class="font-display font-semibold text-white text-lg mb-3 group-hover:text-accent-soft transition-colors duration-200">
+                                    class="font-display font-semibold text-ink text-lg mb-3 group-hover:text-accent transition-colors duration-200">
                                     {{ $vehicle->name }}
                                 </h3>
-                                <div class="flex items-center gap-4 text-stone-soft text-xs mb-4">
+                                <div class="flex items-center gap-4 text-stone text-xs mb-4">
                                     <span class="flex items-center gap-1">
                                         <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2"
                                             viewBox="0 0 24 24">
@@ -162,7 +161,7 @@
                                         {{ $vehicle->luggage_count }} bags
                                     </span>
                                 </div>
-                                <a href="/fleet/{{ $vehicle->slug }}"
+                                <a href="{{ route('fleet.show', $vehicle) }}"
                                     class="inline-flex items-center text-xs font-semibold text-accent hover:text-accent-soft transition-colors gap-1 tracking-wide">
                                     View details →
                                 </a>
@@ -172,8 +171,8 @@
                 </div>
 
                 <div class="mt-10 text-center sm:hidden">
-                    <a href="/fleet"
-                        class="inline-flex items-center gap-1 text-sm text-stone-soft hover:text-white transition-colors font-medium">
+                    <a href="{{ route('fleet.index') }}"
+                        class="inline-flex items-center gap-1 text-sm text-stone hover:text-ink transition-colors font-medium">
                         View all vehicles →
                     </a>
                 </div>
@@ -185,7 +184,7 @@
     {{-- ============================================================
      SERVICES
      ============================================================ --}}
-    <section id="services" class="bg-bone py-20 lg:py-28">
+    <section id="services" class="bg-white py-20 lg:py-28 border-t border-mist">
         <div class="container-page">
 
             <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between mb-12 lg:mb-16 gap-4">
@@ -246,17 +245,17 @@
     {{-- ============================================================
      WHY UPRISE
      ============================================================ --}}
-    <section class="bg-ink py-20 lg:py-28 border-y border-charcoal-soft">
+    <section class="bg-bone py-20 lg:py-28 border-t border-mist">
         <div class="container-page">
 
             <div class="text-center mb-14 lg:mb-18">
                 <p class="eyebrow text-accent mb-3">Why Uprise</p>
-                <h2 class="font-display font-bold text-white text-display-md tracking-tight">
+                <h2 class="font-display font-bold text-ink text-display-md tracking-tight">
                     The Uprise standard.
                 </h2>
             </div>
 
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-6">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                 @foreach ([
             [
                 'num' => '01',
@@ -279,9 +278,9 @@
                 'body' => 'Every vehicle is cleaned, inspected and prepared before each assignment. The standard never slips.',
             ],
         ] as $pillar)
-                    <div class="flex flex-col">
-                        <span class="font-display font-bold text-4xl text-charcoal-soft mb-5">{{ $pillar['num'] }}</span>
-                        <h3 class="font-display font-semibold text-white text-lg mb-3">{{ $pillar['title'] }}</h3>
+                    <div class="flex flex-col bg-white rounded-md p-6 border border-mist">
+                        <span class="font-display font-bold text-4xl text-mist mb-5">{{ $pillar['num'] }}</span>
+                        <h3 class="font-display font-semibold text-ink text-lg mb-3">{{ $pillar['title'] }}</h3>
                         <p class="text-stone text-sm leading-relaxed">{{ $pillar['body'] }}</p>
                     </div>
                 @endforeach
@@ -294,7 +293,7 @@
      TESTIMONIALS
      ============================================================ --}}
     @if ($testimonials->isNotEmpty())
-        <section id="testimonials" class="bg-white py-20 lg:py-28">
+        <section id="testimonials" class="bg-white py-20 lg:py-28 border-t border-mist">
             <div class="container-page">
 
                 <div class="text-center mb-12 lg:mb-16">
@@ -306,7 +305,7 @@
 
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-{{ min($testimonials->count(), 3) }} gap-6">
                     @foreach ($testimonials->take(3) as $testimonial)
-                        <article class="bg-white rounded-md p-7 shadow-card flex flex-col">
+                        <article class="bg-bone rounded-md p-7 border border-mist flex flex-col">
                             {{-- Stars --}}
                             <div class="flex gap-0.5 mb-5" aria-label="{{ $testimonial->rating }} out of 5 stars">
                                 @for ($i = 1; $i <= 5; $i++)
@@ -375,7 +374,7 @@
      FAQ
      ============================================================ --}}
     @if ($faqs->isNotEmpty())
-        <section id="faq" class="bg-bone py-20 lg:py-28">
+        <section id="faq" class="bg-white py-20 lg:py-28 border-t border-mist">
             <div class="container-page">
 
                 <div class="text-center mb-12 lg:mb-16">
