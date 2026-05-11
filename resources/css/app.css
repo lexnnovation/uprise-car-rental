@@ -27,13 +27,16 @@
     --color-mist-soft: #eeeeee; /* lightest divider */
     --color-stone: #717171; /* Sixt-style muted text — cool neutral */
     --color-stone-soft: #a0a0a0; /* placeholder — cool neutral */
-    --color-accent: #00599a; /* Uprise brand blue — replaces Sixt orange */
-    --color-accent-soft: #1a6eb4; /* accent hover — lighter */
-    --color-accent-deep: #004b82; /* accent pressed — darker */
+    --color-accent: #1a6eb4; /* Uprise primary blue */
+    --color-accent-soft: #3b8fd0; /* accent hover — lighter */
+    --color-accent-deep: #125ba0; /* accent pressed — darker */
+    --color-orange: #ff5f00; /* CTA orange — use sparingly */
+    --color-orange-soft: #ff7a2b; /* orange hover */
+    --color-orange-deep: #e55500; /* orange pressed */
     --color-gold: #f59e0b; /* amber gold — secondary accent for highlights */
     --color-gold-soft: #fbbf24; /* gold hover — lighter */
     --color-gold-deep: #d97706; /* gold pressed — darker */
-    --color-emerald: #84cc16; /* summer lime — secondary highlight */
+    --color-emerald: #10b981; /* summer emerald — secondary highlight */
     --color-emerald-soft: #34d399; /* emerald hover — lighter */
     --color-emerald-deep: #059669; /* emerald pressed — darker */
 
