@@ -14,15 +14,61 @@
 @section('content')
 
     {{-- ============================================================
-     HERO — full-bleed fleet image
+     HERO — Fleet fan layout (multiple cars, centre-dominant)
      ============================================================ --}}
-    <section class="relative h-[72vh] min-h-110 max-h-195 overflow-hidden bg-ink">
+    <section class="relative bg-white overflow-hidden" style="height:72vh; min-height:420px; max-height:640px;">
 
-        <img src="{{ $heroBg }}" alt="Uprise Travel fleet" class="w-full h-full object-cover object-center"
-            fetchpriority="high" loading="eager">
+        @if ($vehicles->isNotEmpty())
+            @php
+                $heroVehicles = $vehicles->take(5)->values();
+                $count = $heroVehicles->count();
+                $center = (int) floor($count / 2);
+                $cardW = 320; // px — width of each vehicle card
+                $gap = 190; // px — horizontal step per position
+            @endphp
 
-        {{-- Subtle top gradient so nav text stays readable --}}
-        <div class="absolute inset-x-0 top-0 h-32 bg-linear-to-b from-ink/55 to-transparent" aria-hidden="true"></div>
+            @foreach ($heroVehicles as $i => $vehicle)
+                @php
+                    $pos = $i - $center; // -2,-1,0,+1,+2
+                    $scale = round(1.0 - abs($pos) * 0.15, 2); // 1.0 → 0.85 → 0.70
+                    $xOff = $pos * $gap; // pixels from center
+                    $z = 10 - abs($pos);
+                    $half = (int) ($cardW / 2);
+                @endphp
+                <div
+                    style="
+                    position: absolute;
+                    bottom: 0;
+                    left: calc(50% - {{ $half }}px + {{ $xOff }}px);
+                    z-index: {{ $z }};
+                    width: {{ $cardW }}px;
+                    transform: scale({{ $scale }});
+                    transform-origin: bottom center;
+                ">
+                    @if ($vehicle->hasMedia('hero'))
+                        <img src="{{ $vehicle->getFirstMediaUrl('hero', 'card') }}" alt="{{ $vehicle->name }}"
+                            style="width:100%; height:280px; object-fit:cover; object-position:center 60%;"
+                            loading="{{ $i === $center ? 'eager' : 'lazy' }}"
+                            {{ $i === $center ? 'fetchpriority="high"' : '' }}>
+                    @else
+                        <div style="width:100%; height:280px; background:linear-gradient(135deg,#1c1c1c,#0a0a0a);"></div>
+                    @endif
+                </div>
+            @endforeach
+        @else
+            {{-- Fallback: single hero photo --}}
+            <img src="{{ $heroBg }}" alt="Uprise Travel fleet" class="w-full h-full object-cover object-center"
+                fetchpriority="high" loading="eager">
+        @endif
+
+        {{-- Floor fade — blends car bottoms into white --}}
+        <div class="absolute inset-x-0 bottom-0 h-24 pointer-events-none"
+            style="z-index:30; background:linear-gradient(to top,#ffffff 30%,transparent);" aria-hidden="true"></div>
+
+        {{-- Top gradient — nav readability on white bg --}}
+        <div class="absolute inset-x-0 top-0 h-28 pointer-events-none"
+            style="z-index:30; background:linear-gradient(to bottom,rgba(0,0,0,0.22),transparent);" aria-hidden="true">
+        </div>
 
     </section>
 
