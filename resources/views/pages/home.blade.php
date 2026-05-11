@@ -14,35 +14,57 @@
 @section('content')
 
     {{-- ============================================================
-     HERO — Two car types side by side
+     HERO — Four car types side by side
      ============================================================ --}}
     <section class="relative overflow-hidden bg-ink" style="height:72vh; min-height:420px; max-height:680px;">
 
         <div class="flex h-full divide-x divide-white/10">
 
-            {{-- Panel 1: SUV / Highlander --}}
+            {{-- Panel 1: Executive Salon --}}
             <div class="group relative flex-1 overflow-hidden">
-                <img src="https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?w=960&auto=format&fit=crop&q=85"
-                    alt="Toyota Highlander SUV"
+                <img src="/images/fleet/salon.jpg" alt="Executive Salon Car"
                     class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700"
                     fetchpriority="high" loading="eager">
                 <div class="absolute inset-0 bg-ink/30 group-hover:bg-ink/15 transition-colors duration-500"></div>
-                <div class="absolute bottom-0 inset-x-0 px-8 py-7 bg-linear-to-t from-ink/80 to-transparent">
-                    <p class="eyebrow text-accent mb-1">Premium SUV</p>
-                    <p class="font-display font-bold text-white text-xl">Toyota Highlander &amp; More</p>
+                <div class="absolute bottom-0 inset-x-0 px-6 py-6 bg-linear-to-t from-ink/80 to-transparent">
+                    <p class="eyebrow text-accent mb-1">Executive</p>
+                    <p class="font-display font-bold text-white text-lg">Salon Car</p>
                 </div>
             </div>
 
-            {{-- Panel 2: 4WD / Land Cruiser --}}
+            {{-- Panel 2: SUV / Highlander --}}
             <div class="group relative flex-1 overflow-hidden">
-                <img src="https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?w=960&auto=format&fit=crop&q=85"
-                    alt="4WD Land Cruiser Safari"
+                <img src="/images/fleet/highlander.jpg" alt="Toyota Highlander SUV"
                     class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700"
                     loading="lazy">
                 <div class="absolute inset-0 bg-ink/30 group-hover:bg-ink/15 transition-colors duration-500"></div>
-                <div class="absolute bottom-0 inset-x-0 px-8 py-7 bg-linear-to-t from-ink/80 to-transparent">
+                <div class="absolute bottom-0 inset-x-0 px-6 py-6 bg-linear-to-t from-ink/80 to-transparent">
+                    <p class="eyebrow text-accent mb-1">Premium SUV</p>
+                    <p class="font-display font-bold text-white text-lg">Toyota Highlander</p>
+                </div>
+            </div>
+
+            {{-- Panel 3: 4WD / Land Cruiser --}}
+            <div class="group relative flex-1 overflow-hidden">
+                <img src="/images/fleet/landcruiser.jpg" alt="4WD Land Cruiser"
+                    class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700"
+                    loading="lazy">
+                <div class="absolute inset-0 bg-ink/30 group-hover:bg-ink/15 transition-colors duration-500"></div>
+                <div class="absolute bottom-0 inset-x-0 px-6 py-6 bg-linear-to-t from-ink/80 to-transparent">
                     <p class="eyebrow text-accent mb-1">4WD Safari</p>
-                    <p class="font-display font-bold text-white text-xl">Land Cruiser &amp; 4WD</p>
+                    <p class="font-display font-bold text-white text-lg">Land Cruiser</p>
+                </div>
+            </div>
+
+            {{-- Panel 4: Minibus --}}
+            <div class="group relative flex-1 overflow-hidden">
+                <img src="/images/fleet/minibus.jpg" alt="Minibus Group Transfer"
+                    class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700"
+                    loading="lazy">
+                <div class="absolute inset-0 bg-ink/30 group-hover:bg-ink/15 transition-colors duration-500"></div>
+                <div class="absolute bottom-0 inset-x-0 px-6 py-6 bg-linear-to-t from-ink/80 to-transparent">
+                    <p class="eyebrow text-accent mb-1">Group Travel</p>
+                    <p class="font-display font-bold text-white text-lg">Minibus</p>
                 </div>
             </div>
 
