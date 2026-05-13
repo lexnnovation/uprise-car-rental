@@ -27,8 +27,8 @@
                     fetchpriority="high" loading="eager">
                 <div class="absolute inset-0 bg-ink/30 group-hover:bg-ink/15 transition-colors duration-500"></div>
                 <div class="absolute bottom-0 inset-x-0 px-6 py-6 bg-linear-to-t from-ink/80 to-transparent">
-                    <p class="eyebrow text-accent mb-1">Executive</p>
-                    <p class="font-display font-bold text-white text-lg">Salon Car</p>
+                    <p class="eyebrow text-accent mb-1">Salon Car</p>
+                    <p class="font-display font-bold text-white text-xl">Executive</p>
                 </div>
             </div>
 
@@ -39,8 +39,8 @@
                     loading="lazy">
                 <div class="absolute inset-0 bg-ink/30 group-hover:bg-ink/15 transition-colors duration-500"></div>
                 <div class="absolute bottom-0 inset-x-0 px-6 py-6 bg-linear-to-t from-ink/80 to-transparent">
-                    <p class="eyebrow text-accent mb-1">Premium SUV</p>
-                    <p class="font-display font-bold text-white text-lg">Toyota Highlander</p>
+                    <p class="eyebrow text-accent mb-1">Toyota Highlander</p>
+                    <p class="font-display font-bold text-white text-xl">Premium SUV</p>
                 </div>
             </div>
 
@@ -51,8 +51,8 @@
                     loading="lazy">
                 <div class="absolute inset-0 bg-ink/30 group-hover:bg-ink/15 transition-colors duration-500"></div>
                 <div class="absolute bottom-0 inset-x-0 px-6 py-6 bg-linear-to-t from-ink/80 to-transparent">
-                    <p class="eyebrow text-accent mb-1">4WD Safari</p>
-                    <p class="font-display font-bold text-white text-lg">Land Cruiser</p>
+                    <p class="eyebrow text-accent mb-1">Land Cruiser</p>
+                    <p class="font-display font-bold text-white text-xl">4WD Safari</p>
                 </div>
             </div>
 
@@ -63,8 +63,8 @@
                     loading="lazy">
                 <div class="absolute inset-0 bg-ink/30 group-hover:bg-ink/15 transition-colors duration-500"></div>
                 <div class="absolute bottom-0 inset-x-0 px-6 py-6 bg-linear-to-t from-ink/80 to-transparent">
-                    <p class="eyebrow text-accent mb-1">Group Travel</p>
-                    <p class="font-display font-bold text-white text-lg">Minibus</p>
+                    <p class="eyebrow text-accent mb-1">Minibus</p>
+                    <p class="font-display font-bold text-white text-xl">Group Travel</p>
                 </div>
             </div>
 
