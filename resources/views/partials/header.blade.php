@@ -44,11 +44,11 @@
             {{-- Logo --}}
             <a href="{{ route('home') }}" class="flex items-center gap-2 shrink-0">
                 <span class="font-display font-bold text-white text-xl tracking-tight">
-                    UPRISE
+                    UPRISE TRAVEL
                 </span>
                 <span
                     class="hidden sm:block text-accent text-[10px] font-semibold tracking-[0.2em] uppercase leading-none mt-0.5 self-end mb-0.5">
-                    Transportation
+                    Car Rentals
                 </span>
             </a>
 
