@@ -40,7 +40,7 @@
                 <div class="absolute inset-0 bg-ink/30 group-hover:bg-ink/15 transition-colors duration-500"></div>
                 <div class="absolute bottom-0 inset-x-0 px-6 py-6 bg-linear-to-t from-ink/80 to-transparent">
                     <p class="eyebrow text-accent mb-1">Toyota Highlander</p>
-                    <p class="font-display font-bold text-white text-xl">Premium SUV</p>
+                    <p class="font-display font-bold text-white text-xl">Off-Road Safari</p>
                 </div>
             </div>
 
@@ -52,7 +52,7 @@
                 <div class="absolute inset-0 bg-ink/30 group-hover:bg-ink/15 transition-colors duration-500"></div>
                 <div class="absolute bottom-0 inset-x-0 px-6 py-6 bg-linear-to-t from-ink/80 to-transparent">
                     <p class="eyebrow text-accent mb-1">Land Cruiser</p>
-                    <p class="font-display font-bold text-white text-xl">4WD Safari</p>
+                    <p class="font-display font-bold text-white text-xl">City &amp; Highway</p>
                 </div>
             </div>
 
