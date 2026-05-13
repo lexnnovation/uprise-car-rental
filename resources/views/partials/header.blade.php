@@ -7,7 +7,7 @@
     $nav = [
         ['label' => 'Fleet', 'href' => route('fleet.index')],
         [
-            'label' => 'Our Services',
+            'label' => 'Rent a Car',
             'href' => route('services.index'),
             'children' => [
                 ['label' => 'Airport Transfer', 'href' => route('services.show', 'airport-transfer')],
