@@ -113,7 +113,7 @@
             will-change: transform;
         }
 
-        @keyframes uprise-ticker-anim {
+        @@keyframes uprise-ticker-anim {
             from {
                 transform: translateX(0)
             }
