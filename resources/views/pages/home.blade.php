@@ -105,57 +105,56 @@
     </section>
 
     {{-- ============================================================
-     FEATURES — Sixt-style 3-col icon + title + body
+     FEATURES — editorial dark 3-col with ghost numbers
      ============================================================ --}}
-    <section class="bg-white border-b border-mist py-14 lg:py-16">
-        <div class="container-page">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-10 md:divide-x md:divide-mist">
-
-                @foreach ([
-            [
-                'icon' => 'M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z',
-                'title' => 'Driver Always Included',
-                'body' => 'Every booking comes with a vetted, uniformed professional driver. No self-drive — ever.',
-            ],
-            [
-                'icon' => 'M8.25 18.75a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h6m-9 0H3.375a1.125 1.125 0 01-1.125-1.125V14.25m17.25 4.5a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h1.125c.621 0 1.129-.504 1.09-1.124a17.902 17.902 0 00-3.213-9.193 2.056 2.056 0 00-1.58-.86H14.25M16.5 18.75h-2.25m0-11.177v-.958c0-.568-.422-1.048-.987-1.106a48.554 48.554 0 00-10.026 0 1.106 1.106 0 00-.987 1.106v7.635m12-6.677v6.677m0 4.5v-4.5m0 0h-12',
-                'title' => 'Premium Fleet',
-                'body' => 'From executive sedans to 4WD safari vehicles — every car cleaned, inspected and prepared before each journey.',
-            ],
-            [
-                'icon' => 'M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z',
-                'title' => '24 / 7 Service',
-                'body' => 'Early flights, late arrivals, midnight transfers. We operate around the clock, every day of the year.',
-            ],
-        ] as $feat)
-                    <div class="flex items-start gap-4 md:px-10 first:pl-0 last:pr-0">
-                        <svg class="w-8 h-8 text-ink shrink-0 mt-0.5" fill="none" stroke="currentColor"
-                            stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="{{ $feat['icon'] }}" />
-                        </svg>
-                        <div>
-                            <h3 class="font-display font-bold text-ink text-base mb-1.5">{{ $feat['title'] }}</h3>
-                            <p class="text-stone text-sm leading-relaxed">{{ $feat['body'] }}</p>
-                        </div>
-                    </div>
-                @endforeach
-
-            </div>
+    <section class="bg-ink">
+        <div
+            class="grid grid-cols-1 md:grid-cols-3 divide-y divide-charcoal-soft md:divide-y-0 md:divide-x md:divide-charcoal-soft">
+            @foreach ([['num' => '01', 'title' => 'Driver Always Included', 'body' => 'Every booking comes with a vetted, uniformed professional driver. No self-drive — ever.'], ['num' => '02', 'title' => 'Premium Fleet', 'body' => 'From executive sedans to 4WD safari vehicles — every car cleaned, inspected and prepared before each journey.'], ['num' => '03', 'title' => '24 / 7 Service', 'body' => 'Early flights, late arrivals, midnight transfers. We operate around the clock, every day of the year.']] as $feat)
+                <div class="relative px-10 py-14 lg:py-16 overflow-hidden">
+                    <span
+                        class="absolute bottom-2 right-6 font-display font-black leading-none text-white/4 select-none pointer-events-none"
+                        style="font-size:7rem;">{{ $feat['num'] }}</span>
+                    <div class="w-8 h-0.5 bg-accent mb-8"></div>
+                    <h3 class="font-display font-bold text-white text-xl mb-3">{{ $feat['title'] }}</h3>
+                    <p class="text-stone-soft text-sm leading-relaxed">{{ $feat['body'] }}</p>
+                </div>
+            @endforeach
         </div>
     </section>
 
     {{-- ============================================================
-     FLEET CTA STRIP
+     FLEET TICKER STRIP
      ============================================================ --}}
-    <section class="bg-bone border-t border-mist">
-        <div class="container-page py-6 flex items-center justify-between gap-4">
-            <p class="text-stone text-sm">
-                Sedans, SUVs, minibuses, safari 4WDs &amp; luxury vans — all with professional drivers.
-            </p>
+    <style>
+        .uprise-ticker {
+            animation: uprise-ticker-anim 28s linear infinite;
+            will-change: transform;
+        }
+
+        @keyframes uprise-ticker-anim {
+            from {
+                transform: translateX(0)
+            }
+
+            to {
+                transform: translateX(-50%)
+            }
+        }
+    </style>
+    <section class="bg-charcoal border-y border-charcoal-soft overflow-hidden relative" style="height:48px;">
+        <div class="uprise-ticker flex items-center whitespace-nowrap absolute left-0 top-0 h-full">
+            @php $tickerItems = ['Executive', 'Salon Car', 'Toyota Highlander', 'Off-Road Safari', 'Land Cruiser', 'City &amp; Highway', 'Minibus', 'Group Travel']; @endphp
+            @foreach (array_merge($tickerItems, $tickerItems) as $item)
+                <span class="text-stone text-[11px] uppercase tracking-[0.25em] px-5">{{ $item }}</span>
+                <span class="text-charcoal-soft select-none">&middot;</span>
+            @endforeach
+        </div>
+        <div class="absolute right-0 top-0 h-full flex items-center z-10 pr-5"
+            style="background:linear-gradient(to right, transparent, #111111 35%);">
             <a href="{{ route('fleet.index') }}"
-                class="shrink-0 inline-flex items-center gap-1.5 text-sm font-semibold text-ink
-                      border border-ink px-5 py-2.5 rounded-sm hover:bg-ink hover:text-white transition-colors duration-200 tracking-wide">
-                Browse full fleet &rarr;
+                class="ml-8 shrink-0 inline-flex items-center gap-1.5 text-[11px] font-semibold text-white border border-white/25 px-4 py-1.5 uppercase tracking-widest hover:bg-white hover:text-ink transition-colors duration-200">
+                Browse Fleet &rarr;
             </a>
         </div>
     </section>
@@ -187,7 +186,7 @@
                     @endif
                     <a href="/services/{{ $service->slug }}"
                         class="group flex items-start gap-5 py-6 border-b border-mist last:border-b-0
-                               md:border-b md:nth-last-[-n+2]:border-b-0 hover:bg-mist-soft -mx-4 px-4 rounded-sm transition-colors duration-150">
+                               md:border-b md:nth-last-[-n+2]:border-b-0 hover:bg-mist-soft -mx-4 px-4 rounded-sm transition-all duration-200 hover:translate-x-1">
 
                         {{-- Number --}}
                         <span
@@ -220,9 +219,9 @@
     </section>
 
     {{-- ============================================================
-     WHY UPRISE
+     WHY UPRISE — open layout with ghost numerals
      ============================================================ --}}
-    <section class="bg-bone py-20 lg:py-28 border-t border-mist">
+    <section class="bg-white py-20 lg:py-28 border-t border-mist overflow-hidden">
         <div class="container-page">
 
             <div class="text-center mb-14 lg:mb-18">
@@ -232,7 +231,7 @@
                 </h2>
             </div>
 
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-6">
                 @foreach ([
             [
                 'num' => '01',
@@ -255,9 +254,11 @@
                 'body' => 'Every vehicle is cleaned, inspected and prepared before each assignment. The standard never slips.',
             ],
         ] as $pillar)
-                    <div class="flex flex-col bg-white rounded-md p-6 border border-mist">
-                        <span class="font-display font-bold text-4xl text-mist mb-5">{{ $pillar['num'] }}</span>
-                        <h3 class="font-display font-semibold text-ink text-lg mb-3">{{ $pillar['title'] }}</h3>
+                    <div class="relative">
+                        <span class="block font-display font-black leading-none text-ink/5 select-none mb-3 -ml-1"
+                            style="font-size:5.5rem;">{{ $pillar['num'] }}</span>
+                        <div class="w-6 h-0.5 bg-accent mb-4"></div>
+                        <h3 class="font-display font-semibold text-ink text-base mb-2">{{ $pillar['title'] }}</h3>
                         <p class="text-stone text-sm leading-relaxed">{{ $pillar['body'] }}</p>
                     </div>
                 @endforeach
@@ -270,44 +271,49 @@
      TESTIMONIALS
      ============================================================ --}}
     @if ($testimonials->isNotEmpty())
-        <section id="testimonials" class="bg-white py-20 lg:py-28 border-t border-mist">
+        <section id="testimonials" class="bg-ink py-20 lg:py-28 border-t border-charcoal-soft">
             <div class="container-page">
 
-                <div class="text-center mb-12 lg:mb-16">
-                    <p class="eyebrow text-stone mb-3">Client Stories</p>
-                    <h2 class="font-display font-bold text-ink text-display-md tracking-tight">
-                        What our clients say.
-                    </h2>
+                <div class="flex items-end justify-between mb-12 lg:mb-16 gap-4 flex-wrap">
+                    <div>
+                        <p class="eyebrow text-accent mb-3">Client Stories</p>
+                        <h2 class="font-display font-bold text-white text-display-md tracking-tight">
+                            What our clients say.
+                        </h2>
+                    </div>
+                    <span class="font-display font-black text-white/5 select-none hidden lg:block -mb-3"
+                        style="font-size:7rem;line-height:1;">&ldquo;</span>
                 </div>
 
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-{{ min($testimonials->count(), 3) }} gap-6">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-{{ min($testimonials->count(), 3) }} gap-5">
                     @foreach ($testimonials->take(3) as $testimonial)
-                        <article class="bg-bone rounded-md p-7 border border-mist flex flex-col">
+                        <article class="bg-charcoal border border-charcoal-soft p-7 flex flex-col">
                             {{-- Stars --}}
                             <div class="flex gap-0.5 mb-5" aria-label="{{ $testimonial->rating }} out of 5 stars">
                                 @for ($i = 1; $i <= 5; $i++)
                                     <span
-                                        class="{{ $i <= $testimonial->rating ? 'text-accent' : 'text-mist' }} text-base leading-none">★</span>
+                                        class="{{ $i <= $testimonial->rating ? 'text-accent' : 'text-charcoal-soft' }} text-base leading-none">★</span>
                                 @endfor
                             </div>
                             {{-- Quote --}}
-                            <blockquote class="text-ink text-sm leading-relaxed flex-1 mb-6">
+                            <blockquote class="text-stone-soft text-sm leading-relaxed flex-1 mb-6">
                                 &ldquo;{{ $testimonial->content }}&rdquo;
                             </blockquote>
                             {{-- Author --}}
-                            <footer class="flex items-center gap-3 pt-5 border-t border-mist-soft">
+                            <footer class="flex items-center gap-3 pt-5 border-t border-charcoal-soft">
                                 @if ($testimonial->hasMedia('avatar'))
                                     <img src="{{ $testimonial->getFirstMediaUrl('avatar', 'avatar') }}"
                                         alt="{{ $testimonial->author_name }}"
-                                        class="w-10 h-10 rounded-full object-cover shrink-0" loading="lazy">
+                                        class="w-9 h-9 rounded-full object-cover shrink-0" loading="lazy">
                                 @else
-                                    <div class="w-10 h-10 rounded-full bg-ink flex items-center justify-center shrink-0">
+                                    <div
+                                        class="w-9 h-9 rounded-full bg-ink-deep flex items-center justify-center shrink-0">
                                         <span
-                                            class="text-bone font-semibold text-sm">{{ substr($testimonial->author_name, 0, 1) }}</span>
+                                            class="text-stone-soft font-semibold text-xs">{{ substr($testimonial->author_name, 0, 1) }}</span>
                                     </div>
                                 @endif
                                 <div>
-                                    <p class="font-semibold text-ink text-sm leading-tight">
+                                    <p class="font-semibold text-white text-sm leading-tight">
                                         {{ $testimonial->author_name }}</p>
                                     <p class="text-stone text-xs mt-0.5">{{ $testimonial->author_role }}</p>
                                 </div>
