@@ -105,25 +105,6 @@
     </section>
 
     {{-- ============================================================
-     FEATURES — editorial dark 3-col with ghost numbers
-     ============================================================ --}}
-    <section class="bg-ink">
-        <div
-            class="grid grid-cols-1 md:grid-cols-3 divide-y divide-charcoal-soft md:divide-y-0 md:divide-x md:divide-charcoal-soft">
-            @foreach ([['num' => '01', 'title' => 'Driver Always Included', 'body' => 'Every booking comes with a vetted, uniformed professional driver. No self-drive — ever.'], ['num' => '02', 'title' => 'Premium Fleet', 'body' => 'From executive sedans to 4WD safari vehicles — every car cleaned, inspected and prepared before each journey.'], ['num' => '03', 'title' => '24 / 7 Service', 'body' => 'Early flights, late arrivals, midnight transfers. We operate around the clock, every day of the year.']] as $feat)
-                <div class="relative px-10 py-14 lg:py-16 overflow-hidden">
-                    <span
-                        class="absolute bottom-2 right-6 font-display font-black leading-none text-white/4 select-none pointer-events-none"
-                        style="font-size:7rem;">{{ $feat['num'] }}</span>
-                    <div class="w-8 h-0.5 bg-accent mb-8"></div>
-                    <h3 class="font-display font-bold text-white text-xl mb-3">{{ $feat['title'] }}</h3>
-                    <p class="text-stone-soft text-sm leading-relaxed">{{ $feat['body'] }}</p>
-                </div>
-            @endforeach
-        </div>
-    </section>
-
-    {{-- ============================================================
      FLEET TICKER STRIP
      ============================================================ --}}
     <style>
@@ -215,6 +196,25 @@
                 @endforeach
             </div>
 
+        </div>
+    </section>
+
+    {{-- ============================================================
+     FEATURES — editorial dark 3-col with ghost numbers
+     ============================================================ --}}
+    <section class="bg-ink">
+        <div
+            class="grid grid-cols-1 md:grid-cols-3 divide-y divide-charcoal-soft md:divide-y-0 md:divide-x md:divide-charcoal-soft">
+            @foreach ([['num' => '01', 'title' => 'Driver Always Included', 'body' => 'Every booking comes with a vetted, uniformed professional driver. No self-drive — ever.'], ['num' => '02', 'title' => 'Premium Fleet', 'body' => 'From executive sedans to 4WD safari vehicles — every car cleaned, inspected and prepared before each journey.'], ['num' => '03', 'title' => '24 / 7 Service', 'body' => 'Early flights, late arrivals, midnight transfers. We operate around the clock, every day of the year.']] as $feat)
+                <div class="relative px-10 py-14 lg:py-16 overflow-hidden">
+                    <span
+                        class="absolute bottom-2 right-6 font-display font-black leading-none text-white/4 select-none pointer-events-none"
+                        style="font-size:7rem;">{{ $feat['num'] }}</span>
+                    <div class="w-8 h-0.5 bg-accent mb-8"></div>
+                    <h3 class="font-display font-bold text-white text-xl mb-3">{{ $feat['title'] }}</h3>
+                    <p class="text-stone-soft text-sm leading-relaxed">{{ $feat['body'] }}</p>
+                </div>
+            @endforeach
         </div>
     </section>
 
