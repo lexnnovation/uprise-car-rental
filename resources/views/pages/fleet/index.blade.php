@@ -198,8 +198,8 @@
             </div>
             <a href="{{ 'https://wa.me/' . config('uprise.whatsapp.number') . '?text=' . urlencode(config('uprise.whatsapp.default_message')) }}"
                 target="_blank" rel="noopener"
-                class="shrink-0 inline-flex items-center gap-2 bg-white text-accent font-semibold text-sm px-6 py-3 rounded-sm
-                      hover:bg-bone transition-colors duration-150 tracking-wide">
+                class="shrink-0 inline-flex items-center gap-2 border border-white text-white font-semibold text-sm px-6 py-3 rounded-sm
+                      hover:bg-white hover:text-accent transition-colors duration-150 tracking-wide">
                 Book via WhatsApp
             </a>
         </div>

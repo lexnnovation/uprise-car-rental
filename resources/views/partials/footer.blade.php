@@ -31,14 +31,17 @@
 
             {{-- Brand column --}}
             <div class="lg:col-span-1">
-                <a href="{{ route('home') }}" class="inline-block mb-4">
-                    <span class="font-display font-bold text-white text-2xl tracking-tight">UPRISE</span>
+                <a href="{{ route('home') }}" class="inline-flex items-baseline gap-2 mb-4">
+                    <span class="font-display font-bold text-white text-2xl tracking-tight">UPRISE TRAVEL</span>
+                    <span
+                        class="text-accent text-[8px] font-semibold tracking-[0.2em] uppercase leading-none self-end mb-0.5">Car
+                        Rentals</span>
                 </a>
                 <p class="text-stone text-sm leading-relaxed mb-6">
                     {{ config('uprise.brand.tagline') }}
                 </p>
                 <a href="{{ $whatsappUrl }}" target="_blank" rel="noopener"
-                    class="inline-flex items-center gap-2 border border-accent text-accent text-xs font-semibold px-4 py-2.5 rounded-sm hover:bg-accent hover:text-white transition-colors duration-200 tracking-wide">
+                    class="inline-flex items-center gap-2 border border-white/30 text-white text-xs font-semibold px-4 py-2.5 rounded-sm hover:bg-white hover:text-ink transition-colors duration-200 tracking-wide">
                     Book via WhatsApp
                 </a>
             </div>
