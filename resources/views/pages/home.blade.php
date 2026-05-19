@@ -105,42 +105,6 @@
     </section>
 
     {{-- ============================================================
-     FLEET TICKER STRIP
-     ============================================================ --}}
-    <style>
-        .uprise-ticker {
-            animation: uprise-ticker-anim 28s linear infinite;
-            will-change: transform;
-        }
-
-        @@keyframes uprise-ticker-anim {
-            from {
-                transform: translateX(0)
-            }
-
-            to {
-                transform: translateX(-50%)
-            }
-        }
-    </style>
-    <section class="bg-charcoal border-y border-charcoal-soft overflow-hidden relative" style="height:48px;">
-        <div class="uprise-ticker flex items-center whitespace-nowrap absolute left-0 top-0 h-full">
-            @php $tickerItems = ['Executive', 'Salon Car', 'Toyota Highlander', 'Off-Road Safari', 'Land Cruiser', 'City &amp; Highway', 'Minibus', 'Group Travel']; @endphp
-            @foreach (array_merge($tickerItems, $tickerItems) as $item)
-                <span class="text-stone text-[11px] uppercase tracking-[0.25em] px-5">{{ $item }}</span>
-                <span class="text-charcoal-soft select-none">&middot;</span>
-            @endforeach
-        </div>
-        <div class="absolute right-0 top-0 h-full flex items-center z-10 pr-5"
-            style="background:linear-gradient(to right, transparent, #111111 35%);">
-            <a href="{{ route('fleet.index') }}"
-                class="ml-8 shrink-0 inline-flex items-center gap-1.5 text-[11px] font-semibold text-white border border-white/25 px-4 py-1.5 uppercase tracking-widest hover:bg-white hover:text-ink transition-colors duration-200">
-                Browse Fleet &rarr;
-            </a>
-        </div>
-    </section>
-
-    {{-- ============================================================
      SERVICES
      ============================================================ --}}
     <section id="services" class="bg-white py-20 lg:py-28 border-t border-mist">
@@ -215,6 +179,42 @@
                     <p class="text-stone-soft text-sm leading-relaxed">{{ $feat['body'] }}</p>
                 </div>
             @endforeach
+        </div>
+    </section>
+
+    {{-- ============================================================
+     FLEET TICKER STRIP
+     ============================================================ --}}
+    <style>
+        .uprise-ticker {
+            animation: uprise-ticker-anim 28s linear infinite;
+            will-change: transform;
+        }
+
+        @@keyframes uprise-ticker-anim {
+            from {
+                transform: translateX(0)
+            }
+
+            to {
+                transform: translateX(-50%)
+            }
+        }
+    </style>
+    <section class="bg-charcoal border-y border-charcoal-soft overflow-hidden relative" style="height:48px;">
+        <div class="uprise-ticker flex items-center whitespace-nowrap absolute left-0 top-0 h-full">
+            @php $tickerItems = ['Executive', 'Salon Car', 'Toyota Highlander', 'Off-Road Safari', 'Land Cruiser', 'City &amp; Highway', 'Minibus', 'Group Travel']; @endphp
+            @foreach (array_merge($tickerItems, $tickerItems) as $item)
+                <span class="text-stone text-[11px] uppercase tracking-[0.25em] px-5">{{ $item }}</span>
+                <span class="text-charcoal-soft select-none">&middot;</span>
+            @endforeach
+        </div>
+        <div class="absolute right-0 top-0 h-full flex items-center z-10 pr-5"
+            style="background:linear-gradient(to right, transparent, #111111 35%);">
+            <a href="{{ route('fleet.index') }}"
+                class="ml-8 shrink-0 inline-flex items-center gap-1.5 text-[11px] font-semibold text-white border border-white/25 px-4 py-1.5 uppercase tracking-widest hover:bg-white hover:text-ink transition-colors duration-200">
+                Browse Fleet &rarr;
+            </a>
         </div>
     </section>
 
