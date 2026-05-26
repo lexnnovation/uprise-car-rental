@@ -41,8 +41,8 @@
     {{-- JSON-LD: LocalBusiness --}}
     <script type="application/ld+json">
     {
-        "@context": "https://schema.org",
-        "@type": "LocalBusiness",
+        "@@context": "https://schema.org",
+        "@@type": "LocalBusiness",
         "name": "{{ config('uprise.brand.name') }}",
         "description": "{{ config('uprise.brand.short_tagline') }}",
         "url": "{{ config('app.url') }}",
@@ -50,14 +50,14 @@
         "email": "{{ config('uprise.contact.email') }}",
         "image": "{{ asset('images/og-default.jpg') }}",
         "address": {
-            "@type": "PostalAddress",
+            "@@type": "PostalAddress",
             "streetAddress": "{{ config('uprise.contact.address.street') }}",
             "addressLocality": "{{ config('uprise.contact.address.city') }}",
             "addressRegion": "{{ config('uprise.contact.address.region') }}",
             "addressCountry": "{{ config('uprise.contact.address.country_code') }}"
         },
         "geo": {
-            "@type": "GeoCoordinates",
+            "@@type": "GeoCoordinates",
             "latitude": "5.6037",
             "longitude": "-0.1870"
         },
