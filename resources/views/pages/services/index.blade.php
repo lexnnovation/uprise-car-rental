@@ -108,9 +108,14 @@
                             </div>
 
                             {{-- Optional hero image (right, landscape) --}}
-                            @if ($service->hasMedia('hero'))
-                                <div class="hidden sm:block w-36 shrink-0 overflow-hidden">
-                                    <img src="{{ $service->getFirstMediaUrl('hero', 'card') }}" alt="{{ $service->name }}"
+                            @php
+                                $svcCardImg = $service->hasMedia('hero')
+                                    ? $service->getFirstMediaUrl('hero', 'card')
+                                    : $service->hero_image_url;
+                            @endphp
+                            @if ($svcCardImg)
+                                <div class="hidden sm:block w-44 shrink-0 overflow-hidden">
+                                    <img src="{{ $svcCardImg }}" alt="{{ $service->name }}"
                                         class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                                         loading="lazy">
                                 </div>
