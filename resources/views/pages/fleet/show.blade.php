@@ -11,8 +11,13 @@
      HERO IMAGE
      ============================================================ --}}
     <div class="relative bg-ink-deep overflow-hidden" style="min-height: 52vh;">
-        @if ($vehicle->hasMedia('hero'))
-            <img src="{{ $vehicle->getFirstMediaUrl('hero', 'hero') }}" alt="{{ $vehicle->name }}"
+        @php
+            $heroImg = $vehicle->hasMedia('hero')
+                ? $vehicle->getFirstMediaUrl('hero', 'hero')
+                : $vehicle->hero_image_url;
+        @endphp
+        @if ($heroImg)
+            <img src="{{ $heroImg }}" alt="{{ $vehicle->name }}"
                 class="absolute inset-0 w-full h-full object-cover object-center" fetchpriority="high" loading="eager">
             <div class="absolute inset-0 bg-ink-deep/55"></div>
             <div class="absolute inset-0 bg-linear-to-t from-ink-deep via-ink-deep/20 to-transparent"></div>
@@ -54,6 +59,30 @@
             </div>
         </div>
     </div>
+
+    {{-- ============================================================
+     GALLERY STRIP
+     ============================================================ --}}
+    @php
+        $galleryImgs = $vehicle->hasMedia('gallery')
+            ? $vehicle->getMedia('gallery')->map(fn($m) => $m->getUrl('card'))->toArray()
+            : $vehicle->gallery_images ?? [];
+    @endphp
+    @if (count($galleryImgs) > 1)
+        <div class="bg-ink border-t border-charcoal-soft">
+            <div class="container-page py-4">
+                <div class="flex gap-3 overflow-x-auto scrollbar-none">
+                    @foreach ($galleryImgs as $img)
+                        <div class="shrink-0 w-32 h-20 rounded overflow-hidden bg-charcoal">
+                            <img src="{{ $img }}" alt="{{ $vehicle->name }}"
+                                class="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                                loading="lazy">
+                        </div>
+                    @endforeach
+                </div>
+            </div>
+        </div>
+    @endif
 
     {{-- ============================================================
      MAIN CONTENT

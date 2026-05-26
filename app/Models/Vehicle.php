@@ -46,6 +46,8 @@ class Vehicle extends Model implements HasMedia
         'slug',
         'short_description',
         'description',
+        'hero_image_url',
+        'gallery_images',
         'passenger_count',
         'luggage_count',
         'status',
@@ -60,6 +62,7 @@ class Vehicle extends Model implements HasMedia
     {
         return [
             'status' => VehicleStatus::class,
+            'gallery_images' => 'array',
             'is_featured' => 'boolean',
             'passenger_count' => 'integer',
             'luggage_count' => 'integer',

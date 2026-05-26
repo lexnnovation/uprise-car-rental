@@ -26,6 +26,7 @@ class Service extends Model implements HasMedia
         'slug',
         'short_description',
         'description',
+        'hero_image_url',
         'icon',
         'meta_title',
         'meta_description',

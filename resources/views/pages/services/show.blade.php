@@ -12,8 +12,13 @@
      ============================================================ --}}
     <div class="relative bg-ink-deep overflow-hidden" style="min-height: 46vh;">
 
-        @if ($service->hasMedia('hero'))
-            <img src="{{ $service->getFirstMediaUrl('hero', 'hero') }}" alt="{{ $service->name }}"
+        @php
+            $serviceHero = $service->hasMedia('hero')
+                ? $service->getFirstMediaUrl('hero', 'hero')
+                : $service->hero_image_url;
+        @endphp
+        @if ($serviceHero)
+            <img src="{{ $serviceHero }}" alt="{{ $service->name }}"
                 class="absolute inset-0 w-full h-full object-cover object-center" fetchpriority="high" loading="eager">
             <div class="absolute inset-0 bg-ink-deep/60"></div>
             <div class="absolute inset-0 bg-linear-to-t from-ink-deep via-ink-deep/20 to-transparent"></div>

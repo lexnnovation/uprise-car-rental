@@ -96,8 +96,13 @@
                             {{-- Image --}}
                             <a href="{{ route('fleet.show', $vehicle) }}"
                                 class="block overflow-hidden aspect-video bg-charcoal shrink-0">
-                                @if ($vehicle->hasMedia('hero'))
-                                    <img src="{{ $vehicle->getFirstMediaUrl('hero', 'card') }}" alt="{{ $vehicle->name }}"
+                                @php
+                                    $cardImg = $vehicle->hasMedia('hero')
+                                        ? $vehicle->getFirstMediaUrl('hero', 'card')
+                                        : $vehicle->hero_image_url;
+                                @endphp
+                                @if ($cardImg)
+                                    <img src="{{ $cardImg }}" alt="{{ $vehicle->name }}"
                                         class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                                         loading="lazy">
                                 @else
