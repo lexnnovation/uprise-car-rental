@@ -34,7 +34,7 @@ return [
     | site footer, contact page, JSON-LD Organization, and inquiry mail.
     */
     'contact' => [
-        'email' => env('UPRISE_CONTACT_EMAIL', 'tours@uprisetravel.com'),
+        'email' => env('UPRISE_CONTACT_EMAIL', 'cars@uprisetravel.com'),
         'phone' => env('UPRISE_CONTACT_PHONE', '+233 (0) 249 507 413'),
         'phone_e164' => env('UPRISE_CONTACT_PHONE_E164', '+233249507413'),
         'address' => [
@@ -104,7 +104,7 @@ return [
     |--------------------------------------------------------------------------
     */
     'inquiry' => [
-        'notification_email' => env('UPRISE_INQUIRY_NOTIFICATION_EMAIL', env('UPRISE_CONTACT_EMAIL', 'tours@uprisetravel.com')),
+        'notification_email' => env('UPRISE_INQUIRY_NOTIFICATION_EMAIL', env('UPRISE_CONTACT_EMAIL', 'cars@uprisetravel.com')),
         'rate_limit_per_minute' => env('UPRISE_INQUIRY_RATE_LIMIT', 5),
     ],
 

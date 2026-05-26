@@ -43,7 +43,7 @@ class FaqSeeder extends Seeder
             ],
             [
                 'question' => 'Can I cancel or change a booking?',
-                'answer' => 'Yes. Please contact us as early as possible if you need to cancel or adjust your booking. Reach out via WhatsApp or email at tours@uprisetravel.com with your booking details.',
+                'answer' => 'Yes. Please contact us as early as possible if you need to cancel or adjust your booking. Reach out via WhatsApp or email at cars@uprisetravel.com with your booking details.',
                 'category' => 'General',
                 'sort_order' => 6,
             ],

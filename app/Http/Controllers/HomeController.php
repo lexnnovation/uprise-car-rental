@@ -20,7 +20,7 @@ class HomeController extends Controller
             ->limit(6)
             ->get();
 
-        $services = Service::active()->ordered()->get();
+        $services = Service::active()->ordered()->limit(6)->get();
 
         $testimonials = Testimonial::featured()->active()->ordered()->limit(4)->get();
 
