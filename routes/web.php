@@ -21,3 +21,6 @@ Route::post('/contact', [ContactController::class, 'store'])->name('contact.stor
 
 Route::get('/about', AboutController::class)->name('about');
 Route::get('/faq', FaqController::class)->name('faq');
+
+Route::view('/privacy', 'pages.privacy')->name('privacy');
+Route::view('/terms', 'pages.terms')->name('terms');

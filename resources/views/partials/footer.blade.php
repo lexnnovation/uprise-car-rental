@@ -14,12 +14,12 @@
         ['label' => 'FAQs', 'href' => route('faq')],
     ];
     $serviceLinks = [
-        ['label' => 'Airport Transfer', 'href' => route('services.show', 'airport-transfer')],
-        ['label' => 'Executive Chauffeur', 'href' => route('services.show', 'executive-chauffeur')],
-        ['label' => 'Corporate Travel', 'href' => route('services.show', 'corporate-travel')],
-        ['label' => 'Safari & Wildlife', 'href' => route('services.show', 'safari-wildlife')],
-        ['label' => 'Wedding Car', 'href' => route('services.show', 'wedding-car')],
-        ['label' => 'Cross-Border', 'href' => route('services.show', 'cross-border-travel')],
+        ['label' => 'Ghana Car Rentals', 'href' => route('services.show', 'ghana-car-rentals')],
+        ['label' => 'Accra Car Rentals', 'href' => route('services.show', 'accra-car-rentals')],
+        ['label' => 'Accra Airport Pickups', 'href' => route('services.show', 'accra-airport-pickups')],
+        ['label' => 'Tamale Car Rentals', 'href' => route('services.show', 'tamale-car-rentals')],
+        ['label' => 'Cape Coast Car Rentals', 'href' => route('services.show', 'cape-coast-car-rentals')],
+        ['label' => 'Mole National Park', 'href' => route('services.show', 'mole-national-park')],
     ];
 @endphp
 
@@ -140,8 +140,8 @@
             class="container-page py-5 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-stone">
             <p>&copy; {{ date('Y') }} {{ config('uprise.brand.legal_name') }}. All rights reserved.</p>
             <div class="flex gap-5">
-                <a href="/privacy" class="hover:text-white transition-colors">Privacy Policy</a>
-                <a href="/terms" class="hover:text-white transition-colors">Terms of Service</a>
+                <a href="{{ route('privacy') }}" class="hover:text-white transition-colors">Privacy Policy</a>
+                <a href="{{ route('terms') }}" class="hover:text-white transition-colors">Terms of Service</a>
             </div>
         </div>
     </div>

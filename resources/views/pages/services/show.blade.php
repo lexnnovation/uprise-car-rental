@@ -193,6 +193,28 @@
     </section>
 
     {{-- ============================================================
+     HUBSPOT FORM
+     ============================================================ --}}
+    <section class="bg-white border-t border-mist py-14 lg:py-20">
+        <div class="container-page">
+            <div class="max-w-2xl mx-auto">
+                <div class="text-center mb-8">
+                    <p class="eyebrow text-accent mb-3">Make a Booking</p>
+                    <h2 class="font-display font-bold text-ink text-display-sm tracking-tight mb-3">
+                        Request {{ $service->name }}
+                    </h2>
+                    <p class="text-stone text-sm leading-relaxed">
+                        Fill in your details and we'll get back to you within a few hours.
+                    </p>
+                </div>
+                {{-- PASTE HUBSPOT EMBED CODE BELOW THIS LINE --}}
+
+                {{-- END HUBSPOT EMBED CODE --}}
+            </div>
+        </div>
+    </section>
+
+    {{-- ============================================================
      OTHER SERVICES
      ============================================================ --}}
     @if ($related->isNotEmpty())
