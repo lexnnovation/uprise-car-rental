@@ -1,2 +1,5 @@
 User-agent: *
-Disallow:
+Disallow: /bo
+Disallow: /bo/
+
+Sitemap: https://uprisetravel.com/sitemap.xml

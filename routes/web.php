@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AboutController;
+use App\Http\Controllers\SitemapController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\FaqController;
 use App\Http\Controllers\FleetController;
@@ -24,3 +25,5 @@ Route::get('/faq', FaqController::class)->name('faq');
 
 Route::view('/privacy', 'pages.privacy')->name('privacy');
 Route::view('/terms', 'pages.terms')->name('terms');
+
+Route::get('/sitemap.xml', SitemapController::class)->name('sitemap');
