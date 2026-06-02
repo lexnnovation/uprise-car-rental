@@ -43,7 +43,7 @@
                     <p class="text-stone text-sm">Check back shortly or reach us via WhatsApp.</p>
                 </div>
             @else
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6" data-stagger data-stagger-delay="80">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6" data-stagger data-stagger-delay="150">
                     @foreach ($services as $i => $service)
                         <article
                             class="group relative bg-white rounded-md overflow-hidden shadow-card

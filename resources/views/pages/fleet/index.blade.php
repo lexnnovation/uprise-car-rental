@@ -87,7 +87,7 @@
                     {{ $activeCategory ? 'in this category' : 'available' }}
                 </p>
 
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6" data-stagger data-stagger-delay="80">
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6" data-stagger data-stagger-delay="150">
                     @foreach ($vehicles as $vehicle)
                         <article
                             class="group bg-white rounded-md overflow-hidden shadow-card hover:shadow-card-hover
