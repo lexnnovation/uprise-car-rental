@@ -46,7 +46,8 @@
                 <span class="font-display font-bold text-white text-xl tracking-tight leading-none">
                     UPRISE TRAVEL
                 </span>
-                <span class="text-accent text-[8px] font-semibold tracking-[0.2em] uppercase leading-none">
+                <span
+                    class="block w-full text-accent text-[8px] font-semibold uppercase leading-none text-justify [text-align-last:justify]">
                     Car Rentals
                 </span>
             </a>
