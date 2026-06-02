@@ -14,13 +14,59 @@
 @section('content')
 
     {{-- ============================================================
-     HERO — Four car types side by side
+     HERO — Mobile slider / Desktop four panels
      ============================================================ --}}
     <section class="relative overflow-hidden bg-ink" style="height:72vh; min-height:420px; max-height:680px;">
 
-        <div class="flex h-full divide-x divide-white/10">
+        {{-- ── MOBILE SLIDER (hidden on sm+) ── --}}
+        <div class="sm:hidden h-full" x-data="{
+            current: 0,
+            slides: [
+                { img: '/images/fleet/salon.jpg', eyebrow: 'Salon Car', title: 'Executive' },
+                { img: '/images/fleet/highlander.jpg', eyebrow: 'Toyota Highlander', title: 'Off-Road Safari' },
+                { img: '/images/fleet/landcruiser.jpg', eyebrow: 'Land Cruiser', title: 'City & Highway' },
+                { img: '/images/fleet/minibus.jpg', eyebrow: 'Minibus', title: 'Group Travel' }
+            ],
+            touchStartX: 0,
+            timer: null,
+            next() { this.current = (this.current + 1) % this.slides.length },
+            prev() { this.current = (this.current - 1 + this.slides.length) % this.slides.length },
+            startTouch(e) { this.touchStartX = e.touches[0].clientX },
+            endTouch(e) {
+                const diff = this.touchStartX - e.changedTouches[0].clientX;
+                if (Math.abs(diff) > 40) { diff > 0 ? this.next() : this.prev() }
+            },
+            init() { this.timer = setInterval(() => this.next(), 4000) }
+        }" @touchstart.passive="startTouch($event)"
+            @touchend.passive="endTouch($event)">
 
-            {{-- Panel 1: Executive Salon — always visible --}}
+            <template x-for="(slide, i) in slides" :key="i">
+                <div x-show="current === i" x-transition:enter="transition-opacity duration-700"
+                    x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100" class="absolute inset-0">
+                    <img :src="slide.img" :alt="slide.title" class="w-full h-full object-cover object-center"
+                        fetchpriority="high">
+                    <div class="absolute inset-0 bg-ink/35"></div>
+                    <div class="absolute bottom-12 inset-x-0 px-6 py-6 bg-linear-to-t from-ink/80 to-transparent">
+                        <p class="eyebrow text-accent mb-1" x-text="slide.eyebrow"></p>
+                        <p class="font-display font-bold text-white text-2xl" x-text="slide.title"></p>
+                    </div>
+                </div>
+            </template>
+
+            {{-- Dot indicators --}}
+            <div class="absolute bottom-4 inset-x-0 flex justify-center gap-2 z-20">
+                <template x-for="(slide, i) in slides" :key="i">
+                    <button @click="current = i; clearInterval(timer)"
+                        class="w-2 h-2 rounded-full transition-all duration-300"
+                        :class="current === i ? 'bg-accent w-5' : 'bg-white/40'" :aria-label="'Go to slide ' + (i + 1)">
+                    </button>
+                </template>
+            </div>
+        </div>
+
+        {{-- ── DESKTOP PANELS (hidden on mobile) ── --}}
+        <div class="hidden sm:flex h-full divide-x divide-white/10">
+
             <div class="hero-panel-enter group relative flex-1 overflow-hidden">
                 <img src="/images/fleet/salon.jpg" alt="Executive Salon Car"
                     class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700"
@@ -32,8 +78,7 @@
                 </div>
             </div>
 
-            {{-- Panel 2: SUV / Highlander — visible sm+ --}}
-            <div class="hero-panel-enter group relative flex-1 overflow-hidden hidden sm:block">
+            <div class="hero-panel-enter group relative flex-1 overflow-hidden hidden md:block">
                 <img src="/images/fleet/highlander.jpg" alt="Toyota Highlander SUV"
                     class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700"
                     loading="lazy">
@@ -44,8 +89,7 @@
                 </div>
             </div>
 
-            {{-- Panel 3: 4WD / Land Cruiser — visible md+ --}}
-            <div class="hero-panel-enter group relative flex-1 overflow-hidden hidden md:block">
+            <div class="hero-panel-enter group relative flex-1 overflow-hidden hidden lg:block">
                 <img src="/images/fleet/landcruiser.jpg" alt="4WD Land Cruiser"
                     class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700"
                     loading="lazy">
@@ -56,8 +100,7 @@
                 </div>
             </div>
 
-            {{-- Panel 4: Minibus — visible lg+ --}}
-            <div class="hero-panel-enter group relative flex-1 overflow-hidden hidden lg:block">
+            <div class="hero-panel-enter group relative flex-1 overflow-hidden hidden xl:block">
                 <img src="/images/fleet/minibus.jpg" alt="Minibus Group Transfer"
                     class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700"
                     loading="lazy">
@@ -156,7 +199,8 @@
                         {{-- Arrow --}}
                         <svg class="w-4 h-4 text-mist shrink-0 mt-1 group-hover:text-accent group-hover:translate-x-0.5 transition-all duration-150"
                             fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
                         </svg>
                     </a>
                 @endforeach
@@ -167,7 +211,8 @@
                     class="inline-flex items-center gap-2 border border-ink/20 text-ink font-semibold text-sm
                            px-6 py-3 rounded-sm hover:border-ink/50 transition-colors duration-150 tracking-wide">
                     View all services
-                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.5"
+                        viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
                     </svg>
                 </a>
