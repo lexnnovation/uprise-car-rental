@@ -22,7 +22,13 @@ php artisan route:cache
 php artisan view:cache
 
 echo "==> Linking storage..."
-php artisan storage:link
+# Use manual symlink — exec() is disabled on some shared hosts
+if [ ! -L "public/storage" ]; then
+    ln -s "$(pwd)/storage/app/public" "$(pwd)/public/storage"
+    echo "    Storage symlink created."
+else
+    echo "    Storage symlink already exists."
+fi
 
 echo "==> Setting permissions..."
 chmod -R 775 storage bootstrap/cache
