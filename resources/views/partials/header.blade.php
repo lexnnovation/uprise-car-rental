@@ -42,12 +42,11 @@
         <div class="flex h-14 items-center justify-between lg:h-16">
 
             {{-- Logo --}}
-            <a href="{{ route('home') }}" class="flex items-center gap-2 shrink-0">
-                <span class="font-display font-bold text-white text-xl tracking-tight">
+            <a href="{{ route('home') }}" class="flex flex-col shrink-0 leading-none gap-0.5">
+                <span class="font-display font-bold text-white text-xl tracking-tight leading-none">
                     UPRISE TRAVEL
                 </span>
-                <span
-                    class="hidden sm:block text-accent text-[8px] font-semibold tracking-[0.2em] uppercase leading-none mt-0.5 self-end mb-0.5">
+                <span class="text-accent text-[8px] font-semibold tracking-[0.2em] uppercase leading-none">
                     Car Rentals
                 </span>
             </a>
