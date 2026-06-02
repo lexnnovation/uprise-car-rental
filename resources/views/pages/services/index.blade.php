@@ -18,13 +18,13 @@
                 <span>/</span>
                 <span class="text-stone-soft">Our Services</span>
             </nav>
-            <p class="eyebrow text-accent mb-3">How We Serve You</p>
-            <h1
+            <p class="eyebrow text-accent mb-3" data-reveal>How We Serve You</p>
+            <h1 data-reveal data-reveal-delay="80"
                 class="font-display font-bold text-white tracking-tight mb-4
                         text-[2rem] sm:text-[2.75rem] lg:text-[3.25rem]">
                 Every journey, perfected.
             </h1>
-            <p class="text-stone-soft text-base max-w-xl leading-relaxed">
+            <p data-reveal data-reveal-delay="160" class="text-stone-soft text-base max-w-xl leading-relaxed">
                 From airport arrivals to multi-day safaris — every service includes a vetted, professional driver.
                 No self-drive options. Just reliable, comfortable travel across Ghana and beyond.
             </p>
@@ -43,7 +43,7 @@
                     <p class="text-stone text-sm">Check back shortly or reach us via WhatsApp.</p>
                 </div>
             @else
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6" data-stagger data-stagger-delay="80">
                     @foreach ($services as $i => $service)
                         <article
                             class="group relative bg-white rounded-md overflow-hidden shadow-card
@@ -135,7 +135,7 @@
     <section class="bg-ink border-t border-charcoal-soft py-14">
         <div class="container-page">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
-                <div>
+                <div data-reveal="fade-left">
                     <p class="eyebrow text-accent mb-3">Coverage</p>
                     <h2 class="font-display font-bold text-white text-display-sm tracking-tight mb-4">
                         Ghana-wide, with cross-border hire available.
@@ -145,7 +145,7 @@
                         Cross-border hire to Togo and Benin is available on request.
                     </p>
                 </div>
-                <div class="grid grid-cols-2 sm:grid-cols-3 gap-3">
+                <div class="grid grid-cols-2 sm:grid-cols-3 gap-3" data-stagger data-stagger-delay="60">
                     @foreach (['Accra', 'Cape Coast', 'Kumasi', 'Mole', 'Tamale', 'Bolgatanga', 'Wa', 'Togo (Cross-border)', 'Benin (Cross-border)'] as $country)
                         <div class="bg-charcoal rounded-sm px-4 py-3 text-center">
                             <p class="font-semibold text-white text-sm">{{ $country }}</p>
@@ -161,7 +161,7 @@
      ============================================================ --}}
     <section class="bg-accent py-12">
         <div class="container-page flex flex-col sm:flex-row items-center justify-between gap-6 text-center sm:text-left">
-            <div>
+            <div data-reveal="fade-left">
                 <p class="font-display font-bold text-white text-lg mb-1">Not sure which service you need?</p>
                 <p class="text-white/80 text-sm">Tell us your journey and we'll suggest the best option.</p>
             </div>

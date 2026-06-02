@@ -16,12 +16,12 @@
                 <span>/</span>
                 <span class="text-stone-soft">Contact</span>
             </nav>
-            <p class="eyebrow text-accent mb-3">Get in Touch</p>
-            <h1
+            <p class="eyebrow text-accent mb-3" data-reveal>Get in Touch</p>
+            <h1 data-reveal data-reveal-delay="80"
                 class="font-display font-bold text-white tracking-tight mb-4 text-[2rem] sm:text-[2.75rem] lg:text-[3.25rem]">
                 Plan your journey with us.
             </h1>
-            <p class="text-stone-soft text-base max-w-xl leading-relaxed">
+            <p data-reveal data-reveal-delay="160" class="text-stone-soft text-base max-w-xl leading-relaxed">
                 Tell us where you're going and when — we'll take care of the rest.
                 All bookings include a professional driver.
             </p>
@@ -34,7 +34,7 @@
             <div class="grid grid-cols-1 lg:grid-cols-3 gap-10 lg:gap-16">
 
                 {{-- FORM --}}
-                <div class="lg:col-span-2">
+                <div class="lg:col-span-2" data-reveal="fade-left">
 
                     @if ($success)
                         <div class="mb-8 flex items-start gap-4 bg-accent/10 border border-accent/30 rounded-md p-5">
@@ -229,7 +229,7 @@
                 </div>
 
                 {{-- SIDEBAR --}}
-                <div class="lg:col-span-1">
+                <div class="lg:col-span-1" data-reveal="fade-right">
                     <div class="sticky top-28 space-y-5">
 
                         {{-- WhatsApp --}}

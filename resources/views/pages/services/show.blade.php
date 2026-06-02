@@ -62,7 +62,7 @@
             <div class="grid grid-cols-1 lg:grid-cols-5 gap-10 lg:gap-14">
 
                 {{-- LEFT: Content + Booking --}}
-                <div class="lg:col-span-2 space-y-8">
+                <div class="lg:col-span-2 space-y-8" data-reveal="fade-left">
 
                     {{-- Short description --}}
                     @if ($service->short_description)
@@ -187,7 +187,7 @@
                 </div>
 
                 {{-- RIGHT: HubSpot Form --}}
-                <div class="lg:col-span-3">
+                <div class="lg:col-span-3" data-reveal="fade-right">
                     <div class="sticky top-28 bg-white rounded-md shadow-card p-8">
                         <div class="mb-6">
                             <p class="eyebrow text-accent mb-3">Make a Booking</p>

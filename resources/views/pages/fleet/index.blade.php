@@ -18,13 +18,13 @@
                 <span aria-hidden="true">/</span>
                 <span class="text-stone-soft">Fleet</span>
             </nav>
-            <p class="eyebrow text-accent mb-3">Driver-Included Hire</p>
-            <h1
+            <p class="eyebrow text-accent mb-3" data-reveal>Driver-Included Hire</p>
+            <h1 data-reveal data-reveal-delay="80"
                 class="font-display font-bold text-white tracking-tight mb-4
                         text-[2rem] sm:text-[2.75rem] lg:text-[3.25rem]">
                 Our Fleet
             </h1>
-            <p class="text-stone-soft text-base max-w-xl leading-relaxed">
+            <p data-reveal data-reveal-delay="160" class="text-stone-soft text-base max-w-xl leading-relaxed">
                 Every vehicle comes with a vetted, professional driver.
                 Choose by size or category — we'll match you to the right vehicle for your journey.
             </p>
@@ -87,7 +87,7 @@
                     {{ $activeCategory ? 'in this category' : 'available' }}
                 </p>
 
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6" data-stagger data-stagger-delay="80">
                     @foreach ($vehicles as $vehicle)
                         <article
                             class="group bg-white rounded-md overflow-hidden shadow-card hover:shadow-card-hover
@@ -196,7 +196,7 @@
      ============================================================ --}}
     <section class="bg-accent py-10">
         <div class="container-page flex flex-col sm:flex-row items-center justify-between gap-6 text-center sm:text-left">
-            <div>
+            <div data-reveal="fade-left">
                 <p class="font-display font-bold text-white text-lg mb-1">All rentals include a professional driver.</p>
                 <p class="text-white/80 text-sm">We do not offer self-drive options — every booking comes with a vetted
                     driver.</p>

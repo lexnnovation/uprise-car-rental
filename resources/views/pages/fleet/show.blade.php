@@ -49,7 +49,7 @@
 
         {{-- Vehicle name overlay --}}
         <div class="relative z-10 container-page pb-10 pt-6 flex items-end" style="min-height: 40vh;">
-            <div>
+            <div data-reveal>
                 <p class="eyebrow text-accent mb-3">{{ $vehicle->category->name ?? 'Fleet' }}</p>
                 <h1
                     class="font-display font-bold text-white tracking-tight
@@ -92,7 +92,7 @@
             <div class="grid grid-cols-1 lg:grid-cols-3 gap-10 lg:gap-16">
 
                 {{-- LEFT: Details --}}
-                <div class="lg:col-span-2 space-y-10">
+                <div class="lg:col-span-2 space-y-10" data-reveal="fade-left">
 
                     {{-- Short description --}}
                     @if ($vehicle->short_description)
@@ -169,7 +169,7 @@
                 </div>
 
                 {{-- RIGHT: Enquiry sidebar --}}
-                <div class="lg:col-span-1">
+                <div class="lg:col-span-1" data-reveal="fade-right">
                     <div class="sticky top-28 space-y-4">
 
                         {{-- WhatsApp CTA card --}}

@@ -16,13 +16,13 @@
                 <span>/</span>
                 <span class="text-stone-soft">About</span>
             </nav>
-            <p class="eyebrow text-accent mb-3">About Uprise Travel</p>
-            <h1
+            <p class="eyebrow text-accent mb-3" data-reveal>About Uprise Travel</p>
+            <h1 data-reveal data-reveal-delay="80"
                 class="font-display font-bold text-white tracking-tight mb-4
                         text-[2rem] sm:text-[2.75rem] lg:text-[3.25rem] max-w-2xl">
                 Ghana's premier chauffeur &amp; car rental service.
             </h1>
-            <p class="text-stone-soft text-base max-w-xl leading-relaxed">
+            <p data-reveal data-reveal-delay="160" class="text-stone-soft text-base max-w-xl leading-relaxed">
                 Based in Accra — covering Accra, Cape Coast, Kumasi, Mole, Tamale, Bolgatanga, Wa and cross-border to Togo
                 &amp; Benin with professional drivers who know every road.
             </p>
@@ -33,7 +33,7 @@
     <section class="bg-bone py-14 lg:py-20">
         <div class="container-page">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-                <div>
+                <div data-reveal="fade-left">
                     <p class="eyebrow text-accent mb-3">Who We Are</p>
                     <h2 class="font-display font-bold text-ink text-display-sm tracking-tight mb-6">
                         Reliable transport, every time.
@@ -61,7 +61,7 @@
                 </div>
 
                 {{-- Stat cards --}}
-                <div class="grid grid-cols-2 gap-4">
+                <div class="grid grid-cols-2 gap-4" data-stagger data-stagger-delay="80">
                     @foreach ([['num' => '7', 'label' => 'Destinations in Ghana', 'sub' => 'Accra · Cape Coast · Kumasi · Mole · Tamale · Bolgatanga · Wa'], ['num' => '100%', 'label' => 'Driver-included bookings', 'sub' => 'No self-drive — ever'], ['num' => '24 / 7', 'label' => 'WhatsApp availability', 'sub' => 'Reach us any time'], ['num' => '10+', 'label' => 'Years in Ghana travel', 'sub' => 'Experience you can rely on']] as $stat)
                         <div class="bg-white rounded-md p-5 shadow-card">
                             <p class="font-display font-bold text-accent text-3xl leading-none mb-2">{{ $stat['num'] }}</p>
@@ -77,13 +77,14 @@
     {{-- COVERAGE --}}
     <section class="bg-ink border-y border-charcoal-soft py-14 lg:py-20">
         <div class="container-page">
-            <div class="text-center mb-12">
+            <div class="text-center mb-12" data-reveal>
                 <p class="eyebrow text-accent mb-3">Coverage</p>
                 <h2 class="font-display font-bold text-white text-display-sm tracking-tight">
                     Where we operate.
                 </h2>
             </div>
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 max-w-4xl mx-auto">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 max-w-4xl mx-auto" data-stagger
+                data-stagger-delay="70">
                 @foreach ([['country' => 'Accra', 'cities' => 'Kotoka Airport · Osu · Airport Hills · East Legon'], ['country' => 'Cape Coast', 'cities' => 'Cape Coast Castle · Kakum · Elmina'], ['country' => 'Kumasi', 'cities' => 'Kumasi Central · Manhyia · Kejetia'], ['country' => 'Mole', 'cities' => 'Mole National Park · Larabanga'], ['country' => 'Tamale · Bolgatanga · Wa', 'cities' => 'Northern Region destinations'], ['country' => 'Cross-Border', 'cities' => 'Togo (Lomé) · Benin (Cotonou) — on request']] as $loc)
                     <div class="bg-charcoal rounded-md p-5 border border-charcoal-soft">
                         <p class="font-display font-semibold text-white text-base mb-2">{{ $loc['country'] }}</p>
@@ -97,13 +98,13 @@
     {{-- WHY UPRISE --}}
     <section class="bg-bone py-14 lg:py-20">
         <div class="container-page">
-            <div class="text-center mb-12">
+            <div class="text-center mb-12" data-reveal>
                 <p class="eyebrow text-accent mb-3">Our Standards</p>
                 <h2 class="font-display font-bold text-ink text-display-sm tracking-tight">
                     The Uprise difference.
                 </h2>
             </div>
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10" data-stagger data-stagger-delay="80">
                 @foreach ([
             ['num' => '01', 'title' => 'Vetted Professional Drivers', 'body' => 'Every driver is thoroughly background-checked, trained in hospitality, and knows the roads across Ghana.'],
             ['num' => '02', 'title' => 'Flight Monitoring', 'body' => 'We track every incoming flight in real time. Your driver adjusts for delays automatically — no waiting, no surprises.'],
@@ -132,7 +133,7 @@
                 <h2 class="font-display font-bold text-white text-display-sm tracking-tight text-center mb-12">
                     Trusted by travellers.
                 </h2>
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6" data-stagger data-stagger-delay="90">
                     @foreach ($testimonials as $t)
                         <blockquote class="bg-charcoal rounded-md p-6 flex flex-col">
                             <div class="flex gap-0.5 mb-4">
@@ -165,7 +166,7 @@
     {{-- CTA --}}
     <section class="bg-accent py-14">
         <div class="container-page flex flex-col sm:flex-row items-center justify-between gap-6 text-center sm:text-left">
-            <div>
+            <div data-reveal="fade-left">
                 <p class="font-display font-bold text-white text-xl mb-1">Ready to book your journey?</p>
                 <p class="text-white/80 text-sm">Tell us your travel dates and we'll handle everything.</p>
             </div>
