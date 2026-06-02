@@ -21,7 +21,7 @@
         <div class="flex h-full divide-x divide-white/10">
 
             {{-- Panel 1: Executive Salon --}}
-            <div class="group relative flex-1 overflow-hidden">
+            <div class="hero-panel-enter group relative flex-1 overflow-hidden">
                 <img src="/images/fleet/salon.jpg" alt="Executive Salon Car"
                     class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700"
                     fetchpriority="high" loading="eager">
@@ -33,7 +33,7 @@
             </div>
 
             {{-- Panel 2: SUV / Highlander --}}
-            <div class="group relative flex-1 overflow-hidden">
+            <div class="hero-panel-enter group relative flex-1 overflow-hidden">
                 <img src="/images/fleet/highlander.jpg" alt="Toyota Highlander SUV"
                     class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700"
                     loading="lazy">
@@ -45,7 +45,7 @@
             </div>
 
             {{-- Panel 3: 4WD / Land Cruiser --}}
-            <div class="group relative flex-1 overflow-hidden">
+            <div class="hero-panel-enter group relative flex-1 overflow-hidden">
                 <img src="/images/fleet/landcruiser.jpg" alt="4WD Land Cruiser"
                     class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700"
                     loading="lazy">
@@ -57,7 +57,7 @@
             </div>
 
             {{-- Panel 4: Minibus --}}
-            <div class="group relative flex-1 overflow-hidden">
+            <div class="hero-panel-enter group relative flex-1 overflow-hidden">
                 <img src="/images/fleet/minibus.jpg" alt="Minibus Group Transfer"
                     class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700"
                     loading="lazy">
@@ -81,19 +81,20 @@
      ============================================================ --}}
     <section class="bg-accent py-12 lg:py-16">
         <div class="container-page text-center">
-            <h1
+            <h1 data-reveal
                 class="font-display font-black text-white uppercase tracking-tight leading-none mb-4
                        text-[2rem] sm:text-[2.75rem] lg:text-[3.75rem]">
                 Car &amp; Driver Hire<br class="sm:hidden"> Across Ghana.
             </h1>
-            <p class="text-white/70 text-xs sm:text-sm tracking-[0.18em] uppercase mb-8">
+            <p data-reveal data-reveal-delay="120"
+                class="text-white/70 text-xs sm:text-sm tracking-[0.18em] uppercase mb-8">
                 Accra &nbsp;&middot;&nbsp; Cape Coast &nbsp;&middot;&nbsp; Kumasi &nbsp;&middot;&nbsp; Mole
                 &nbsp;&middot;&nbsp; Tamale &nbsp;&middot;&nbsp; Bolgatanga &nbsp;&middot;&nbsp; Wa
                 <span class="block mt-1 text-white/50 text-[10px] normal-case tracking-widest">Cross-border hire available
                     to Togo &amp; Benin</span>
             </p>
-            <a href="{{ $whatsappUrl }}" target="_blank" rel="noopener"
-                class="inline-flex items-center gap-2.5 border border-white text-white font-semibold text-sm
+            <a href="{{ $whatsappUrl }}" target="_blank" rel="noopener" data-reveal data-reveal-delay="240"
+                class="btn-shimmer inline-flex items-center gap-2.5 border border-white text-white font-semibold text-sm
                       px-8 py-3.5 rounded-sm hover:bg-white hover:text-accent transition-colors duration-200 tracking-wide">
                 <svg class="w-4 h-4 shrink-0" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                     <path
@@ -111,7 +112,7 @@
         <div class="container-page">
 
             <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between mb-12 lg:mb-16 gap-4">
-                <div>
+                <div data-reveal="fade-left">
                     <p class="eyebrow text-stone mb-3">How We Serve You</p>
                     <h2 class="font-display font-bold text-ink text-display-md tracking-tight">
                         Every journey, perfected.
@@ -124,7 +125,8 @@
             </div>
 
             {{-- Service directory list (mirrors nav dropdown) --}}
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 divide-y divide-mist md:divide-y-0">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 divide-y divide-mist md:divide-y-0" data-stagger
+                data-stagger-delay="60">
                 @foreach ($services as $i => $service)
                     @if ($i % 2 === 0 && !$loop->first)
                         {{-- Add top divider on second column rows for desktop --}}
@@ -178,8 +180,8 @@
      FEATURES — editorial dark 3-col with ghost numbers
      ============================================================ --}}
     <section class="bg-ink">
-        <div
-            class="grid grid-cols-1 md:grid-cols-3 divide-y divide-charcoal-soft md:divide-y-0 md:divide-x md:divide-charcoal-soft">
+        <div class="grid grid-cols-1 md:grid-cols-3 divide-y divide-charcoal-soft md:divide-y-0 md:divide-x md:divide-charcoal-soft"
+            data-stagger data-stagger-delay="120">
             @foreach ([['num' => '01', 'title' => 'Driver Always Included', 'body' => 'Every booking comes with a vetted, uniformed professional driver. No self-drive — ever.'], ['num' => '02', 'title' => 'Premium Fleet', 'body' => 'From executive sedans to 4WD safari vehicles — every car cleaned, inspected and prepared before each journey.'], ['num' => '03', 'title' => '24 / 7 Service', 'body' => 'Early flights, late arrivals, midnight transfers. We operate around the clock, every day of the year.']] as $feat)
                 <div class="relative px-10 py-14 lg:py-16 overflow-hidden">
                     <span
@@ -235,14 +237,15 @@
     <section class="bg-white py-20 lg:py-28 border-t border-mist overflow-hidden">
         <div class="container-page">
 
-            <div class="text-center mb-14 lg:mb-18">
+            <div class="text-center mb-14 lg:mb-18" data-reveal>
                 <p class="eyebrow text-accent mb-3">Why Uprise</p>
                 <h2 class="font-display font-bold text-ink text-display-md tracking-tight">
                     The Uprise standard.
                 </h2>
             </div>
 
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-6">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-6" data-stagger
+                data-stagger-delay="100">
                 @foreach ([
             [
                 'num' => '01',
@@ -296,7 +299,8 @@
                         style="font-size:7rem;line-height:1;">&ldquo;</span>
                 </div>
 
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-{{ min($testimonials->count(), 3) }} gap-5">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-{{ min($testimonials->count(), 3) }} gap-5"
+                    data-stagger data-stagger-delay="100">
                     @foreach ($testimonials->take(3) as $testimonial)
                         <article class="bg-charcoal border border-charcoal-soft p-7 flex flex-col">
                             {{-- Stars --}}
@@ -344,11 +348,12 @@
         <div class="absolute top-0 inset-x-0 h-px bg-linear-to-r from-transparent via-white/20 to-transparent"></div>
         <div class="absolute bottom-0 inset-x-0 h-px bg-linear-to-r from-transparent via-white/20 to-transparent"></div>
         <div class="container-page relative z-10 py-20 lg:py-24 text-center">
-            <p class="eyebrow text-white/70 mb-4">Ready to travel?</p>
-            <h2 class="font-display font-bold text-white text-display-lg tracking-tight mb-4 max-w-2xl mx-auto">
+            <p class="eyebrow text-white/70 mb-4" data-reveal>Ready to travel?</p>
+            <h2 class="font-display font-bold text-white text-display-lg tracking-tight mb-4 max-w-2xl mx-auto" data-reveal
+                data-reveal-delay="100">
                 Your ride is one message away.
             </h2>
-            <p class="text-stone-soft text-base mb-10 max-w-md mx-auto">
+            <p class="text-stone-soft text-base mb-10 max-w-md mx-auto" data-reveal data-reveal-delay="200">
                 Reach us on WhatsApp for instant booking confirmation. 24/7, every day of the year.
             </p>
             <a href="{{ $whatsappUrl }}" target="_blank" rel="noopener"
