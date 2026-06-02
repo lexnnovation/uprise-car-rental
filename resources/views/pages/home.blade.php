@@ -20,7 +20,7 @@
 
         <div class="flex h-full divide-x divide-white/10">
 
-            {{-- Panel 1: Executive Salon --}}
+            {{-- Panel 1: Executive Salon — always visible --}}
             <div class="hero-panel-enter group relative flex-1 overflow-hidden">
                 <img src="/images/fleet/salon.jpg" alt="Executive Salon Car"
                     class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700"
@@ -32,8 +32,8 @@
                 </div>
             </div>
 
-            {{-- Panel 2: SUV / Highlander --}}
-            <div class="hero-panel-enter group relative flex-1 overflow-hidden">
+            {{-- Panel 2: SUV / Highlander — visible sm+ --}}
+            <div class="hero-panel-enter group relative flex-1 overflow-hidden hidden sm:block">
                 <img src="/images/fleet/highlander.jpg" alt="Toyota Highlander SUV"
                     class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700"
                     loading="lazy">
@@ -44,8 +44,8 @@
                 </div>
             </div>
 
-            {{-- Panel 3: 4WD / Land Cruiser --}}
-            <div class="hero-panel-enter group relative flex-1 overflow-hidden">
+            {{-- Panel 3: 4WD / Land Cruiser — visible md+ --}}
+            <div class="hero-panel-enter group relative flex-1 overflow-hidden hidden md:block">
                 <img src="/images/fleet/landcruiser.jpg" alt="4WD Land Cruiser"
                     class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700"
                     loading="lazy">
@@ -56,8 +56,8 @@
                 </div>
             </div>
 
-            {{-- Panel 4: Minibus --}}
-            <div class="hero-panel-enter group relative flex-1 overflow-hidden">
+            {{-- Panel 4: Minibus — visible lg+ --}}
+            <div class="hero-panel-enter group relative flex-1 overflow-hidden hidden lg:block">
                 <img src="/images/fleet/minibus.jpg" alt="Minibus Group Transfer"
                     class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700"
                     loading="lazy">
