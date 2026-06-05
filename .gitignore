@@ -2,6 +2,7 @@
 *.sqlite
 .agents
 .windsurf
+.devin
 .DS_Store
 .env
 .env.backup
