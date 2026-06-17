@@ -3,6 +3,10 @@
 .agents
 .windsurf
 .devin
+# AI agent guides — local only, never commit
+AGENTS.md
+CLAUDE.md
+.claude
 .DS_Store
 .env
 .env.backup
