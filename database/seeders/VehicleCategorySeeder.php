@@ -11,16 +11,16 @@ class VehicleCategorySeeder extends Seeder
     {
         $categories = [
             [
-                'name' => 'Luxury Sedan',
-                'slug' => 'luxury-sedan',
+                'name' => 'Executive Sedan',
+                'slug' => 'executive-sedan',
                 'description' => 'Premium executive sedans for business travel and airport transfers. Immaculate interiors, professional drivers.',
                 'icon' => 'bolt',
                 'sort_order' => 1,
             ],
             [
-                'name' => 'Luxury SUV',
-                'slug' => 'luxury-suv',
-                'description' => 'High-end SUVs combining prestige with comfort. Ideal for families, executives and VIP clients.',
+                'name' => 'Executive SUV',
+                'slug' => 'executive-suv',
+                'description' => 'High-end SUVs combining comfort with capability. Ideal for families, executives and VIP clients.',
                 'icon' => 'sparkles',
                 'sort_order' => 2,
             ],

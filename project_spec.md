@@ -20,7 +20,7 @@ The platform should feel:
 
 The platform should combine:
 
-- Blacklane-style luxury and elegance
+- Blacklane-style elegance and editorial calm
 - Sixt-style operational structure and fleet UX
 
 BUT remain focused on:
@@ -127,7 +127,7 @@ The platform should NOT feel:
 
 Use Blacklane for:
 
-- Luxury feel
+- Premium feel
 - Spacious layouts
 - Elegant typography
 - Premium photography
@@ -179,7 +179,7 @@ Use sparingly:
 
 - Warm gold
   OR
-- Muted luxury orange
+- Warm accent orange
 
 ---
 
@@ -256,7 +256,7 @@ Vehicle categories:
 - Sedans
 - Vans
 - Buses
-- Luxury vehicles
+- Executive vehicles
 - 4x4 vehicles
 
 ---

@@ -89,7 +89,7 @@ class FaqSeeder extends Seeder
             ],
             [
                 'question' => 'How many passengers can your vehicles accommodate?',
-                'answer' => 'Our fleet ranges from 3-passenger luxury sedans up to 50-seat coaches. Sedans seat 3 comfortably with luggage; Sprinters seat 7–12; our Toyota Coaster and full coaches seat 30–50. Contact us for large group requirements.',
+                'answer' => 'Our fleet ranges from 3-passenger executive sedans up to 50-seat coaches. Sedans seat 3 comfortably with luggage; Sprinters seat 7–12; our Toyota Coaster and full coaches seat 30–50. Contact us for large group requirements.',
                 'category' => 'Fleet',
                 'sort_order' => 3,
             ],
