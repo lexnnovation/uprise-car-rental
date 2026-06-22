@@ -21,11 +21,11 @@ return [
     */
     'brand' => [
         'name' => env('APP_NAME', 'Uprise'),
-        'tagline' => 'West Africa\'s Premier Chauffeur & Car Rental Service',
+        'tagline' => 'Ghana\'s Premier Car Rental & Chauffeur Service',
         'short_tagline' => 'Car & driver hire across Ghana and West Africa.',
         'legal_name' => env('UPRISE_LEGAL_NAME', 'Uprise Travel Ltd.'),
-        // Parent brand — this site is the car-rental arm of Uprise Travel & Tours.
-        'parent_name' => 'Uprise Travel & Tours',
+        // Parent brand — this site is the car-rental arm of Uprise Travel.
+        'parent_name' => 'Uprise Travel',
         'parent_url' => env('UPRISE_PARENT_URL', 'https://uprisetravel.com'),
         'parent_blurb' => 'car rentals, chauffeur, tours & travel across Ghana and West Africa',
     ],

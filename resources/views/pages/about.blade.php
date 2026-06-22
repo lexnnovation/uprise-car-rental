@@ -167,12 +167,12 @@
     <x-vehicle.showcase eyebrow="Our Fleet" title="Cars ready for your next trip"
         subtitle="From saloon cars to 4×4s, vans and coaches — every vehicle comes with a vetted, professional driver." />
 
-    {{-- PART OF UPRISE TRAVEL & TOURS --}}
+    {{-- PART OF UPRISE TRAVEL --}}
     <section class="bg-white py-14 lg:py-20 border-t border-mist">
         <div class="container-page max-w-3xl" data-reveal>
             <p class="eyebrow text-accent mb-3">One brand, full service</p>
             <h2 class="font-display font-bold text-ink text-display-sm tracking-tight mb-4">
-                Part of Uprise Travel &amp; Tours
+                Part of Uprise Travel
             </h2>
             <p class="text-stone text-base leading-relaxed">
                 This site is the dedicated car-rental arm of
@@ -180,7 +180,7 @@
                     class="text-accent font-medium underline underline-offset-2 hover:text-accent-deep transition-colors">{{ config('uprise.brand.parent_name') }}</a>,
                 our established travel brand offering chauffeur and car rental services, guided tours and full-service travel across
                 Ghana and West Africa. Book a car and driver here, or explore the wider range of services on the main
-                Uprise Travel &amp; Tours site.
+                Uprise Travel site.
             </p>
         </div>
     </section>
