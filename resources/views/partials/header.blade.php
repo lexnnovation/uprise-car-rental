@@ -34,14 +34,24 @@
     };
 @endphp
 
-<header x-data="{ open: false, scrolled: false }" x-init="window.addEventListener('scroll', () => { scrolled = window.scrollY > 40 })"
-    x-effect="document.body.style.overflow = open ? 'hidden' : ''" @keydown.escape.window="open = false"
-    :class="scrolled ? 'shadow-sticky' : ''"
-    class="fixed inset-x-0 top-0 z-50 bg-ink transition-shadow duration-300">
+<div x-data="{ open: false, scrolled: false, hideBar: false }"
+    x-init="let lastY = window.scrollY;
+        window.addEventListener('scroll', () => {
+            const y = window.scrollY;
+            scrolled = y > 40;
+            if (y > lastY && y > 120) { hideBar = true } else if (y < lastY) { hideBar = false }
+            lastY = y;
+        }, { passive: true });"
+    x-effect="document.body.style.overflow = open ? 'hidden' : ''" @keydown.escape.window="open = false">
 
-    {{-- Announcement bar --}}
-    <div class="bg-orange">
-        <div class="container-page text-[11px] text-ink tracking-wide py-2 flex flex-wrap items-center justify-center sm:justify-between gap-x-4 gap-y-1">
+    <header :class="scrolled ? 'shadow-sticky' : ''"
+        class="fixed inset-x-0 top-0 z-50 bg-ink transition-shadow duration-300">
+
+        {{-- Announcement bar — hides on scroll down, reappears on scroll up --}}
+        <div class="grid transition-[grid-template-rows,opacity] duration-300 ease-out"
+            :class="hideBar ? 'grid-rows-[0fr] opacity-0' : 'grid-rows-[1fr] opacity-100'">
+            <div class="overflow-hidden min-h-0 bg-orange">
+                <div class="container-page text-[11px] text-ink tracking-wide py-2 flex flex-wrap items-center justify-center sm:justify-between gap-x-4 gap-y-1">
 
             {{-- Contacts column --}}
             <div class="flex flex-col sm:flex-row items-center justify-center gap-x-3 gap-y-0.5">
@@ -70,8 +80,9 @@
                     WhatsApp &rarr;</a>
             </div>
 
+                </div>
+            </div>
         </div>
-    </div>
 
     <div class="container-page">
         <div class="flex h-14 items-center justify-between lg:h-16">
@@ -261,5 +272,7 @@
     </template>
 </header>
 
-{{-- Spacer so content doesn't hide behind fixed header (nav h-14/h-16 + bar ~33px) --}}
-<div class="h-20.25 lg:h-22.25 bg-ink"></div>
+    {{-- Spacer so content doesn't hide behind fixed header (nav h-14/h-16 + collapsible bar) --}}
+    <div class="bg-ink transition-all duration-300 ease-out"
+        :class="hideBar ? 'h-14 lg:h-16' : 'h-20.25 lg:h-22.25'"></div>
+</div>
