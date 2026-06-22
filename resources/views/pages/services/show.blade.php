@@ -61,8 +61,8 @@
         <div class="container-page">
             <div class="grid grid-cols-1 lg:grid-cols-5 gap-10 lg:gap-14">
 
-                {{-- LEFT: Content + Booking --}}
-                <div class="lg:col-span-2 space-y-8" data-reveal="fade-left">
+                {{-- DESCRIPTION (mobile 1st · desktop top-left) --}}
+                <div class="lg:col-span-2 lg:col-start-1 lg:row-start-1 space-y-8" data-reveal="fade-left">
 
                     {{-- Short description --}}
                     @if ($service->short_description)
@@ -94,6 +94,28 @@
                             </ul>
                         </div>
                     @endif
+                </div>
+
+                {{-- BOOKING FORM (mobile 2nd — right after description · desktop right column) --}}
+                <div class="lg:col-span-3 lg:col-start-3 lg:row-start-1 lg:row-span-2" data-reveal="fade-right">
+                    <div class="sticky top-28 bg-white rounded-md shadow-card p-8">
+                        <div class="mb-6">
+                            <p class="eyebrow text-accent mb-3">Make a Booking</p>
+                            <h2 class="font-display font-bold text-ink text-2xl tracking-tight mb-2">
+                                Request {{ $service->name }}
+                            </h2>
+                            <p class="text-stone text-sm leading-relaxed">
+                                Fill in your details and we'll get back to you within a few hours.
+                            </p>
+                        </div>
+                        <script src="https://js.hsforms.net/forms/embed/6121051.js" defer></script>
+                        <div class="hs-form-frame" data-region="na1" data-form-id="08720ccd-f4e3-4e06-b332-0a7fc6e95178"
+                            data-portal-id="6121051"></div>
+                    </div>
+                </div>
+
+                {{-- BOOKING SUPPORT (mobile 3rd · desktop bottom-left) --}}
+                <div class="lg:col-span-2 lg:col-start-1 lg:row-start-2 space-y-8" data-reveal="fade-left">
 
                     {{-- Explore fleet CTA --}}
                     <div class="flex items-center gap-4">
@@ -184,24 +206,6 @@
                         &larr; All Services
                     </a>
 
-                </div>
-
-                {{-- RIGHT: HubSpot Form --}}
-                <div class="lg:col-span-3" data-reveal="fade-right">
-                    <div class="sticky top-28 bg-white rounded-md shadow-card p-8">
-                        <div class="mb-6">
-                            <p class="eyebrow text-accent mb-3">Make a Booking</p>
-                            <h2 class="font-display font-bold text-ink text-2xl tracking-tight mb-2">
-                                Request {{ $service->name }}
-                            </h2>
-                            <p class="text-stone text-sm leading-relaxed">
-                                Fill in your details and we'll get back to you within a few hours.
-                            </p>
-                        </div>
-                        <script src="https://js.hsforms.net/forms/embed/6121051.js" defer></script>
-                        <div class="hs-form-frame" data-region="na1" data-form-id="08720ccd-f4e3-4e06-b332-0a7fc6e95178"
-                            data-portal-id="6121051"></div>
-                    </div>
                 </div>
 
             </div>

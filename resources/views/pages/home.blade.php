@@ -205,7 +205,7 @@
             </div>
 
             <div class="mt-10" data-reveal>
-                <a href="{{ route('services.show', 'ghana-car-rentals') }}"
+                <a href="{{ route('services.index') }}"
                     class="inline-flex items-center gap-2 text-sm font-semibold text-accent hover:text-accent-deep transition-colors">
                     See nationwide car rentals across Ghana
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"
