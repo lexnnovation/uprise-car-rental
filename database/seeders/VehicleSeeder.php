@@ -18,7 +18,7 @@ class VehicleSeeder extends Seeder
         $vehicles = [
             [
                 'slug' => 'mercedes-benz-s-class',
-                'category' => 'executive-sedan',
+                'category' => 'saloon-sedan-cars',
                 'name' => 'Mercedes-Benz S-Class',
                 'short_description' => 'The pinnacle of executive travel. Long-wheelbase rear cabin with massage seats, ambient lighting and total privacy.',
                 'description' => '<p>The Mercedes-Benz S-Class is the definitive chauffeur\'s limousine — chosen by heads of state, CEOs and discerning travellers worldwide. The long-wheelbase variant provides unmatched rear-passenger comfort with individual reclining seats, a panoramic sunroof, and optional rear-seat entertainment.</p><p>Available for airport transfers, executive hire by the hour, VIP event arrivals and diplomatic transport across Greater Accra.</p>',
@@ -35,7 +35,7 @@ class VehicleSeeder extends Seeder
             ],
             [
                 'slug' => 'mercedes-benz-e-class',
-                'category' => 'executive-sedan',
+                'category' => 'saloon-sedan-cars',
                 'name' => 'Mercedes-Benz E-Class',
                 'short_description' => 'Executive elegance for business transfers and airport pickups. MBUX infotainment and premium leather throughout.',
                 'description' => '<p>The Mercedes-Benz E-Class strikes the perfect balance between executive presence and everyday practicality. With a spacious rear cabin, Burmester sound system and MBUX connectivity, your journey is productive and comfortable from door to door.</p><p>A favourite for corporate transfers, inter-city business travel and premium airport pickups across Accra and Greater Accra.</p>',
@@ -52,7 +52,7 @@ class VehicleSeeder extends Seeder
             ],
             [
                 'slug' => 'bmw-5-series',
-                'category' => 'executive-sedan',
+                'category' => 'saloon-sedan-cars',
                 'name' => 'BMW 5 Series',
                 'short_description' => 'Dynamic executive sedan with a sporting character and a cabin designed for rear-seat productivity.',
                 'description' => '<p>The BMW 5 Series brings a more dynamic character to executive transportation without compromising on rear-seat refinement. Panoramic glass roof, heated leather seats and BMW\'s iDrive connectivity system make longer journeys feel effortless.</p><p>Ideal for executives who prefer a sportier feel without sacrificing the professionalism of a chauffeur-driven transfer.</p>',
@@ -69,7 +69,7 @@ class VehicleSeeder extends Seeder
             ],
             [
                 'slug' => 'range-rover-sport',
-                'category' => 'executive-suv',
+                'category' => 'suv-4x4',
                 'name' => 'Range Rover Sport',
                 'short_description' => 'Commanding presence, premium interior and serious capability. The choice for VIPs who demand versatility.',
                 'description' => '<p>Few vehicles command as much respect on Accra\'s roads as the Range Rover Sport. Elevated ride height, premium leather interior, Meridian audio and a powerful V8 presence make this the preferred choice for executives, government officials and VIP clients.</p><p>Equally at home on smooth Cantonments boulevards or the rougher roads to upcountry destinations. Available with privacy glass and a dedicated chauffeur.</p>',
@@ -86,7 +86,7 @@ class VehicleSeeder extends Seeder
             ],
             [
                 'slug' => 'lexus-lx',
-                'category' => 'executive-suv',
+                'category' => 'suv-4x4',
                 'name' => 'Lexus LX',
                 'short_description' => 'Premium 7-seater SUV. Japanese craftsmanship meets African road reliability.',
                 'description' => '<p>The Lexus LX represents the pinnacle of Japanese SUV engineering. With seating for up to 7 passengers across three rows, individual climate zones, a Mark Levinson audio system and the legendary Toyota Land Cruiser platform beneath, it is equally suited to Accra city transfers and the roads to Northern Ghana.</p>',
@@ -120,7 +120,7 @@ class VehicleSeeder extends Seeder
             ],
             [
                 'slug' => 'toyota-land-cruiser',
-                'category' => '4x4-safari',
+                'category' => 'suv-4x4',
                 'name' => 'Toyota Land Cruiser 200',
                 'short_description' => 'The gold standard of African overland travel. Built for any terrain Ghana has to offer.',
                 'description' => '<p>No vehicle has earned its reputation on African roads more thoroughly than the Toyota Land Cruiser. Our 200-series Land Cruisers are maintained to the highest standard and configured for long-distance comfort: cold-air AC, USB charging, and ample luggage capacity. Whether you\'re heading to Mole National Park, the Upper East Region or across the border into Burkina Faso, this is the vehicle that will get you there and back.</p>',
@@ -137,7 +137,7 @@ class VehicleSeeder extends Seeder
             ],
             [
                 'slug' => 'toyota-fortuner',
-                'category' => 'suv',
+                'category' => 'suv-4x4',
                 'name' => 'Toyota Fortuner',
                 'short_description' => 'Reliable, spacious and capable. A popular choice for business and family travel across Ghana.',
                 'description' => '<p>The Toyota Fortuner delivers the dependability and road presence that Ghana\'s varied terrain demands. With seating for 6, a powerful diesel engine and proven reliability on routes from Accra to the Northern regions, it is a smart choice for families, small groups and corporate transfers where city SUV refinement meets real-world capability.</p>',
@@ -171,7 +171,7 @@ class VehicleSeeder extends Seeder
             ],
             [
                 'slug' => 'toyota-coaster-bus',
-                'category' => 'coach-bus',
+                'category' => 'coaster-bus',
                 'name' => 'Toyota Coaster Coach',
                 'short_description' => '30-seat air-conditioned coach for large groups, conference shuttles and corporate fleet needs.',
                 'description' => '<p>For conferences, corporate retreats, wedding guest shuttles and large tour groups, the Toyota Coaster provides comfortable seating for up to 30 passengers with full air conditioning, overhead luggage racks and a wide aisle. Paired with an experienced Uprise driver-coordinator, your group moves as one — on time and in comfort.</p>',
