@@ -171,7 +171,7 @@
             x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0"
             x-transition:enter-end="opacity-100" x-transition:leave="transition ease-in duration-200"
             x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0"
-            class="fixed inset-0 z-[80] flex flex-col bg-ink lg:hidden" role="dialog" aria-modal="true"
+            class="fixed inset-0 z-[80] flex flex-col bg-ink/90 backdrop-blur-xl lg:hidden" role="dialog" aria-modal="true"
             aria-label="Site menu">
 
             {{-- Top bar --}}
