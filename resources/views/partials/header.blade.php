@@ -23,6 +23,15 @@
         ['label' => 'About', 'href' => route('about')],
         ['label' => 'Contact', 'href' => route('contact')],
     ];
+
+    // Is the given nav item the current page? Matches the exact path and anything beneath it.
+    $navActive = function (array $item): bool {
+        $path = trim(parse_url($item['href'], PHP_URL_PATH) ?? '/', '/');
+        if ($path === '') {
+            return request()->is('/');
+        }
+        return request()->is($path) || request()->is($path . '/*');
+    };
 @endphp
 
 <header x-data="{ open: false, scrolled: false }" x-init="window.addEventListener('scroll', () => { scrolled = window.scrollY > 40 })"
@@ -87,7 +96,7 @@
                         <div class="relative" x-data="{ drop: false }" @mouseenter="drop = true"
                             @mouseleave="drop = false">
                             <button @click="drop = !drop"
-                                class="flex items-center gap-1 text-sm font-medium text-stone-soft hover:text-white transition-colors duration-150 tracking-wide"
+                                class="flex items-center gap-1 text-sm tracking-wide transition-colors duration-150 {{ $navActive($item) ? 'text-white font-semibold' : 'text-stone-soft font-medium hover:text-accent' }}"
                                 :aria-expanded="drop">
                                 {{ $item['label'] }}
                                 <svg class="w-3 h-3 transition-transform duration-200" :class="drop ? 'rotate-180' : ''"
@@ -105,7 +114,7 @@
                                 class="absolute top-full left-1/2 -translate-x-1/2 mt-3 w-60 bg-charcoal border border-charcoal-soft rounded-md shadow-lg py-1.5 z-50">
                                 @foreach ($item['children'] as $child)
                                     <a href="{{ $child['href'] }}"
-                                        class="block px-4 py-2.5 text-sm text-stone-soft hover:text-white hover:bg-charcoal-soft transition-colors duration-150">
+                                        class="block px-4 py-2.5 text-sm transition-colors duration-150 {{ $navActive($child) ? 'text-white font-semibold bg-charcoal-soft' : 'text-stone-soft hover:text-accent hover:bg-charcoal-soft' }}">
                                         {{ $child['label'] }}
                                     </a>
                                 @endforeach
@@ -119,7 +128,7 @@
                         </div>
                     @else
                         <a href="{{ $item['href'] }}"
-                            class="text-sm font-medium text-stone-soft hover:text-white transition-colors duration-150 tracking-wide">
+                            class="text-sm tracking-wide transition-colors duration-150 {{ $navActive($item) ? 'text-white font-semibold' : 'text-stone-soft font-medium hover:text-accent' }}">
                             {{ $item['label'] }}
                         </a>
                     @endif
@@ -210,7 +219,7 @@
                                 x-transition:enter-end="opacity-100 translate-y-0" class="pb-4 pl-1">
                                 @foreach ($item['children'] as $child)
                                     <a href="{{ $child['href'] }}" @click="open = false"
-                                        class="block py-2.5 text-base text-stone-soft hover:text-white transition-colors">
+                                        class="block py-2.5 text-base transition-colors {{ $navActive($child) ? 'text-white font-semibold' : 'text-stone-soft hover:text-accent' }}">
                                         {{ $child['label'] }}
                                     </a>
                                 @endforeach

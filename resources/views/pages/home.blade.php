@@ -1,9 +1,9 @@
 @extends('layouts.app')
 
 @php
-    $title = 'Car Rental with Driver in Ghana | Uprise Travel';
+    $title = 'Car Rentals in Ghana | Rent a Car with Driver in Accra, Tamale & Mole | Uprise Travel';
     $metaDescription =
-        'Hire a car and driver anywhere in Ghana — Accra, Cape Coast, Kumasi, Mole, Tamale, Bolgatanga and Wa. Airport transfers, safari tours, executive hire and cross-border travel to Togo & Benin. All rentals include a professional driver.';
+        'Rent a car with a professional driver anywhere in Ghana. Car rentals in Accra, Tamale, Mole National Park, Kumasi and Cape Coast — daily and weekly hire, airport transfers, safari tours and cross-border travel to Togo & Benin. All rentals include a driver.';
     $whatsappUrl =
         'https://wa.me/' .
         config('uprise.whatsapp.number') .
@@ -159,14 +159,14 @@
                     Car rentals across Ghana
                 </h2>
                 <p class="text-stone text-base leading-relaxed mt-4">
-                    Hire a car with a professional driver in every major city and destination — from the capital to
-                    the northern savannah. Pick your location to see vehicles, routes and pricing.
+                    Rent a car in Ghana with a professional driver in every major city and destination — from the
+                    capital to the northern savannah. Pick your location for car rentals, routes and pricing.
                 </p>
             </div>
 
             {{-- Featured destinations --}}
             <div class="grid grid-cols-1 md:grid-cols-3 gap-5" data-stagger data-stagger-delay="100">
-                @foreach ([['slug' => 'accra-car-rentals', 'name' => 'Accra Car Rentals', 'body' => 'Greater Accra — Osu, East Legon, Airport City and Cantonments. Daily and weekly hire with a driver.'], ['slug' => 'tamale-car-rentals', 'name' => 'Tamale Car Rentals', 'body' => 'Northern Ghana hub — city transfers, airport pickups and onward trips to Mole and beyond.'], ['slug' => 'mole-national-park', 'name' => 'Mole National Park', 'body' => '4x4 safari transport to Mole and Larabanga with experienced driver-guides who know the route.']] as $dest)
+                @foreach ([['slug' => 'accra-car-rentals', 'name' => 'Accra Car Rentals', 'body' => 'Rent a car in Accra with a professional driver — Osu, East Legon, Airport City and Cantonments. Daily and weekly Accra car rentals.'], ['slug' => 'tamale-car-rentals', 'name' => 'Tamale Car Rentals', 'body' => 'Rent a car in Tamale and across Northern Ghana — city transfers, airport pickups and Tamale car rentals onward to Mole and beyond.'], ['slug' => 'mole-national-park', 'name' => 'Mole National Park', 'body' => 'Mole National Park car rentals — 4x4 safari transport to Mole and Larabanga with experienced driver-guides who know the route.']] as $dest)
                     <a href="{{ route('services.show', $dest['slug']) }}"
                         class="group relative flex flex-col justify-between bg-white border border-mist rounded-sm p-7 hover:border-accent hover:shadow-lg transition-all duration-200">
                         <div>
@@ -189,7 +189,7 @@
 
             {{-- Secondary destinations --}}
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-5 mt-5" data-reveal>
-                @foreach ([['slug' => 'cape-coast-car-rentals', 'name' => 'Cape Coast Car Rentals', 'body' => 'Coast and castles — Cape Coast, Elmina and Kakum day trips with a professional driver.'], ['slug' => 'kumasi-car-rentals', 'name' => 'Kumasi Car Rentals', 'body' => 'Ashanti Region — Kumasi city, airport and cultural tours with a driver who knows the area.']] as $dest)
+                @foreach ([['slug' => 'cape-coast-car-rentals', 'name' => 'Cape Coast Car Rentals', 'body' => 'Rent a car in Cape Coast — Elmina, Kakum and castle day trips. Central Region Cape Coast car rentals with a driver.'], ['slug' => 'kumasi-car-rentals', 'name' => 'Kumasi Car Rentals', 'body' => 'Rent a car in Kumasi — Ashanti Region city, airport and cultural tours. Kumasi car rentals with a local driver.']] as $dest)
                     <a href="{{ route('services.show', $dest['slug']) }}"
                         class="group flex items-center justify-between bg-white border border-mist rounded-sm px-7 py-6 hover:border-accent hover:shadow-lg transition-all duration-200">
                         <div class="pr-4">
