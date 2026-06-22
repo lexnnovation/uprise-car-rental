@@ -21,6 +21,6 @@
     @endif
 
     @if (trim($slot) !== '')
-        <div class="relative z-10 h-full">{{ $slot }}</div>
+        <div class="relative z-10">{{ $slot }}</div>
     @endif
 </div>
