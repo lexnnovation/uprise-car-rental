@@ -119,12 +119,12 @@
 
                             {{-- Body --}}
                             <div class="p-5 flex flex-col flex-1">
-                                <p class="eyebrow text-accent mb-2">{{ $vehicle->category->name }}</p>
                                 <h2
-                                    class="font-display font-bold text-ink text-lg leading-snug mb-3
+                                    class="font-display font-bold text-ink text-xl leading-snug
                                             group-hover:text-accent transition-colors duration-200">
-                                    <a href="{{ route('fleet.show', $vehicle) }}">{{ $vehicle->name }}</a>
+                                    <a href="{{ route('fleet.show', $vehicle) }}">{{ $vehicle->category->name }}</a>
                                 </h2>
+                                <p class="text-stone text-sm font-medium mb-3">{{ $vehicle->name }}</p>
 
                                 @if ($vehicle->short_description)
                                     <p class="text-stone text-sm leading-relaxed mb-4 flex-1 line-clamp-2">

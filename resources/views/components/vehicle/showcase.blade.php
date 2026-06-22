@@ -59,10 +59,10 @@
                             @endif
                         </div>
                         <div class="p-5 flex flex-col flex-1">
-                            <p class="eyebrow text-accent mb-2">{{ $vehicle->category->name ?? 'Vehicle' }}</p>
-                            <h3 class="font-display font-bold text-ink text-lg leading-snug mb-3 group-hover:text-accent transition-colors duration-200">
-                                {{ $vehicle->name }}
+                            <h3 class="font-display font-bold text-ink text-xl leading-snug group-hover:text-accent transition-colors duration-200">
+                                {{ $vehicle->category->name ?? 'Vehicle' }}
                             </h3>
+                            <p class="text-stone text-sm font-medium mb-3">{{ $vehicle->name }}</p>
                             <div class="mt-auto flex items-center gap-5 text-xs text-stone border-t border-mist-soft pt-4">
                                 <span class="flex items-center gap-1.5">
                                     <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" stroke-width="1.75"
