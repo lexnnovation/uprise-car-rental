@@ -58,7 +58,21 @@
                             </a>
                         </li>
                     @endforeach
+                    <li>
+                        <a href="{{ asset('documents/uprise-rental-agreement.docx') }}" download
+                            class="text-stone text-sm hover:text-white transition-colors duration-150">
+                            Rental Agreement
+                        </a>
+                    </li>
                 </ul>
+                <p class="mt-4 text-stone-soft text-xs leading-relaxed">
+                    Download, complete and return via
+                    <a href="mailto:{{ $contact['email'] }}"
+                        class="underline underline-offset-2 hover:text-white transition-colors">email</a>
+                    or
+                    <a href="{{ $whatsappUrl }}" target="_blank" rel="noopener"
+                        class="underline underline-offset-2 hover:text-white transition-colors">WhatsApp</a>.
+                </p>
             </div>
 
             {{-- Services links --}}
