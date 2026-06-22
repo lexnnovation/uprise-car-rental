@@ -30,12 +30,27 @@
 
     {{-- Announcement bar --}}
     <div class="bg-orange">
-        <p class="text-center text-[11px] text-ink tracking-wide py-2 px-4">
-            Every booking includes a professional driver &nbsp;&middot;&nbsp;
-            <a href="{{ $whatsappUrl }}"
-                class="text-ink font-semibold underline underline-offset-2 hover:text-ink/70 transition-colors">Book via
-                WhatsApp &rarr;</a>
-        </p>
+        <div class="container-page text-[11px] text-ink tracking-wide py-2 flex flex-wrap items-center justify-center sm:justify-between gap-x-4 gap-y-1">
+
+            {{-- Contacts column --}}
+            <div class="flex flex-wrap items-center justify-center gap-x-3 gap-y-1">
+                <a href="tel:+233249507413" class="font-semibold hover:text-ink/70 transition-colors">
+                    <span class="font-bold">Ghana</span> +233 (0) 249 507 413</a>
+                <span aria-hidden="true">&middot;</span>
+                <a href="tel:+18886462266" class="font-semibold hover:text-ink/70 transition-colors">
+                    <span class="font-bold">USA</span> +1 888 646 2266</a>
+            </div>
+
+            {{-- Message column --}}
+            <div class="flex flex-wrap items-center justify-center gap-x-2 gap-y-1">
+                <span>Every booking includes a professional driver</span>
+                <span aria-hidden="true">&middot;</span>
+                <a href="{{ $whatsappUrl }}"
+                    class="font-semibold underline underline-offset-2 hover:text-ink/70 transition-colors">Book via
+                    WhatsApp &rarr;</a>
+            </div>
+
+        </div>
     </div>
 
     <div class="container-page">
