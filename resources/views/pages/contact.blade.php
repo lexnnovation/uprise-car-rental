@@ -121,4 +121,8 @@
         </div>
     </section>
 
+    {{-- FLEET SHOWCASE --}}
+    <x-vehicle.showcase bg="bg-white" eyebrow="The Fleet" title="Browse our cars while you're here"
+        subtitle="Every vehicle is booked with a professional driver. Have one in mind? Mention it when you reach out." />
+
 @endsection

@@ -24,6 +24,10 @@ return [
         'tagline' => 'West Africa\'s Premier Chauffeur & Car Rental Service',
         'short_tagline' => 'Car & driver hire across Ghana and West Africa.',
         'legal_name' => env('UPRISE_LEGAL_NAME', 'Uprise Travel Ltd.'),
+        // Parent brand — this site is the car-rental arm of Uprise Travel & Tours.
+        'parent_name' => 'Uprise Travel & Tours',
+        'parent_url' => env('UPRISE_PARENT_URL', 'https://uprisetravel.com'),
+        'parent_blurb' => 'chauffeur, tours & travel across Ghana and West Africa',
     ],
 
     /*

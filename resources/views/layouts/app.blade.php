@@ -71,9 +71,15 @@
             { "@@type": "Country", "name": "Ghana" }
         ],
         "priceRange": "$$",
+        "parentOrganization": {
+            "@@type": "Organization",
+            "name": "{{ config('uprise.brand.parent_name') }}",
+            "url": "{{ config('uprise.brand.parent_url') }}"
+        },
         "sameAs": [
             "{{ config('uprise.social.instagram') }}",
-            "{{ config('uprise.social.facebook') }}"
+            "{{ config('uprise.social.facebook') }}",
+            "{{ config('uprise.brand.parent_url') }}"
         ]
     }
     </script>

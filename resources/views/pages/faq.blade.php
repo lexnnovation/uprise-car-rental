@@ -158,4 +158,8 @@
         </div>
     </section>
 
+    {{-- FLEET SHOWCASE --}}
+    <x-vehicle.showcase bg="bg-bone" eyebrow="The Fleet" title="See the cars behind the answers"
+        subtitle="Sedans, SUVs, vans and coaches — all with a professional driver. Browse the full fleet." />
+
 @endsection

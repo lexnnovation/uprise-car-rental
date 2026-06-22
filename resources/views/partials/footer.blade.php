@@ -42,8 +42,14 @@
                         </span>
                     </span>
                 </a>
-                <p class="text-stone text-sm leading-relaxed mb-6">
+                <p class="text-stone text-sm leading-relaxed mb-4">
                     {{ config('uprise.brand.tagline') }}
+                </p>
+                <p class="text-stone-soft text-xs leading-relaxed mb-6">
+                    Part of
+                    <a href="{{ config('uprise.brand.parent_url') }}" target="_blank" rel="noopener"
+                        class="text-stone underline underline-offset-2 hover:text-white transition-colors">{{ config('uprise.brand.parent_name') }}</a>
+                    — {{ config('uprise.brand.parent_blurb') }}.
                 </p>
                 <a href="{{ $whatsappUrl }}" target="_blank" rel="noopener"
                     class="inline-flex items-center gap-2 border border-white/30 text-white text-xs font-semibold px-4 py-2.5 rounded-sm hover:bg-white hover:text-ink transition-colors duration-200 tracking-wide">
