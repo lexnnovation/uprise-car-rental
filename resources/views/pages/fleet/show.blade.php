@@ -250,6 +250,36 @@
     </section>
 
     {{-- ============================================================
+     STEP INSIDE — contextual motion clip by vehicle type
+     ============================================================ --}}
+    @php
+        $catSlug = $vehicle->category->slug ?? null;
+        $clip = match (true) {
+            in_array($catSlug, ['coaster-bus', 'coach-bus', 'minivan-sprinter'], true) => ['name' => 'bus_inside', 'overlay' => false],
+            $catSlug === 'suv-4x4' => ['name' => 'suv', 'overlay' => true],
+            default => null,
+        };
+    @endphp
+    @if ($clip)
+        <section class="bg-ink border-t border-charcoal-soft py-14 lg:py-20">
+            <div class="container-page">
+                <div class="max-w-xl mb-8" data-reveal>
+                    <p class="eyebrow text-accent mb-3">Step inside</p>
+                    <h2 class="font-display font-bold text-white text-display-sm tracking-tight">
+                        See the {{ $vehicle->name }} in motion
+                    </h2>
+                    <p class="text-stone-soft text-sm leading-relaxed mt-3 max-w-md">
+                        A look at the {{ strtolower($vehicle->category->name ?? 'vehicle') }} you'll travel in —
+                        every trip with a professional driver.
+                    </p>
+                </div>
+                <x-ui.video-loop :name="$clip['name']" :overlay="$clip['overlay']"
+                    class="aspect-video w-full rounded-md border border-charcoal-soft" data-reveal />
+            </div>
+        </section>
+    @endif
+
+    {{-- ============================================================
      RELATED VEHICLES
      ============================================================ --}}
     @if ($related->isNotEmpty())

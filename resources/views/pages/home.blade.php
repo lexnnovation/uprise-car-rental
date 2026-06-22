@@ -323,6 +323,34 @@
     </section>
 
     {{-- ============================================================
+     THE EXPERIENCE — cinematic in-vehicle motion band
+     ============================================================ --}}
+    <section aria-label="The Uprise experience">
+        <x-ui.video-loop name="bus_outside" overlay class="flex items-center min-h-[64vh] lg:min-h-[72vh]">
+            <div class="container-page py-24 lg:py-32">
+                <div class="max-w-xl" data-reveal>
+                    <p class="eyebrow text-accent mb-4">The Uprise experience</p>
+                    <h2 class="font-display font-bold text-white text-display-md lg:text-display-lg tracking-tight leading-[1.05]">
+                        Sit back.<br>Watch Ghana roll by.
+                    </h2>
+                    <p class="text-stone-soft text-base sm:text-lg leading-relaxed mt-5 max-w-md">
+                        Every booking is a private car with a professional driver. You don't drive, park or
+                        navigate — you just take in the view.
+                    </p>
+                    <a href="{{ route('fleet.index') }}"
+                        class="mt-8 inline-flex items-center gap-2 bg-white text-ink font-semibold text-sm px-7 py-3.5 rounded-sm hover:bg-bone transition-colors duration-200 tracking-wide">
+                        Browse the fleet
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"
+                            aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14m-6-6l6 6-6 6" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </x-ui.video-loop>
+    </section>
+
+    {{-- ============================================================
      TESTIMONIALS
      ============================================================ --}}
     @if ($testimonials->isNotEmpty())
