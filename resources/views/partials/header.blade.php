@@ -34,6 +34,7 @@
 
             {{-- Contacts column --}}
             <div class="flex flex-wrap items-center justify-center gap-x-3 gap-y-1">
+                <span class="font-bold">Available 24/7:</span>
                 <a href="tel:+233249507413" class="font-semibold hover:text-ink/70 transition-colors">
                     <span class="font-bold">Ghana</span> +233 (0) 249 507 413</a>
                 <span aria-hidden="true">&middot;</span>
