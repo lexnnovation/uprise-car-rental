@@ -398,12 +398,12 @@
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-{{ min($testimonials->count(), 3) }} gap-5"
                     data-stagger data-stagger-delay="100">
                     @foreach ($testimonials->take(3) as $testimonial)
-                        <article class="bg-charcoal border border-charcoal-soft p-7 flex flex-col">
+                        <article class="bg-white/5 backdrop-blur-md border border-white/10 rounded-lg p-7 flex flex-col">
                             {{-- Stars --}}
                             <div class="flex gap-0.5 mb-5" aria-label="{{ $testimonial->rating }} out of 5 stars">
                                 @for ($i = 1; $i <= 5; $i++)
                                     <span
-                                        class="{{ $i <= $testimonial->rating ? 'text-accent' : 'text-charcoal-soft' }} text-base leading-none">★</span>
+                                        class="{{ $i <= $testimonial->rating ? 'text-accent' : 'text-white/20' }} text-base leading-none">★</span>
                                 @endfor
                             </div>
                             {{-- Quote --}}
@@ -411,7 +411,7 @@
                                 &ldquo;{{ $testimonial->content }}&rdquo;
                             </blockquote>
                             {{-- Author --}}
-                            <footer class="flex items-center gap-3 pt-5 border-t border-charcoal-soft">
+                            <footer class="flex items-center gap-3 pt-5 border-t border-white/10">
                                 @if ($testimonial->hasMedia('avatar'))
                                     <img src="{{ $testimonial->getFirstMediaUrl('avatar', 'avatar') }}"
                                         alt="{{ $testimonial->author_name }}"
