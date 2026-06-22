@@ -149,98 +149,6 @@
     </section>
 
     {{-- ============================================================
-     SERVICES
-     ============================================================ --}}
-    <section id="services" class="bg-white py-20 lg:py-28 border-t border-mist">
-        <div class="container-page">
-
-            <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between mb-12 lg:mb-16 gap-4">
-                <div data-reveal="fade-left">
-                    <p class="eyebrow text-stone mb-3">How We Serve You</p>
-                    <h2 class="font-display font-bold text-ink text-display-md tracking-tight">
-                        Every journey, perfected.
-                    </h2>
-                </div>
-                <a href="/services"
-                    class="text-sm font-semibold text-accent hover:text-accent-soft transition-colors shrink-0">
-                    View all services &rarr;
-                </a>
-            </div>
-
-            {{-- Service directory list (mirrors nav dropdown) --}}
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 divide-y divide-mist md:divide-y-0" data-stagger
-                data-stagger-delay="60">
-                @foreach ($services as $i => $service)
-                    @if ($i % 2 === 0 && !$loop->first)
-                        {{-- Add top divider on second column rows for desktop --}}
-                    @endif
-                    <a href="/services/{{ $service->slug }}"
-                        class="group flex items-start gap-5 py-6 border-b border-mist last:border-b-0
-                               md:border-b md:nth-last-[-n+2]:border-b-0 hover:bg-mist-soft -mx-4 px-4 rounded-sm transition-all duration-200 hover:translate-x-1">
-
-                        {{-- Number --}}
-                        <span
-                            class="font-display font-bold text-2xl text-mist shrink-0 w-8 text-right leading-tight mt-0.5
-                                     group-hover:text-accent transition-colors duration-150">
-                            {{ str_pad($loop->iteration, 2, '0', STR_PAD_LEFT) }}
-                        </span>
-
-                        {{-- Content --}}
-                        <div class="flex-1 min-w-0">
-                            <h3
-                                class="font-display font-semibold text-ink text-base mb-1 group-hover:text-accent transition-colors duration-150">
-                                {{ $service->name }}
-                            </h3>
-                            <p class="text-stone text-sm leading-relaxed line-clamp-2">
-                                {{ $service->short_description }}
-                            </p>
-                        </div>
-
-                        {{-- Arrow --}}
-                        <svg class="w-4 h-4 text-mist shrink-0 mt-1 group-hover:text-accent group-hover:translate-x-0.5 transition-all duration-150"
-                            fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
-                        </svg>
-                    </a>
-                @endforeach
-            </div>
-
-            <div class="mt-10 pt-8 border-t border-mist text-center">
-                <a href="{{ route('services.index') }}"
-                    class="inline-flex items-center gap-2 border border-ink/20 text-ink font-semibold text-sm
-                           px-6 py-3 rounded-sm hover:border-ink/50 transition-colors duration-150 tracking-wide">
-                    View all services
-                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.5"
-                        viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
-                    </svg>
-                </a>
-            </div>
-
-        </div>
-    </section>
-
-    {{-- ============================================================
-     FEATURES — editorial dark 3-col with ghost numbers
-     ============================================================ --}}
-    <section class="bg-ink">
-        <div class="grid grid-cols-1 md:grid-cols-3 divide-y divide-charcoal-soft md:divide-y-0 md:divide-x md:divide-charcoal-soft"
-            data-stagger data-stagger-delay="120">
-            @foreach ([['num' => '01', 'title' => 'Driver Always Included', 'body' => 'Every booking comes with a vetted, uniformed professional driver. No self-drive — ever.'], ['num' => '02', 'title' => 'Premium Fleet', 'body' => 'From executive sedans to 4WD safari vehicles — every car cleaned, inspected and prepared before each journey.'], ['num' => '03', 'title' => '24 / 7 Service', 'body' => 'Early flights, late arrivals, midnight transfers. We operate around the clock, every day of the year.']] as $feat)
-                <div class="relative px-10 py-14 lg:py-16 overflow-hidden">
-                    <span
-                        class="absolute bottom-2 right-6 font-display font-black leading-none text-white/4 select-none pointer-events-none"
-                        style="font-size:7rem;">{{ $feat['num'] }}</span>
-                    <div class="w-8 h-0.5 bg-accent mb-8"></div>
-                    <h3 class="font-display font-bold text-white text-xl mb-3">{{ $feat['title'] }}</h3>
-                    <p class="text-stone-soft text-sm leading-relaxed">{{ $feat['body'] }}</p>
-                </div>
-            @endforeach
-        </div>
-    </section>
-
-    {{-- ============================================================
      DESTINATIONS — Car rentals across Ghana (SEO + internal links)
      ============================================================ --}}
     <section class="bg-bone py-20 lg:py-28 border-t border-mist">
@@ -306,6 +214,25 @@
                     </svg>
                 </a>
             </div>
+        </div>
+    </section>
+
+    {{-- ============================================================
+     FEATURES — editorial dark 3-col with ghost numbers
+     ============================================================ --}}
+    <section class="bg-ink">
+        <div class="grid grid-cols-1 md:grid-cols-3 divide-y divide-charcoal-soft md:divide-y-0 md:divide-x md:divide-charcoal-soft"
+            data-stagger data-stagger-delay="120">
+            @foreach ([['num' => '01', 'title' => 'Driver Always Included', 'body' => 'Every booking comes with a vetted, uniformed professional driver. No self-drive — ever.'], ['num' => '02', 'title' => 'Premium Fleet', 'body' => 'From executive sedans to 4WD safari vehicles — every car cleaned, inspected and prepared before each journey.'], ['num' => '03', 'title' => '24 / 7 Service', 'body' => 'Early flights, late arrivals, midnight transfers. We operate around the clock, every day of the year.']] as $feat)
+                <div class="relative px-10 py-14 lg:py-16 overflow-hidden">
+                    <span
+                        class="absolute bottom-2 right-6 font-display font-black leading-none text-white/4 select-none pointer-events-none"
+                        style="font-size:7rem;">{{ $feat['num'] }}</span>
+                    <div class="w-8 h-0.5 bg-accent mb-8"></div>
+                    <h3 class="font-display font-bold text-white text-xl mb-3">{{ $feat['title'] }}</h3>
+                    <p class="text-stone-soft text-sm leading-relaxed">{{ $feat['body'] }}</p>
+                </div>
+            @endforeach
         </div>
     </section>
 
