@@ -27,7 +27,7 @@ return [
         // Parent brand — this site is the car-rental arm of Uprise Travel & Tours.
         'parent_name' => 'Uprise Travel & Tours',
         'parent_url' => env('UPRISE_PARENT_URL', 'https://uprisetravel.com'),
-        'parent_blurb' => 'chauffeur, tours & travel across Ghana and West Africa',
+        'parent_blurb' => 'car rentals, chauffeur, tours & travel across Ghana and West Africa',
     ],
 
     /*

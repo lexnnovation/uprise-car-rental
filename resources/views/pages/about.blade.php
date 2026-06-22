@@ -178,7 +178,7 @@
                 This site is the dedicated car-rental arm of
                 <a href="{{ config('uprise.brand.parent_url') }}" target="_blank" rel="noopener"
                     class="text-accent font-medium underline underline-offset-2 hover:text-accent-deep transition-colors">{{ config('uprise.brand.parent_name') }}</a>,
-                our established travel brand offering chauffeur services, guided tours and full-service travel across
+                our established travel brand offering chauffeur and car rental services, guided tours and full-service travel across
                 Ghana and West Africa. Book a car and driver here, or explore the wider range of services on the main
                 Uprise Travel &amp; Tours site.
             </p>

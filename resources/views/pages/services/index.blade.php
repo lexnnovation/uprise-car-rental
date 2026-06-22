@@ -3,7 +3,7 @@
 @php
     $title = 'Our Services — Car & Driver Hire in Ghana | Uprise Travel';
     $metaDescription =
-        'Airport transfers, executive chauffeur, safari tours, Cape Coast day trips, and corporate travel across Ghana — Accra, Kumasi, Mole, Tamale and more. Cross-border hire to Togo & Benin available. All with a professional driver.';
+        'Car rentals, airport transfers, executive chauffeur & car rental hire, safari tours, Cape Coast day trips, and corporate travel across Ghana — Accra, Kumasi, Mole, Tamale and more. Cross-border hire to Togo & Benin available. All with a professional driver.';
 @endphp
 
 @section('content')
