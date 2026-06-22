@@ -273,6 +273,37 @@
     </section>
 
     {{-- ============================================================
+     THE EXPERIENCE — cinematic in-vehicle motion band
+     ============================================================ --}}
+    <section class="bg-ink border-y border-charcoal-soft py-20 lg:py-28" aria-label="The Uprise experience">
+        <div class="container-page">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+                <div data-reveal="fade-left">
+                    <p class="eyebrow text-accent mb-4">The Uprise experience</p>
+                    <h2 class="font-display font-bold text-white text-display-md tracking-tight leading-[1.05]">
+                        Sit back. Enjoy the ride.
+                    </h2>
+                    <p class="text-stone-soft text-base sm:text-lg leading-relaxed mt-5 max-w-md">
+                        Every booking is a private car or coach with a professional driver. You don't drive, park or
+                        navigate — you just settle in and travel in comfort.
+                    </p>
+                    <a href="{{ route('fleet.index') }}"
+                        class="mt-8 inline-flex items-center gap-2 bg-white text-ink font-semibold text-sm px-7 py-3.5 rounded-sm hover:bg-bone transition-colors duration-200 tracking-wide">
+                        Browse the fleet
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"
+                            aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14m-6-6l6 6-6 6" />
+                        </svg>
+                    </a>
+                </div>
+                <x-ui.video-loop name="bus_inside"
+                    class="aspect-video w-full rounded-md border border-charcoal-soft shadow-2xl"
+                    data-reveal="fade-right" />
+            </div>
+        </div>
+    </section>
+
+    {{-- ============================================================
      WHY UPRISE — open layout with ghost numerals
      ============================================================ --}}
     <section class="bg-white py-20 lg:py-28 border-t border-mist overflow-hidden">
@@ -319,37 +350,6 @@
                 @endforeach
             </div>
 
-        </div>
-    </section>
-
-    {{-- ============================================================
-     THE EXPERIENCE — cinematic in-vehicle motion band
-     ============================================================ --}}
-    <section class="bg-ink border-y border-charcoal-soft py-20 lg:py-28" aria-label="The Uprise experience">
-        <div class="container-page">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
-                <div data-reveal="fade-left">
-                    <p class="eyebrow text-accent mb-4">The Uprise experience</p>
-                    <h2 class="font-display font-bold text-white text-display-md tracking-tight leading-[1.05]">
-                        Sit back. Enjoy the ride.
-                    </h2>
-                    <p class="text-stone-soft text-base sm:text-lg leading-relaxed mt-5 max-w-md">
-                        Every booking is a private car or coach with a professional driver. You don't drive, park or
-                        navigate — you just settle in and travel in comfort.
-                    </p>
-                    <a href="{{ route('fleet.index') }}"
-                        class="mt-8 inline-flex items-center gap-2 bg-white text-ink font-semibold text-sm px-7 py-3.5 rounded-sm hover:bg-bone transition-colors duration-200 tracking-wide">
-                        Browse the fleet
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"
-                            aria-hidden="true">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14m-6-6l6 6-6 6" />
-                        </svg>
-                    </a>
-                </div>
-                <x-ui.video-loop name="bus_inside"
-                    class="aspect-video w-full rounded-md border border-charcoal-soft shadow-2xl"
-                    data-reveal="fade-right" />
-            </div>
         </div>
     </section>
 
