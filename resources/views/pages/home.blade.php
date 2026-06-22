@@ -425,7 +425,7 @@
                 data-reveal-delay="100">
                 Your ride is one message away.
             </h2>
-            <p class="text-stone-soft text-base mb-10 max-w-md mx-auto" data-reveal data-reveal-delay="200">
+            <p class="text-white/90 text-base mb-10 max-w-md mx-auto" data-reveal data-reveal-delay="200">
                 Reach us on WhatsApp for instant booking confirmation. 24/7, every day of the year.
             </p>
             <a href="{{ $whatsappUrl }}" target="_blank" rel="noopener"
