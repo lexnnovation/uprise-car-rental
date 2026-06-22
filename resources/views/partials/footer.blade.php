@@ -31,7 +31,8 @@
 
             {{-- Brand column --}}
             <div class="lg:col-span-1">
-                <a href="{{ route('home') }}" class="inline-flex items-baseline gap-2 mb-4">
+                <a href="{{ route('home') }}" class="inline-flex items-center gap-2.5 mb-4">
+                    <img src="{{ asset('images/uprise-logo.png') }}" alt="Uprise Travel" class="h-10 w-auto shrink-0">
                     <span class="font-display font-bold text-white text-2xl tracking-tight">UPRISE TRAVEL</span>
                     <span
                         class="text-accent text-[8px] font-semibold tracking-[0.2em] uppercase leading-none self-end mb-0.5">Car
