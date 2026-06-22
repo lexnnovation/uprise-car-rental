@@ -303,7 +303,7 @@
 
         {{-- Tablet & desktop: full-bleed immersive clip with a frosted text card --}}
         <x-ui.video-loop name="bus_inside" class="hidden md:block">
-            <div class="container-page flex items-end min-h-[80vh] py-16 lg:py-20">
+            <div class="container-page flex items-end min-h-[52vh] lg:min-h-[58vh] py-12 lg:py-16">
                 <div class="max-w-md bg-ink/55 backdrop-blur-md rounded-lg p-8 lg:p-10" data-reveal="fade-left">
                     <p class="eyebrow text-accent mb-4">The Uprise experience</p>
                     <h2 class="font-display font-bold text-white text-display-md tracking-tight leading-[1.05]">
