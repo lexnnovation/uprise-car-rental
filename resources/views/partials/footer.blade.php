@@ -65,7 +65,7 @@
                         </a>
                     </li>
                 </ul>
-                <p class="mt-4 text-stone-soft text-xs leading-relaxed">
+                <p class="mt-2 text-stone-soft text-xs leading-relaxed">
                     Download, complete and return via
                     <a href="mailto:{{ $contact['email'] }}"
                         class="underline underline-offset-2 hover:text-white transition-colors">email</a>
