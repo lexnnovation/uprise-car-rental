@@ -31,10 +31,16 @@
 
             {{-- Brand column --}}
             <div class="lg:col-span-1">
-                <a href="{{ route('home') }}"
-                    class="inline-flex items-center gap-2 mb-4 font-display font-bold text-white text-xl tracking-tight">
-                    <img src="{{ asset('images/uprise-logo.png') }}" alt="Uprise Travel" class="h-8 w-auto shrink-0">
-                    UPRISE TRAVEL
+                <a href="{{ route('home') }}" class="flex items-center gap-2.5 mb-4 leading-none">
+                    <img src="{{ asset('images/uprise-logo.png') }}" alt="Uprise Travel" class="h-9 w-auto shrink-0">
+                    <span class="flex flex-col leading-none gap-0.5">
+                        <span class="font-display font-bold text-white text-xl tracking-tight leading-none">
+                            UPRISE TRAVEL
+                        </span>
+                        <span class="flex justify-between w-full text-accent text-[8px] font-semibold uppercase leading-none">
+                            <span>C</span><span>A</span><span>R</span><span>R</span><span>E</span><span>N</span><span>T</span><span>A</span><span>L</span><span>S</span>
+                        </span>
+                    </span>
                 </a>
                 <p class="text-stone text-sm leading-relaxed mb-6">
                     {{ config('uprise.brand.tagline') }}
