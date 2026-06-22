@@ -35,19 +35,21 @@
         <div class="container-page text-[11px] text-ink tracking-wide py-2 flex flex-wrap items-center justify-center sm:justify-between gap-x-4 gap-y-1">
 
             {{-- Contacts column --}}
-            <div class="flex flex-wrap items-center justify-center gap-x-3 gap-y-1">
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-x-3 gap-y-0.5">
                 <span class="font-bold">Available 24/7:</span>
-                <a href="tel:+233249507413" class="inline-flex items-center gap-1 font-semibold hover:text-ink/70 transition-colors">
-                    <svg class="w-3 h-3 shrink-0" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                        <path d="M6.62 10.79a15.53 15.53 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.02-.24 11.36 11.36 0 0 0 3.57.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1.02l-2.2 2.2z"/>
-                    </svg>
-                    <span><span class="font-bold">Ghana</span> +233 (0) 249 507 413</span></a>
-                <span aria-hidden="true">&middot;</span>
-                <a href="tel:+18886462266" class="inline-flex items-center gap-1 font-semibold hover:text-ink/70 transition-colors">
-                    <svg class="w-3 h-3 shrink-0" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                        <path d="M6.62 10.79a15.53 15.53 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.02-.24 11.36 11.36 0 0 0 3.57.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1.02l-2.2 2.2z"/>
-                    </svg>
-                    <span><span class="font-bold">USA</span> +1 888 646 2266</span></a>
+                <div class="flex items-center gap-x-2 whitespace-nowrap">
+                    <a href="tel:+233249507413" class="inline-flex items-center gap-1 font-semibold hover:text-ink/70 transition-colors">
+                        <svg class="w-3 h-3 shrink-0" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M6.62 10.79a15.53 15.53 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.02-.24 11.36 11.36 0 0 0 3.57.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1.02l-2.2 2.2z"/>
+                        </svg>
+                        <span><span class="font-bold">Ghana</span> +233 (0) 249 507 413</span></a>
+                    <span aria-hidden="true">&middot;</span>
+                    <a href="tel:+18886462266" class="inline-flex items-center gap-1 font-semibold hover:text-ink/70 transition-colors">
+                        <svg class="w-3 h-3 shrink-0" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M6.62 10.79a15.53 15.53 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.02-.24 11.36 11.36 0 0 0 3.57.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1.02l-2.2 2.2z"/>
+                        </svg>
+                        <span><span class="font-bold">USA</span> +1 888 646 2266</span></a>
+                </div>
             </div>
 
             {{-- Message column --}}
