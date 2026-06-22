@@ -14,12 +14,12 @@
         ['label' => 'FAQs', 'href' => route('faq')],
     ];
     $serviceLinks = [
-        ['label' => 'Ghana Car Rentals', 'href' => route('services.show', 'ghana-car-rentals')],
         ['label' => 'Accra Car Rentals', 'href' => route('services.show', 'accra-car-rentals')],
-        ['label' => 'Accra Airport Pickups', 'href' => route('services.show', 'accra-airport-pickups')],
         ['label' => 'Tamale Car Rentals', 'href' => route('services.show', 'tamale-car-rentals')],
-        ['label' => 'Cape Coast Car Rentals', 'href' => route('services.show', 'cape-coast-car-rentals')],
         ['label' => 'Mole National Park', 'href' => route('services.show', 'mole-national-park')],
+        ['label' => 'Cape Coast Car Rentals', 'href' => route('services.show', 'cape-coast-car-rentals')],
+        ['label' => 'Kumasi Car Rentals', 'href' => route('services.show', 'kumasi-car-rentals')],
+        ['label' => 'Ghana Car Rentals', 'href' => route('services.show', 'ghana-car-rentals')],
     ];
 @endphp
 

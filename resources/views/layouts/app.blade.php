@@ -62,6 +62,14 @@
             "longitude": "-0.1870"
         },
         "openingHours": "Mo-Su 00:00-24:00",
+        "areaServed": [
+            { "@@type": "City", "name": "Accra" },
+            { "@@type": "City", "name": "Tamale" },
+            { "@@type": "TouristAttraction", "name": "Mole National Park" },
+            { "@@type": "City", "name": "Cape Coast" },
+            { "@@type": "City", "name": "Kumasi" },
+            { "@@type": "Country", "name": "Ghana" }
+        ],
         "priceRange": "$$",
         "sameAs": [
             "{{ config('uprise.social.instagram') }}",

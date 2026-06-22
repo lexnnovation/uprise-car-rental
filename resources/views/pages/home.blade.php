@@ -241,6 +241,75 @@
     </section>
 
     {{-- ============================================================
+     DESTINATIONS — Car rentals across Ghana (SEO + internal links)
+     ============================================================ --}}
+    <section class="bg-bone py-20 lg:py-28 border-t border-mist">
+        <div class="container-page">
+            <div class="max-w-2xl mb-12 lg:mb-14" data-reveal>
+                <p class="eyebrow text-accent mb-3">Where We Operate</p>
+                <h2 class="font-display font-bold text-ink text-display-md tracking-tight">
+                    Car rentals across Ghana
+                </h2>
+                <p class="text-stone text-base leading-relaxed mt-4">
+                    Hire a car with a professional driver in every major city and destination — from the capital to
+                    the northern savannah. Pick your location to see vehicles, routes and pricing.
+                </p>
+            </div>
+
+            {{-- Featured destinations --}}
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-5" data-stagger data-stagger-delay="100">
+                @foreach ([['slug' => 'accra-car-rentals', 'name' => 'Accra Car Rentals', 'body' => 'Greater Accra — Osu, East Legon, Airport City and Cantonments. Daily and weekly hire with a driver.'], ['slug' => 'tamale-car-rentals', 'name' => 'Tamale Car Rentals', 'body' => 'Northern Ghana hub — city transfers, airport pickups and onward trips to Mole and beyond.'], ['slug' => 'mole-national-park', 'name' => 'Mole National Park', 'body' => '4x4 safari transport to Mole and Larabanga with experienced driver-guides who know the route.']] as $dest)
+                    <a href="{{ route('services.show', $dest['slug']) }}"
+                        class="group relative flex flex-col justify-between bg-white border border-mist rounded-sm p-7 hover:border-accent hover:shadow-lg transition-all duration-200">
+                        <div>
+                            <p class="eyebrow text-accent mb-2">Most Popular</p>
+                            <h3 class="font-display font-bold text-ink text-xl mb-2">{{ $dest['name'] }}</h3>
+                            <p class="text-stone text-sm leading-relaxed">{{ $dest['body'] }}</p>
+                        </div>
+                        <span
+                            class="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-ink group-hover:text-accent transition-colors">
+                            Explore
+                            <svg class="w-4 h-4 transition-transform duration-200 group-hover:translate-x-0.5"
+                                fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"
+                                aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14m-6-6l6 6-6 6" />
+                            </svg>
+                        </span>
+                    </a>
+                @endforeach
+            </div>
+
+            {{-- Secondary destinations --}}
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-5 mt-5" data-reveal>
+                @foreach ([['slug' => 'cape-coast-car-rentals', 'name' => 'Cape Coast Car Rentals', 'body' => 'Coast and castles — Cape Coast, Elmina and Kakum day trips with a professional driver.'], ['slug' => 'kumasi-car-rentals', 'name' => 'Kumasi Car Rentals', 'body' => 'Ashanti Region — Kumasi city, airport and cultural tours with a driver who knows the area.']] as $dest)
+                    <a href="{{ route('services.show', $dest['slug']) }}"
+                        class="group flex items-center justify-between bg-white border border-mist rounded-sm px-7 py-6 hover:border-accent hover:shadow-lg transition-all duration-200">
+                        <div class="pr-4">
+                            <h3 class="font-display font-bold text-ink text-lg mb-1">{{ $dest['name'] }}</h3>
+                            <p class="text-stone text-sm leading-relaxed">{{ $dest['body'] }}</p>
+                        </div>
+                        <svg class="w-5 h-5 shrink-0 text-stone-soft transition-all duration-200 group-hover:text-accent group-hover:translate-x-0.5"
+                            fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14m-6-6l6 6-6 6" />
+                        </svg>
+                    </a>
+                @endforeach
+            </div>
+
+            <div class="mt-10" data-reveal>
+                <a href="{{ route('services.show', 'ghana-car-rentals') }}"
+                    class="inline-flex items-center gap-2 text-sm font-semibold text-accent hover:text-accent-deep transition-colors">
+                    See nationwide car rentals across Ghana
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"
+                        aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14m-6-6l6 6-6 6" />
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    {{-- ============================================================
      FLEET TICKER STRIP
      ============================================================ --}}
     <style>

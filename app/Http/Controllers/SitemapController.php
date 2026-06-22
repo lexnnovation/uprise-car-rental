@@ -28,11 +28,14 @@ class SitemapController extends Controller
             );
         });
 
-        Service::active()->ordered()->each(function ($service) use ($sitemap) {
+        // Priority location pages we actively push for search/AI discovery.
+        $priorityServiceSlugs = ['accra-car-rentals', 'tamale-car-rentals', 'mole-national-park'];
+
+        Service::active()->ordered()->each(function ($service) use ($sitemap, $priorityServiceSlugs) {
             $sitemap->add(
                 Url::create(route('services.show', $service))
-                    ->setPriority(0.8)
-                    ->setChangeFrequency(Url::CHANGE_FREQUENCY_MONTHLY)
+                    ->setPriority(in_array($service->slug, $priorityServiceSlugs, true) ? 0.9 : 0.8)
+                    ->setChangeFrequency(Url::CHANGE_FREQUENCY_WEEKLY)
                     ->setLastModificationDate($service->updated_at)
             );
         });
