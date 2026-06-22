@@ -325,17 +325,17 @@
     {{-- ============================================================
      THE EXPERIENCE — cinematic in-vehicle motion band
      ============================================================ --}}
-    <section aria-label="The Uprise experience">
-        <x-ui.video-loop name="bus_outside" overlay class="flex items-center min-h-[64vh] lg:min-h-[72vh]">
-            <div class="container-page py-24 lg:py-32">
-                <div class="max-w-xl" data-reveal>
+    <section class="bg-ink border-y border-charcoal-soft py-20 lg:py-28" aria-label="The Uprise experience">
+        <div class="container-page">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+                <div data-reveal="fade-left">
                     <p class="eyebrow text-accent mb-4">The Uprise experience</p>
-                    <h2 class="font-display font-bold text-white text-display-md lg:text-display-lg tracking-tight leading-[1.05]">
-                        Sit back.<br>Watch Ghana roll by.
+                    <h2 class="font-display font-bold text-white text-display-md tracking-tight leading-[1.05]">
+                        Sit back. Enjoy the ride.
                     </h2>
                     <p class="text-stone-soft text-base sm:text-lg leading-relaxed mt-5 max-w-md">
-                        Every booking is a private car with a professional driver. You don't drive, park or
-                        navigate — you just take in the view.
+                        Every booking is a private car or coach with a professional driver. You don't drive, park or
+                        navigate — you just settle in and travel in comfort.
                     </p>
                     <a href="{{ route('fleet.index') }}"
                         class="mt-8 inline-flex items-center gap-2 bg-white text-ink font-semibold text-sm px-7 py-3.5 rounded-sm hover:bg-bone transition-colors duration-200 tracking-wide">
@@ -346,8 +346,11 @@
                         </svg>
                     </a>
                 </div>
+                <x-ui.video-loop name="bus_inside"
+                    class="aspect-video w-full rounded-md border border-charcoal-soft shadow-2xl"
+                    data-reveal="fade-right" />
             </div>
-        </x-ui.video-loop>
+        </div>
     </section>
 
     {{-- ============================================================
