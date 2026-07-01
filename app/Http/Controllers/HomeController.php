@@ -27,7 +27,7 @@ class HomeController extends Controller
         $faqs = Faq::active()->inCategory('General')->ordered()->limit(6)->get();
 
         $photos = collect(glob(public_path('images/lifestyle/*.{jpg,jpeg,png,webp}'), GLOB_BRACE))
-            ->map(fn ($path) => asset('images/lifestyle/' . basename($path)))
+            ->map(fn ($path) => asset('images/lifestyle/' . rawurlencode(basename($path))))
             ->values()
             ->take(4);
 

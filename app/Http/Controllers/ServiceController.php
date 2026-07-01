@@ -30,7 +30,7 @@ class ServiceController extends Controller
             urlencode('Hi Uprise Travel, I\'d like to enquire about your ' . $service->name . ' service.');
 
         $photos = collect(glob(public_path('images/lifestyle/*.{jpg,jpeg,png,webp}'), GLOB_BRACE))
-            ->map(fn ($path) => asset('images/lifestyle/' . basename($path)))
+            ->map(fn ($path) => asset('images/lifestyle/' . rawurlencode(basename($path))))
             ->values()
             ->take(4);
 
