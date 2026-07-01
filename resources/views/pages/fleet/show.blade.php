@@ -177,7 +177,7 @@
                             <p class="eyebrow text-accent mb-3">Book This Vehicle</p>
                             <h3 class="font-display font-bold text-white text-lg mb-2">{{ $vehicle->name }}</h3>
                             <p class="text-stone-soft text-sm mb-6 leading-relaxed">
-                                Send us a WhatsApp message and we'll confirm your booking within a few hours.
+                                Send us a WhatsApp message and we'll confirm your booking quickly.
                             </p>
                             <a href="{{ $whatsappUrl }}" target="_blank" rel="noopener"
                                 class="w-full inline-flex items-center justify-center gap-2.5 bg-accent text-white font-semibold

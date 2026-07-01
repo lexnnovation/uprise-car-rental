@@ -10,26 +10,55 @@ class FleetController extends Controller
 {
     public function index(Request $request)
     {
-        $categories = VehicleCategory::active()
-            ->ordered()
-            ->withCount(['vehicles' => fn($q) => $q->published()->available()])
-            ->get()
-            ->filter(fn($cat) => $cat->vehicles_count > 0);
-
-        $query = Vehicle::published()
-            ->available()
-            ->with('category')
-            ->ordered();
-
-        if ($request->filled('category')) {
-            $query->whereHas('category', fn($q) => $q->where('slug', $request->category));
-        }
-
-        $vehicles = $query->get();
-
+        $allCategories = VehicleCategory::active()->ordered()->get(['id', 'name', 'slug']);
         $activeCategory = $request->get('category');
 
-        return view('pages.fleet.index', compact('vehicles', 'categories', 'activeCategory'));
+        $entries = collect();
+
+        foreach ($allCategories as $cat) {
+            $catPath = public_path("images/fleet/{$cat->slug}");
+            if (! is_dir($catPath)) {
+                continue;
+            }
+
+            $subfolders = collect(glob("{$catPath}/*/", GLOB_ONLYDIR))->sort()->values();
+
+            if ($subfolders->isNotEmpty()) {
+                // Each subfolder = one vehicle card (e.g. SUV groups)
+                foreach ($subfolders as $subfolder) {
+                    $images = collect(glob("{$subfolder}*.{jpg,jpeg,JPG,JPEG,png,webp,avif}", GLOB_BRACE))->sort()->values();
+                    if ($images->isEmpty()) {
+                        continue;
+                    }
+                    $group = basename(rtrim($subfolder, '/'));
+                    $entries->push([
+                        'category_slug' => $cat->slug,
+                        'category_name' => $cat->name,
+                        'cover'         => asset("images/fleet/{$cat->slug}/{$group}/" . basename($images->first())),
+                    ]);
+                }
+            } else {
+                // Each image = one vehicle card
+                $images = collect(glob("{$catPath}/*.{jpg,jpeg,JPG,JPEG,png,webp,avif}", GLOB_BRACE))->sort()->values();
+                foreach ($images as $image) {
+                    $entries->push([
+                        'category_slug' => $cat->slug,
+                        'category_name' => $cat->name,
+                        'cover'         => asset("images/fleet/{$cat->slug}/" . basename($image)),
+                    ]);
+                }
+            }
+        }
+
+        $categories = $allCategories->filter(
+            fn($cat) => $entries->where('category_slug', $cat->slug)->isNotEmpty()
+        );
+
+        if ($activeCategory) {
+            $entries = $entries->filter(fn($e) => $e['category_slug'] === $activeCategory)->values();
+        }
+
+        return view('pages.fleet.index', compact('entries', 'categories', 'activeCategory'));
     }
 
     public function show(Vehicle $vehicle)

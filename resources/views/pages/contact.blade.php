@@ -22,7 +22,7 @@
                 Plan your journey with us.
             </h1>
             <p data-reveal data-reveal-delay="160" class="text-stone-soft text-base max-w-xl leading-relaxed">
-                Reach us on WhatsApp, by phone or email — we reply within a few hours.
+                Reach us on WhatsApp, by phone or email — we reply promptly.
                 All bookings include a professional driver.
             </p>
         </div>
@@ -39,8 +39,7 @@
                     <h2 class="font-display font-bold text-white text-2xl tracking-tight mb-3">Chat with us on WhatsApp
                     </h2>
                     <p class="text-stone-soft text-sm leading-relaxed mb-7">
-                        Send your travel dates, pickup and destination — we'll confirm availability and pricing within a
-                        few hours, often sooner.
+                        Send your travel dates, pickup and destination — we'll confirm availability and pricing quickly.
                     </p>
                     <a href="{{ 'https://wa.me/' . config('uprise.whatsapp.number') . '?text=' . urlencode(config('uprise.whatsapp.default_message')) }}"
                         target="_blank" rel="noopener"

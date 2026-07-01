@@ -31,7 +31,7 @@ class FaqSeeder extends Seeder
             ],
             [
                 'question' => 'How do I make a booking?',
-                'answer' => 'The fastest way is to WhatsApp us directly or fill in our inquiry form. Provide your pickup location, destination, date and time, and passenger count — our team will confirm your booking within a few hours during business hours.',
+                'answer' => 'The fastest way is to WhatsApp us directly or fill in our inquiry form. Provide your pickup location, destination, date and time, and passenger count — our team will confirm your booking promptly.',
                 'category' => 'General',
                 'sort_order' => 4,
             ],

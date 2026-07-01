@@ -26,11 +26,16 @@ class HomeController extends Controller
 
         $faqs = Faq::active()->inCategory('General')->ordered()->limit(6)->get();
 
+        $photos = collect(glob(public_path('images/lifestyle/*.{jpg,jpeg,png,webp}'), GLOB_BRACE))
+            ->map(fn ($path) => asset('images/lifestyle/' . basename($path)))
+            ->values()
+            ->take(4);
+
         $heroBg = Setting::get(
             'home_hero_bg_url',
             'https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=1920&auto=format&fit=crop&q=80',
         );
 
-        return view('pages.home', compact('vehicles', 'services', 'testimonials', 'faqs', 'heroBg'));
+        return view('pages.home', compact('vehicles', 'services', 'testimonials', 'faqs', 'heroBg', 'photos'));
     }
 }

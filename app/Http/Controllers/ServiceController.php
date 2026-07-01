@@ -29,6 +29,11 @@ class ServiceController extends Controller
             '?text=' .
             urlencode('Hi Uprise Travel, I\'d like to enquire about your ' . $service->name . ' service.');
 
-        return view('pages.services.show', compact('service', 'related', 'whatsappUrl'));
+        $photos = collect(glob(public_path('images/lifestyle/*.{jpg,jpeg,png,webp}'), GLOB_BRACE))
+            ->map(fn ($path) => asset('images/lifestyle/' . basename($path)))
+            ->values()
+            ->take(4);
+
+        return view('pages.services.show', compact('service', 'related', 'whatsappUrl', 'photos'));
     }
 }

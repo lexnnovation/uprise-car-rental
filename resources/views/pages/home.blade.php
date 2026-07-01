@@ -148,6 +148,8 @@
         </div>
     </section>
 
+    <x-ui.lifestyle-grid :photos="$photos" />
+
     {{-- ============================================================
      DESTINATIONS — Car rentals across Ghana (SEO + internal links)
      ============================================================ --}}
@@ -381,57 +383,86 @@
      TESTIMONIALS
      ============================================================ --}}
     @if ($testimonials->isNotEmpty())
-        <section id="testimonials" class="bg-ink py-20 lg:py-28 border-t border-charcoal-soft">
+        @php $featured = $testimonials->first(); $rest = $testimonials->skip(1); @endphp
+        <section id="testimonials" class="bg-ink py-20 lg:py-28 border-t border-charcoal-soft overflow-hidden">
             <div class="container-page">
 
-                <div class="flex items-end justify-between mb-12 lg:mb-16 gap-4 flex-wrap">
-                    <div>
-                        <p class="eyebrow text-accent mb-3">Client Stories</p>
-                        <h2 class="font-display font-bold text-white text-display-md tracking-tight">
-                            What our clients say.
-                        </h2>
+                {{-- Section label --}}
+                <p class="eyebrow text-accent mb-10 lg:mb-14" data-reveal>Client Stories</p>
+
+                {{-- Featured pull-quote --}}
+                <div class="relative mb-14 lg:mb-16" data-reveal data-reveal-delay="80">
+                    {{-- Decorative quotation mark --}}
+                    <span class="absolute -top-6 -left-2 font-display font-black text-white/5 select-none leading-none pointer-events-none"
+                        style="font-size:10rem;line-height:1;">&ldquo;</span>
+
+                    <div class="relative z-10 max-w-3xl">
+                        {{-- Stars --}}
+                        <div class="flex gap-1 mb-6" aria-label="{{ $featured->rating }} out of 5 stars">
+                            @for ($i = 1; $i <= 5; $i++)
+                                <svg class="w-4 h-4 {{ $i <= $featured->rating ? 'text-accent' : 'text-white/15' }}"
+                                    fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                                </svg>
+                            @endfor
+                        </div>
+
+                        <blockquote class="font-display font-semibold text-white leading-snug tracking-tight mb-8
+                                           text-[1.375rem] sm:text-[1.625rem] lg:text-[1.875rem]">
+                            &ldquo;{{ $featured->content }}&rdquo;
+                        </blockquote>
+
+                        <footer class="flex items-center gap-3">
+                            @if ($featured->hasMedia('avatar'))
+                                <img src="{{ $featured->getFirstMediaUrl('avatar', 'avatar') }}"
+                                    alt="{{ $featured->author_name }}"
+                                    class="w-10 h-10 rounded-full object-cover shrink-0 ring-1 ring-white/15" loading="lazy">
+                            @else
+                                <div class="w-10 h-10 rounded-full bg-charcoal border border-white/15 flex items-center justify-center shrink-0">
+                                    <span class="text-stone-soft font-semibold text-sm">{{ substr($featured->author_name, 0, 1) }}</span>
+                                </div>
+                            @endif
+                            <div>
+                                <p class="font-semibold text-white text-sm leading-tight">{{ $featured->author_name }}</p>
+                                <p class="text-stone text-xs mt-0.5">{{ $featured->author_role }}</p>
+                            </div>
+                        </footer>
                     </div>
-                    <span class="font-display font-black text-white/5 select-none hidden lg:block -mb-3"
-                        style="font-size:7rem;line-height:1;">&ldquo;</span>
                 </div>
 
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-{{ min($testimonials->count(), 3) }} gap-5"
-                    data-stagger data-stagger-delay="100">
-                    @foreach ($testimonials->take(3) as $testimonial)
-                        <article class="bg-white/5 backdrop-blur-md border border-white/10 rounded-lg p-7 flex flex-col">
-                            {{-- Stars --}}
-                            <div class="flex gap-0.5 mb-5" aria-label="{{ $testimonial->rating }} out of 5 stars">
-                                @for ($i = 1; $i <= 5; $i++)
-                                    <span
-                                        class="{{ $i <= $testimonial->rating ? 'text-accent' : 'text-white/20' }} text-base leading-none">★</span>
-                                @endfor
-                            </div>
-                            {{-- Quote --}}
-                            <blockquote class="text-stone-soft text-sm leading-relaxed flex-1 mb-6">
-                                &ldquo;{{ $testimonial->content }}&rdquo;
-                            </blockquote>
-                            {{-- Author --}}
-                            <footer class="flex items-center gap-3 pt-5 border-t border-white/10">
-                                @if ($testimonial->hasMedia('avatar'))
-                                    <img src="{{ $testimonial->getFirstMediaUrl('avatar', 'avatar') }}"
-                                        alt="{{ $testimonial->author_name }}"
-                                        class="w-9 h-9 rounded-full object-cover shrink-0" loading="lazy">
-                                @else
-                                    <div
-                                        class="w-9 h-9 rounded-full bg-ink-deep flex items-center justify-center shrink-0">
-                                        <span
-                                            class="text-stone-soft font-semibold text-xs">{{ substr($testimonial->author_name, 0, 1) }}</span>
-                                    </div>
-                                @endif
-                                <div>
-                                    <p class="font-semibold text-white text-sm leading-tight">
-                                        {{ $testimonial->author_name }}</p>
-                                    <p class="text-stone text-xs mt-0.5">{{ $testimonial->author_role }}</p>
+                {{-- Supporting testimonials grid --}}
+                @if ($rest->isNotEmpty())
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px bg-white/8 rounded-lg overflow-hidden"
+                        data-stagger data-stagger-delay="80">
+                        @foreach ($rest->take(3) as $t)
+                            <article class="bg-ink p-6 lg:p-7 flex flex-col">
+                                <div class="flex gap-0.5 mb-4" aria-label="{{ $t->rating }} out of 5 stars">
+                                    @for ($i = 1; $i <= 5; $i++)
+                                        <span class="{{ $i <= $t->rating ? 'text-accent' : 'text-white/15' }} text-sm leading-none">★</span>
+                                    @endfor
                                 </div>
-                            </footer>
-                        </article>
-                    @endforeach
-                </div>
+                                <blockquote class="text-stone-soft text-sm leading-relaxed flex-1 mb-5">
+                                    &ldquo;{{ $t->content }}&rdquo;
+                                </blockquote>
+                                <footer class="flex items-center gap-2.5 pt-4 border-t border-white/8">
+                                    @if ($t->hasMedia('avatar'))
+                                        <img src="{{ $t->getFirstMediaUrl('avatar', 'avatar') }}"
+                                            alt="{{ $t->author_name }}"
+                                            class="w-8 h-8 rounded-full object-cover shrink-0" loading="lazy">
+                                    @else
+                                        <div class="w-8 h-8 rounded-full bg-charcoal flex items-center justify-center shrink-0">
+                                            <span class="text-stone-soft font-semibold text-xs">{{ substr($t->author_name, 0, 1) }}</span>
+                                        </div>
+                                    @endif
+                                    <div>
+                                        <p class="font-semibold text-white text-xs leading-tight">{{ $t->author_name }}</p>
+                                        <p class="text-stone text-xs mt-0.5">{{ $t->author_role }}</p>
+                                    </div>
+                                </footer>
+                            </article>
+                        @endforeach
+                    </div>
+                @endif
 
             </div>
         </section>
@@ -471,45 +502,58 @@
         <section id="faq" class="bg-white py-20 lg:py-28 border-t border-mist">
             <div class="container-page">
 
-                <div class="text-center mb-12 lg:mb-16">
-                    <p class="eyebrow text-stone mb-3">Frequently Asked</p>
-                    <h2 class="font-display font-bold text-ink text-display-md tracking-tight">
-                        Questions & answers.
+                <div class="max-w-3xl mx-auto">
+                    <p class="eyebrow text-accent mb-3" data-reveal>Questions & Answers</p>
+                    <h2 class="font-display font-bold text-ink tracking-tight mb-12 lg:mb-14 text-display-sm" data-reveal data-reveal-delay="80">
+                        Common questions.
                     </h2>
-                </div>
 
-                <div class="max-w-3xl mx-auto" x-data="{ active: null }">
-                    @foreach ($faqs as $i => $faq)
-                        <div class="border-b border-mist first:border-t">
-                            <button @click="active = active === {{ $i }} ? null : {{ $i }}"
-                                class="w-full flex items-start justify-between gap-6 py-5 text-left group"
-                                :aria-expanded="active === {{ $i }}">
-                                <span
-                                    class="font-semibold text-ink text-sm sm:text-base group-hover:text-stone transition-colors leading-snug">
-                                    {{ $faq->question }}
-                                </span>
-                                <span
-                                    class="text-accent text-xl font-light leading-none shrink-0 mt-0.5 transition-transform duration-200"
-                                    :class="active === {{ $i }} ? 'rotate-45' : ''">+</span>
-                            </button>
-                            <div x-show="active === {{ $i }}"
-                                x-transition:enter="transition ease-out duration-200"
-                                x-transition:enter-start="opacity-0 -translate-y-1"
-                                x-transition:enter-end="opacity-100 translate-y-0"
-                                x-transition:leave="transition ease-in duration-150"
-                                x-transition:leave-start="opacity-100 translate-y-0"
-                                x-transition:leave-end="opacity-0 -translate-y-1" class="pb-5 pr-10">
-                                <p class="text-stone text-sm sm:text-base leading-relaxed">{{ $faq->answer }}</p>
+                    <div class="divide-y divide-mist-soft">
+                        @foreach ($faqs as $faq)
+                            <div x-data="{ open: false }" class="group py-1">
+                                <button @click="open = !open"
+                                    class="w-full flex items-start justify-between gap-6 py-5 text-left"
+                                    :aria-expanded="open">
+                                    <span class="font-display font-semibold text-ink/80 text-[0.9375rem] leading-snug
+                                                 transition-colors duration-200 group-hover:text-ink"
+                                        :class="open ? 'text-accent!' : ''">
+                                        {{ $faq->question }}
+                                    </span>
+                                    <span class="shrink-0 mt-0.5 w-6 h-6 rounded-full border border-mist flex items-center justify-center
+                                                 transition-all duration-200"
+                                        :class="open ? 'bg-accent border-accent' : 'group-hover:border-stone'">
+                                        <svg class="w-2.5 h-2.5 transition-transform duration-200"
+                                            :class="open ? 'rotate-180 text-white' : 'text-stone'"
+                                            fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+                                        </svg>
+                                    </span>
+                                </button>
+                                <div x-show="open"
+                                    x-transition:enter="transition ease-out duration-200"
+                                    x-transition:enter-start="opacity-0 -translate-y-1"
+                                    x-transition:enter-end="opacity-100 translate-y-0"
+                                    x-transition:leave="transition ease-in duration-150"
+                                    x-transition:leave-start="opacity-100 translate-y-0"
+                                    x-transition:leave-end="opacity-0 -translate-y-1"
+                                    class="pb-6">
+                                    <div class="text-stone text-sm leading-relaxed max-w-2xl">
+                                        {{ $faq->answer }}
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                    @endforeach
-                </div>
+                        @endforeach
+                    </div>
 
-                <div class="text-center mt-10">
-                    <a href="{{ route('faq') }}"
-                        class="text-sm font-semibold text-ink hover:text-stone transition-colors underline underline-offset-4">
-                        View all FAQs →
-                    </a>
+                    <div class="mt-10 pt-6 border-t border-mist-soft">
+                        <a href="{{ route('faq') }}"
+                            class="inline-flex items-center gap-2 text-sm font-semibold text-accent hover:text-accent-deep transition-colors">
+                            View all questions
+                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                            </svg>
+                        </a>
+                    </div>
                 </div>
 
             </div>

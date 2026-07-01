@@ -81,7 +81,7 @@
                         <div class="bg-white rounded-md p-6 shadow-card space-y-4">
                             <p class="font-display font-semibold text-ink text-base">What's included</p>
                             <ul class="space-y-3">
-                                @foreach (['Professional, vetted driver for the full journey', 'Comfortable, well-maintained vehicle', 'Flexible pickup and drop-off locations', 'Ghana-wide & cross-border coverage', 'WhatsApp booking confirmation within a few hours'] as $bullet)
+                                @foreach (['Professional, vetted driver for the full journey', 'Comfortable, well-maintained vehicle', 'Flexible pickup and drop-off locations', 'Ghana-wide & cross-border coverage', 'WhatsApp booking confirmation — fast'] as $bullet)
                                     <li class="flex items-start gap-3 text-sm text-stone">
                                         <svg class="w-4 h-4 text-accent shrink-0 mt-0.5" fill="none"
                                             stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
@@ -105,7 +105,7 @@
                                 Request {{ $service->name }}
                             </h2>
                             <p class="text-stone text-sm leading-relaxed">
-                                Fill in your details and we'll get back to you within a few hours.
+                                Fill in your details and we'll get back to you promptly.
                             </p>
                         </div>
                         <script src="https://js.hsforms.net/forms/embed/6121051.js" defer></script>
@@ -131,7 +131,7 @@
                         <p class="eyebrow text-accent mb-3">Book This Service</p>
                         <h3 class="font-display font-bold text-white text-base mb-2">{{ $service->name }}</h3>
                         <p class="text-stone-soft text-sm mb-6 leading-relaxed">
-                            Message us on WhatsApp with your travel dates and we'll get back to you within a few hours.
+                            Message us on WhatsApp with your travel dates and we'll confirm your booking quickly.
                         </p>
                         <a href="{{ $whatsappUrl }}" target="_blank" rel="noopener"
                             class="w-full inline-flex items-center justify-center gap-2.5 bg-accent text-white font-semibold
@@ -246,5 +246,7 @@
             </div>
         </section>
     @endif
+
+    <x-ui.lifestyle-grid :photos="$photos" />
 
 @endsection
