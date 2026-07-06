@@ -36,7 +36,7 @@
     @endisset
 
     {{-- Favicon --}}
-    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="icon" type="image/png" href="/favicon.png">
 
     {{-- JSON-LD: LocalBusiness --}}
     <script type="application/ld+json">
