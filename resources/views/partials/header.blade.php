@@ -38,8 +38,9 @@
     x-init="let lastY = window.scrollY;
         window.addEventListener('scroll', () => {
             const y = window.scrollY;
+            const delta = y - lastY;
             scrolled = y > 40;
-            if (y > lastY && y > 120) { hideBar = true } else if (y < lastY) { hideBar = false }
+            if (delta > 5 && y > 120) { hideBar = true } else if (delta < -5) { hideBar = false }
             lastY = y;
         }, { passive: true });"
     x-effect="document.body.style.overflow = open ? 'hidden' : ''" @keydown.escape.window="open = false">
