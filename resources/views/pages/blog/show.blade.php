@@ -51,7 +51,7 @@
 
         {{-- Title overlay --}}
         <div class="relative z-10 container-page pb-10 pt-6 flex items-end" style="min-height: 36vh;">
-            <div data-reveal class="max-w-3xl">
+            <div class="max-w-3xl">
                 <p class="eyebrow text-accent mb-3">Article</p>
                 <h1 class="font-display font-bold text-white tracking-tight mb-4
                             text-[2rem] sm:text-[2.75rem] lg:text-[3.25rem]">
@@ -82,7 +82,7 @@
             <div class="grid grid-cols-1 lg:grid-cols-3 gap-10 lg:gap-16">
 
                 {{-- LEFT: Article body --}}
-                <article class="lg:col-span-2" data-reveal="fade-left">
+                <article class="lg:col-span-2">
                     <div class="prose prose-stone max-w-none text-base leading-relaxed">
                         {!! $post->body !!}
                     </div>
@@ -103,7 +103,7 @@
                 </article>
 
                 {{-- RIGHT: Enquiry sidebar --}}
-                <div class="lg:col-span-1" data-reveal="fade-right">
+                <div class="lg:col-span-1">
                     <div class="sticky top-28 space-y-4">
 
                         <div class="bg-ink rounded-md p-6 text-center">
