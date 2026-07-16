@@ -7,16 +7,13 @@
 ])
 
 @php
-    $showcaseVehicles = \App\Models\Vehicle::published()
-        ->available()
-        ->with('category')
-        ->orderByDesc('is_featured')
-        ->ordered()
-        ->limit($limit)
-        ->get();
+    $showcaseEntries = \App\Services\FleetPhotoScanner::entries()
+        ->unique('category_slug')
+        ->values()
+        ->take($limit);
 @endphp
 
-@if ($showcaseVehicles->isNotEmpty())
+@if ($showcaseEntries->isNotEmpty())
     <section class="{{ $bg }} py-16 lg:py-24 border-t border-mist">
         <div class="container-page">
 
@@ -35,56 +32,29 @@
             </div>
 
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6" data-stagger data-stagger-delay="100">
-                @foreach ($showcaseVehicles as $vehicle)
-                    @php
-                        $cardImg = $vehicle->hasMedia('hero')
-                            ? $vehicle->getFirstMediaUrl('hero', 'card')
-                            : $vehicle->hero_image_url;
-                    @endphp
-                    <a href="{{ route('fleet.show', $vehicle) }}"
+                @foreach ($showcaseEntries as $entry)
+                    <a href="{{ route('fleet.group', ['category' => $entry['category_slug'], 'item' => $entry['item']]) }}"
                         class="group flex flex-col bg-white border border-mist rounded-md overflow-hidden hover:shadow-lg hover:border-accent/40 transition-all duration-200">
-                        <div class="aspect-[4/3] overflow-hidden bg-charcoal">
-                            @if ($cardImg)
-                                <img src="{{ $cardImg }}" alt="{{ $vehicle->name }}"
-                                    class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                                    loading="lazy">
-                            @else
-                                <div class="w-full h-full flex items-center justify-center bg-linear-to-br from-charcoal to-ink">
-                                    <svg class="w-14 h-14 text-charcoal-soft/50" fill="none" stroke="currentColor"
-                                        stroke-width="1" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round"
-                                            d="M8.25 18.75a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h6m-9 0H3.375a1.125 1.125 0 01-1.125-1.125V14.25m17.25 4.5a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h1.125c.621 0 1.129-.504 1.09-1.124a17.902 17.902 0 00-3.213-9.193 2.056 2.056 0 00-1.58-.86H14.25M16.5 18.75h-2.25m0-11.177v-.958c0-.568-.422-1.048-.987-1.106a48.554 48.554 0 00-10.026 0 1.106 1.106 0 00-.987 1.106v7.635m12-6.677v6.677m0 4.5v-4.5m0 0h-12" />
+                        <div class="relative aspect-[4/3] overflow-hidden bg-charcoal">
+                            <img src="{{ $entry['cover'] }}" alt="{{ $entry['category_name'] }}"
+                                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                                loading="lazy">
+                            @if ($entry['photo_count'] > 1)
+                                <span class="absolute bottom-3 right-3 inline-flex items-center gap-1.5 bg-ink/80 text-white text-xs font-semibold px-2.5 py-1 rounded-full">
+                                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 001.5-1.5V6a1.5 1.5 0 00-1.5-1.5H3.75A1.5 1.5 0 002.25 6v12a1.5 1.5 0 001.5 1.5zm10.5-11.25a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0z" />
                                     </svg>
-                                </div>
+                                    {{ $entry['photo_count'] }}
+                                </span>
                             @endif
                         </div>
                         <div class="p-5 flex flex-col flex-1">
                             <h3 class="font-display font-bold text-ink text-xl leading-snug group-hover:text-accent transition-colors duration-200">
-                                {{ $vehicle->category->name ?? 'Vehicle' }}
+                                {{ $entry['category_name'] }}
                             </h3>
-                            @if ($vehicle->name && $vehicle->name !== ($vehicle->category->name ?? null))
-                                <p class="text-stone text-sm font-medium mb-3">{{ $vehicle->name }}</p>
-                            @else
-                                <div class="mb-3"></div>
-                            @endif
-                            <div class="mt-auto flex items-center gap-5 text-xs text-stone border-t border-mist-soft pt-4">
-                                <span class="flex items-center gap-1.5">
-                                    <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" stroke-width="1.75"
-                                        viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round"
-                                            d="M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 018.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0111.964-3.07M12 6.375a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zm8.25 2.25a2.625 2.625 0 11-5.25 0 2.625 2.625 0 015.25 0z" />
-                                    </svg>
-                                    {{ $vehicle->passenger_count }} passengers
-                                </span>
-                                <span class="flex items-center gap-1.5">
-                                    <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" stroke-width="1.75"
-                                        viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round"
-                                            d="M20.25 7.5l-.625 10.632a2.25 2.25 0 01-2.247 2.118H6.622a2.25 2.25 0 01-2.247-2.118L3.75 7.5M10 11.25h4M3.375 7.5h17.25c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125H3.375c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125z" />
-                                    </svg>
-                                    {{ $vehicle->luggage_count }} bags
-                                </span>
-                            </div>
+                            <p class="text-stone text-sm font-medium mt-auto pt-4 border-t border-mist-soft">
+                                Professional driver included
+                            </p>
                         </div>
                     </a>
                 @endforeach
