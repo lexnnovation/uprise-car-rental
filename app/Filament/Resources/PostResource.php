@@ -79,6 +79,7 @@ class PostResource extends Resource
                         ->fileAttachmentsDisk('public')
                         ->fileAttachmentsDirectory('blog-content')
                         ->fileAttachmentsVisibility('public')
+                        ->helperText('Images dropped into the content: keep under 500KB and no wider than ~1600px. Larger images can fail to upload.')
                         ->columnSpanFull(),
                 ]),
 
@@ -101,13 +102,13 @@ class PostResource extends Resource
                         ->imageEditor()
                         ->responsiveImages()
                         ->label('Featured image')
-                        ->helperText('Used as the post hero and card thumbnail.')
+                        ->helperText('Used as the post hero and card thumbnail. Keep under 500KB and no wider than ~1600px for reliable uploads.')
                         ->columnSpanFull(),
                     SpatieMediaLibraryFileUpload::make('og')
                         ->collection('og')
                         ->image()
                         ->label('Social share image (optional)')
-                        ->helperText('Falls back to the featured image if left empty.')
+                        ->helperText('Falls back to the featured image if left empty. Keep under 500KB and no wider than ~1600px.')
                         ->columnSpanFull(),
                 ]),
 
