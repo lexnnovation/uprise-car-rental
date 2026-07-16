@@ -7,10 +7,16 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\FaqController;
 use App\Http\Controllers\FleetController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\MediaController;
 use App\Http\Controllers\ServiceController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', HomeController::class)->name('home');
+
+// Serves storage/app/public directly through PHP instead of relying on the
+// public/storage symlink — some hosts block following it at the webserver
+// level even when file permissions are correct.
+Route::get('/storage/{path}', [MediaController::class, 'show'])->where('path', '.*')->name('media.show');
 
 Route::get('/fleet', [FleetController::class, 'index'])->name('fleet.index');
 Route::get('/fleet/{category}/{item}', [FleetController::class, 'showGroup'])->name('fleet.group');
