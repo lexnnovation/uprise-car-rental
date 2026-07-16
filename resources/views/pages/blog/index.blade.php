@@ -98,7 +98,7 @@
                                 </h2>
 
                                 <p class="text-stone text-sm leading-relaxed flex-1">
-                                    {{ $post->excerpt }}
+                                    {{ $post->summary() }}
                                 </p>
 
                                 <div class="mt-5 inline-flex items-center gap-1.5 text-xs font-semibold text-accent

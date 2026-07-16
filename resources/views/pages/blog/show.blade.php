@@ -2,7 +2,7 @@
 
 @php
     $title = $post->meta_title ?: $post->title . ' | Uprise Travel Blog';
-    $metaDescription = $post->meta_description ?: $post->excerpt;
+    $metaDescription = $post->meta_description ?: $post->summary();
     $ogImage = $post->hasMedia('og')
         ? $post->getFirstMediaUrl('og', 'og')
         : ($post->hasMedia('featured') ? $post->getFirstMediaUrl('featured', 'og') : null);

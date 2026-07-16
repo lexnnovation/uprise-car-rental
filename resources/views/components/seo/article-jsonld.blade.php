@@ -10,7 +10,7 @@
     "@@context": "https://schema.org",
     "@@type": "Article",
     "headline": {!! Js::encode($post->title) !!},
-    "description": {!! Js::encode($post->meta_description ?: $post->excerpt) !!},
+    "description": {!! Js::encode($post->meta_description ?: $post->summary()) !!},
     "image": {!! Js::encode($image) !!},
     "datePublished": {!! Js::encode($post->published_at?->toIso8601String()) !!},
     "dateModified": {!! Js::encode($post->updated_at->toIso8601String()) !!},

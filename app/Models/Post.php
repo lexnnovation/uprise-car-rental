@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Carbon;
+use Illuminate\Support\Str;
 use Spatie\Image\Enums\Fit;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
@@ -99,5 +100,15 @@ class Post extends Model implements HasMedia
         $words = str_word_count(strip_tags($this->body ?? ''));
 
         return max(1, (int) ceil($words / 200));
+    }
+
+    /**
+     * Excerpt if set, otherwise a plain-text summary derived from the body.
+     * Used as the fallback for meta descriptions and card previews so
+     * there's always something meaningful even if the excerpt is blank.
+     */
+    public function summary(int $length = 155): string
+    {
+        return $this->excerpt ?: Str::limit(trim(strip_tags($this->body ?? '')), $length);
     }
 }
