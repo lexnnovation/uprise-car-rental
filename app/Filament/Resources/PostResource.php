@@ -75,7 +75,10 @@ class PostResource extends Resource
                         ->columnSpanFull(),
                     RichEditor::make('body')
                         ->required()
-                        ->toolbarButtons(['bold', 'italic', 'link', 'bulletList', 'orderedList', 'h2', 'h3', 'blockquote', 'undo', 'redo'])
+                        ->toolbarButtons(['bold', 'italic', 'link', 'bulletList', 'orderedList', 'h2', 'h3', 'blockquote', 'attachFiles', 'undo', 'redo'])
+                        ->fileAttachmentsDisk('public')
+                        ->fileAttachmentsDirectory('blog-content')
+                        ->fileAttachmentsVisibility('public')
                         ->columnSpanFull(),
                 ]),
 
