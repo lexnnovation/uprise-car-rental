@@ -94,17 +94,29 @@
                         <article class="group bg-white rounded-md overflow-hidden shadow-card hover:shadow-card-hover
                                         hover:ring-1 hover:ring-accent/20 transition-all duration-300 flex flex-col">
 
+                            @php
+                                $groupUrl = route('fleet.group', ['category' => $entry['category_slug'], 'item' => $entry['item']]);
+                            @endphp
+
                             {{-- Image --}}
-                            <div class="overflow-hidden aspect-video bg-charcoal shrink-0">
+                            <a href="{{ $groupUrl }}" class="block relative overflow-hidden aspect-video bg-charcoal shrink-0">
                                 <img src="{{ $entry['cover'] }}" alt="{{ $entry['category_name'] }}"
                                     class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                                     loading="lazy">
-                            </div>
+                                @if ($entry['photo_count'] > 1)
+                                    <span class="absolute bottom-3 right-3 inline-flex items-center gap-1.5 bg-ink/80 text-white text-xs font-semibold px-2.5 py-1 rounded-full">
+                                        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 001.5-1.5V6a1.5 1.5 0 00-1.5-1.5H3.75A1.5 1.5 0 002.25 6v12a1.5 1.5 0 001.5 1.5zm10.5-11.25a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0z" />
+                                        </svg>
+                                        {{ $entry['photo_count'] }}
+                                    </span>
+                                @endif
+                            </a>
 
                             {{-- Body --}}
                             <div class="p-5 flex flex-col flex-1">
                                 <h2 class="font-display font-bold text-ink text-xl leading-snug mb-4">
-                                    {{ $entry['category_name'] }}
+                                    <a href="{{ $groupUrl }}" class="hover:text-accent transition-colors">{{ $entry['category_name'] }}</a>
                                 </h2>
                                 <div class="flex-1"></div>
                                 <a href="{{ $enquireUrl }}" target="_blank" rel="noopener"

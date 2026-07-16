@@ -57,7 +57,9 @@
         {{-- Vehicle name overlay --}}
         <div class="relative z-10 container-page pb-10 pt-6 flex items-end" style="min-height: 40vh;">
             <div data-reveal>
-                <p class="eyebrow text-accent mb-3">{{ $vehicle->category->name ?? 'Fleet' }}</p>
+                @if (($vehicle->category->name ?? null) !== $vehicle->name)
+                    <p class="eyebrow text-accent mb-3">{{ $vehicle->category->name ?? 'Fleet' }}</p>
+                @endif
                 <h1
                     class="font-display font-bold text-white tracking-tight
                             text-[2rem] sm:text-[2.75rem] lg:text-[3.5rem]">

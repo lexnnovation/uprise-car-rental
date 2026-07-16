@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Post;
 use App\Models\Service;
 use App\Models\Vehicle;
+use App\Services\FleetPhotoScanner;
 use Spatie\Sitemap\Sitemap;
 use Spatie\Sitemap\Tags\Url;
 
@@ -27,6 +28,14 @@ class SitemapController extends Controller
                     ->setPriority(0.8)
                     ->setChangeFrequency(Url::CHANGE_FREQUENCY_MONTHLY)
                     ->setLastModificationDate($vehicle->updated_at)
+            );
+        });
+
+        FleetPhotoScanner::entries()->each(function ($entry) use ($sitemap) {
+            $sitemap->add(
+                Url::create(route('fleet.group', ['category' => $entry['category_slug'], 'item' => $entry['item']]))
+                    ->setPriority(0.7)
+                    ->setChangeFrequency(Url::CHANGE_FREQUENCY_MONTHLY)
             );
         });
 

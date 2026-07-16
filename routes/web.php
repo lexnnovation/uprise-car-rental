@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', HomeController::class)->name('home');
 
 Route::get('/fleet', [FleetController::class, 'index'])->name('fleet.index');
+Route::get('/fleet/{category}/{item}', [FleetController::class, 'showGroup'])->name('fleet.group');
 Route::get('/fleet/{vehicle:slug}', [FleetController::class, 'show'])->name('fleet.show');
 
 Route::get('/services', [ServiceController::class, 'index'])->name('services.index');

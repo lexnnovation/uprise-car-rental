@@ -4,53 +4,17 @@ namespace App\Http\Controllers;
 
 use App\Models\Vehicle;
 use App\Models\VehicleCategory;
+use App\Services\FleetPhotoScanner;
 use Illuminate\Http\Request;
 
 class FleetController extends Controller
 {
     public function index(Request $request)
     {
-        $allCategories = VehicleCategory::active()->ordered()->get(['id', 'name', 'slug']);
         $activeCategory = $request->get('category');
+        $entries = FleetPhotoScanner::entries();
 
-        $entries = collect();
-
-        foreach ($allCategories as $cat) {
-            $catPath = public_path("images/fleet/{$cat->slug}");
-            if (! is_dir($catPath)) {
-                continue;
-            }
-
-            $subfolders = collect(glob("{$catPath}/*/", GLOB_ONLYDIR))->sort()->values();
-
-            if ($subfolders->isNotEmpty()) {
-                // Each subfolder = one vehicle card (e.g. SUV groups)
-                foreach ($subfolders as $subfolder) {
-                    $images = collect(glob("{$subfolder}*.{jpg,jpeg,JPG,JPEG,png,webp,avif}", GLOB_BRACE))->sort()->values();
-                    if ($images->isEmpty()) {
-                        continue;
-                    }
-                    $group = basename(rtrim($subfolder, '/'));
-                    $entries->push([
-                        'category_slug' => $cat->slug,
-                        'category_name' => $cat->name,
-                        'cover'         => asset("images/fleet/{$cat->slug}/{$group}/" . basename($images->first())),
-                    ]);
-                }
-            } else {
-                // Each image = one vehicle card
-                $images = collect(glob("{$catPath}/*.{jpg,jpeg,JPG,JPEG,png,webp,avif}", GLOB_BRACE))->sort()->values();
-                foreach ($images as $image) {
-                    $entries->push([
-                        'category_slug' => $cat->slug,
-                        'category_name' => $cat->name,
-                        'cover'         => asset("images/fleet/{$cat->slug}/" . basename($image)),
-                    ]);
-                }
-            }
-        }
-
-        $categories = $allCategories->filter(
+        $categories = VehicleCategory::active()->ordered()->get(['id', 'name', 'slug'])->filter(
             fn($cat) => $entries->where('category_slug', $cat->slug)->isNotEmpty()
         );
 
@@ -59,6 +23,42 @@ class FleetController extends Controller
         }
 
         return view('pages.fleet.index', compact('entries', 'categories', 'activeCategory'));
+    }
+
+    public function showGroup(string $category, string $item)
+    {
+        $categoryModel = VehicleCategory::active()->where('slug', $category)->firstOrFail();
+
+        $catPath = public_path("images/fleet/{$category}");
+        abort_unless(is_dir($catPath), 404);
+
+        $subfolderPath = "{$catPath}/{$item}";
+
+        if (is_dir($subfolderPath)) {
+            $images = collect(glob("{$subfolderPath}/*.{jpg,jpeg,JPG,JPEG,png,webp,avif}", GLOB_BRACE))
+                ->sort()
+                ->values()
+                ->map(fn ($path) => asset("images/fleet/{$category}/{$item}/" . rawurlencode(basename($path))));
+        } else {
+            $matches = collect(glob("{$catPath}/{$item}.*"))->sort()->values();
+            abort_if($matches->isEmpty(), 404);
+            $images = $matches->map(fn ($path) => asset("images/fleet/{$category}/" . rawurlencode(basename($path))));
+        }
+
+        abort_if($images->isEmpty(), 404);
+
+        $whatsappUrl =
+            'https://wa.me/' .
+            config('uprise.whatsapp.number') .
+            '?text=' .
+            urlencode('Hi Uprise Travel, I\'d like to enquire about the ' . $categoryModel->name . '.');
+
+        return view('pages.fleet.group', [
+            'category' => $categoryModel,
+            'item' => $item,
+            'images' => $images,
+            'whatsappUrl' => $whatsappUrl,
+        ]);
     }
 
     public function show(Vehicle $vehicle)

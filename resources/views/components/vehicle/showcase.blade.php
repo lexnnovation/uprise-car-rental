@@ -62,7 +62,11 @@
                             <h3 class="font-display font-bold text-ink text-xl leading-snug group-hover:text-accent transition-colors duration-200">
                                 {{ $vehicle->category->name ?? 'Vehicle' }}
                             </h3>
-                            <p class="text-stone text-sm font-medium mb-3">{{ $vehicle->name }}</p>
+                            @if ($vehicle->name && $vehicle->name !== ($vehicle->category->name ?? null))
+                                <p class="text-stone text-sm font-medium mb-3">{{ $vehicle->name }}</p>
+                            @else
+                                <div class="mb-3"></div>
+                            @endif
                             <div class="mt-auto flex items-center gap-5 text-xs text-stone border-t border-mist-soft pt-4">
                                 <span class="flex items-center gap-1.5">
                                     <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" stroke-width="1.75"
