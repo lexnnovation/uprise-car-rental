@@ -21,6 +21,7 @@
             ],
         ],
         ['label' => 'About', 'href' => route('about')],
+        ['label' => 'Blog', 'href' => route('blog.index')],
         ['label' => 'Contact', 'href' => route('contact')],
     ];
 

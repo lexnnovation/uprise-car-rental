@@ -7,6 +7,13 @@
 
 @section('content')
 
+    <x-seo.breadcrumb-jsonld :crumbs="array_filter([
+        ['name' => 'Home', 'url' => route('home')],
+        ['name' => 'Fleet', 'url' => route('fleet.index')],
+        $vehicle->category ? ['name' => $vehicle->category->name, 'url' => route('fleet.index', ['category' => $vehicle->category->slug])] : null,
+        ['name' => $vehicle->name, 'url' => route('fleet.show', $vehicle)],
+    ])" />
+
     {{-- ============================================================
      HERO IMAGE
      ============================================================ --}}

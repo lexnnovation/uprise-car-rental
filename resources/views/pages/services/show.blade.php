@@ -7,6 +7,12 @@
 
 @section('content')
 
+    <x-seo.breadcrumb-jsonld :crumbs="[
+        ['name' => 'Home', 'url' => route('home')],
+        ['name' => 'Our Services', 'url' => route('services.index')],
+        ['name' => $service->name, 'url' => route('services.show', $service)],
+    ]" />
+
     {{-- ============================================================
      HERO
      ============================================================ --}}

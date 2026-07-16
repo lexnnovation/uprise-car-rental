@@ -12,6 +12,6 @@ class FaqController extends Controller
 
         $grouped = $faqs->groupBy('category')->sortKeys();
 
-        return view('pages.faq', compact('grouped'));
+        return view('pages.faq', compact('grouped', 'faqs'));
     }
 }

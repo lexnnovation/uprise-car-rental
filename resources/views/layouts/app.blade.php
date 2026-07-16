@@ -38,6 +38,16 @@
     {{-- Favicon --}}
     <link rel="icon" type="image/png" href="/favicon.png">
 
+    {{-- JSON-LD: WebSite --}}
+    <script type="application/ld+json">
+    {
+        "@@context": "https://schema.org",
+        "@@type": "WebSite",
+        "name": "{{ config('uprise.brand.name') }}",
+        "url": "{{ config('app.url') }}"
+    }
+    </script>
+
     {{-- JSON-LD: LocalBusiness --}}
     <script type="application/ld+json">
     {
@@ -96,9 +106,14 @@
 
 <body class="antialiased">
 
+    <a href="#main-content"
+        class="sr-only focus:not-sr-only focus:absolute focus:z-[100] focus:top-4 focus:left-4 focus:bg-white focus:text-ink focus:px-4 focus:py-2.5 focus:rounded-sm focus:font-semibold focus:text-sm">
+        Skip to main content
+    </a>
+
     @include('partials.header')
 
-    <main>
+    <main id="main-content" tabindex="-1">
         @yield('content')
     </main>
 

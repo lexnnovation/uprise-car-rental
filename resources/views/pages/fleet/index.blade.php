@@ -8,6 +8,11 @@
 
 @section('content')
 
+    <x-seo.breadcrumb-jsonld :crumbs="[
+        ['name' => 'Home', 'url' => route('home')],
+        ['name' => 'Fleet', 'url' => route('fleet.index')],
+    ]" />
+
     {{-- ============================================================
      PAGE HEADER
      ============================================================ --}}

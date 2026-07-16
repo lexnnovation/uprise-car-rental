@@ -8,6 +8,11 @@
 
 @section('content')
 
+    <x-seo.breadcrumb-jsonld :crumbs="[
+        ['name' => 'Home', 'url' => route('home')],
+        ['name' => 'Contact', 'url' => route('contact')],
+    ]" />
+
     {{-- PAGE HEADER --}}
     <section class="bg-ink-deep border-b border-charcoal-soft">
         <div class="container-page py-14 lg:py-20">
