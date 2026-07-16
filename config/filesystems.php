@@ -41,7 +41,9 @@ return [
         'public' => [
             'driver' => 'local',
             'root' => storage_path('app/public'),
-            'url' => rtrim(env('APP_URL', 'http://localhost'), '/').'/storage',
+            // Served via /media/{path} (see routes/web.php + MediaController),
+            // not /storage — some hosts block that path pattern at the edge.
+            'url' => rtrim(env('APP_URL', 'http://localhost'), '/').'/media',
             'visibility' => 'public',
             'throw' => false,
             'report' => false,

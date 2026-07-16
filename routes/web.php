@@ -14,9 +14,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', HomeController::class)->name('home');
 
 // Serves storage/app/public directly through PHP instead of relying on the
-// public/storage symlink — some hosts block following it at the webserver
-// level even when file permissions are correct.
-Route::get('/storage/{path}', [MediaController::class, 'show'])->where('path', '.*')->name('media.show');
+// public/storage symlink. Uses /media rather than /storage since some hosts
+// block that path pattern at the edge/CDN level regardless of the origin.
+Route::get('/media/{path}', [MediaController::class, 'show'])->where('path', '.*')->name('media.show');
 
 Route::get('/fleet', [FleetController::class, 'index'])->name('fleet.index');
 Route::get('/fleet/{category}/{item}', [FleetController::class, 'showGroup'])->name('fleet.group');

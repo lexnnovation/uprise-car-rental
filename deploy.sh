@@ -21,13 +21,15 @@ php artisan config:cache
 php artisan route:cache
 php artisan view:cache
 
-echo "==> Linking storage..."
-# Use manual symlink — exec() is disabled on some shared hosts
-if [ ! -L "public/storage" ]; then
-    ln -s "$(pwd)/storage/app/public" "$(pwd)/public/storage"
-    echo "    Storage symlink created."
-else
-    echo "    Storage symlink already exists."
+echo "==> Removing storage symlink if present..."
+# Public media is served via /media/{path} through MediaController, not the
+# public/storage symlink — some hosts' .htaccess rewrite rules skip Laravel
+# entirely for paths that resolve to a real file via the symlink, and the
+# path itself can also get blocked at the edge/CDN level. Remove any stale
+# symlink so nothing shortcuts around the app.
+if [ -L "public/storage" ]; then
+    rm "public/storage"
+    echo "    Removed."
 fi
 
 echo "==> Setting permissions..."
