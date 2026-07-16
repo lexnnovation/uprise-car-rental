@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @php
-    $title = 'Uprise Car Rentals Blog';
+    $title = 'Uprise Car Rentals | Uprise Travel Blog';
     $metaDescription =
         'Guides, tips and stories on chauffeur travel, airport transfers, safari trips and touring Ghana and West Africa with a professional driver.';
 @endphp
