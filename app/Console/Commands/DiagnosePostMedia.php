@@ -36,6 +36,17 @@ class DiagnosePostMedia extends Command
         $this->line('Card URL: ' . $post->getFirstMediaUrl('featured', 'card'));
         $this->line('Hero URL: ' . $post->getFirstMediaUrl('featured', 'hero'));
 
+        $this->newLine();
+        preg_match_all('/<img[^>]+src="([^"]+)"/', $post->body, $matches);
+        $this->line('Inline <img> tags found in body: ' . count($matches[1]));
+        foreach ($matches[1] as $src) {
+            $this->line('  - ' . $src);
+        }
+
+        $this->newLine();
+        $this->line('--- Raw body ---');
+        $this->line($post->body);
+
         return self::SUCCESS;
     }
 }
