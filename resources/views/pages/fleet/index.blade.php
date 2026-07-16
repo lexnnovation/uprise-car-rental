@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @php
-    $title = 'Our Fleet — Car & Driver Hire in Ghana | Uprise Travel';
+    $title = 'Uprise Travel Car Rentals | Our Fleet';
     $metaDescription =
         'Browse our fleet of vehicles available for hire with a professional driver across Ghana — Accra, Cape Coast, Kumasi, Mole, Tamale and more. Sedans, SUVs, minivans, and safari 4x4s.';
 @endphp

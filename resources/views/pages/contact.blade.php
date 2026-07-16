@@ -1,9 +1,9 @@
 @extends('layouts.app')
 
 @php
-    $title = 'Contact & Booking Enquiry | Uprise Travel';
+    $title = 'Uprise Travel Car Rentals | Contact & Booking Enquiry';
     $metaDescription =
-        'Get in touch with Uprise Travel to book a car with driver in Ghana. Covering Accra, Cape Coast, Kumasi, Mole, Tamale and more. Cross-border to Togo & Benin available.';
+        'Get in touch with Uprise Travel Car Rentals to book a car with driver in Ghana. Covering Accra, Cape Coast, Kumasi, Mole, Tamale and more. Cross-border to Togo & Benin available.';
 @endphp
 
 @section('content')

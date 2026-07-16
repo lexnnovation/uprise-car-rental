@@ -1,9 +1,9 @@
 @extends('layouts.app')
 
 @php
-    $title = 'About Uprise Travel | Car & Driver Hire in Ghana';
+    $title = 'Uprise Travel Car Rentals | About Us';
     $metaDescription =
-        'Uprise Travel is Ghana\'s premier chauffeur and car rental service. Based in Accra, we cover all major destinations including Cape Coast, Kumasi, Mole, Tamale, Bolgatanga and Wa — plus cross-border hire to Togo and Benin.';
+        'Uprise Travel Car Rentals is Ghana\'s premier car rental service with professional drivers. Based in Accra, we cover all major destinations including Cape Coast, Kumasi, Mole, Tamale, Bolgatanga and Wa — plus cross-border hire to Togo and Benin.';
 @endphp
 
 @section('content')
@@ -21,11 +21,11 @@
                 <span>/</span>
                 <span class="text-stone-soft">About</span>
             </nav>
-            <p class="eyebrow text-accent mb-3" data-reveal>About Uprise Travel</p>
+            <p class="eyebrow text-accent mb-3" data-reveal>About Uprise Travel Car Rentals</p>
             <h1 data-reveal data-reveal-delay="80"
                 class="font-display font-bold text-white tracking-tight mb-4
                         text-[2rem] sm:text-[2.75rem] lg:text-[3.25rem] max-w-2xl">
-                Ghana's premier chauffeur &amp; car rental service.
+                Ghana's premier car rental service with professional drivers.
             </h1>
             <p data-reveal data-reveal-delay="160" class="text-stone-soft text-base max-w-xl leading-relaxed">
                 Based in Accra — covering Accra, Cape Coast, Kumasi, Mole, Tamale, Bolgatanga, Wa and cross-border to Togo
@@ -190,7 +190,7 @@
                 This site is the dedicated car-rental arm of
                 <a href="{{ config('uprise.brand.parent_url') }}" target="_blank" rel="noopener"
                     class="text-accent font-medium underline underline-offset-2 hover:text-accent-deep transition-colors">{{ config('uprise.brand.parent_name') }}</a>,
-                our established travel brand offering chauffeur and car rental services, guided tours and full-service travel across
+                our established travel brand offering car rental services, guided tours and full-service travel across
                 Ghana and West Africa. Book a car and driver here, or explore the wider range of services on the main
                 Uprise Travel site.
             </p>

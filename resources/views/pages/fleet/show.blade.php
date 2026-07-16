@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @php
-    $title = $vehicle->meta_title ?: $vehicle->name . ' | Uprise Travel Fleet';
+    $title = $vehicle->meta_title ?: 'Uprise Travel Car Rentals | ' . $vehicle->name;
     $metaDescription = $vehicle->meta_description ?: $vehicle->short_description;
 @endphp
 

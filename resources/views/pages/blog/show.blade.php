@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @php
-    $title = $post->meta_title ?: $post->title . ' | Uprise Travel Blog';
+    $title = $post->meta_title ?: 'Uprise Travel Car Rentals Blog | ' . $post->title;
     $metaDescription = $post->meta_description ?: $post->summary();
     $ogImage = $post->hasMedia('og')
         ? $post->getFirstMediaUrl('og', 'og')

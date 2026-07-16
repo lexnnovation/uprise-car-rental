@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @php
-    $title = $category->name . ' — Photos | Uprise Travel Fleet';
+    $title = 'Uprise Travel Car Rentals | ' . $category->name . ' Photos';
     $metaDescription = 'Photos of our ' . $category->name . ' — available for hire with a professional driver across Ghana and West Africa.';
     $ogImage = $images->first();
 @endphp

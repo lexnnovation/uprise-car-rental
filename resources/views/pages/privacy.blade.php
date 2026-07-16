@@ -1,8 +1,8 @@
 @extends('layouts.app')
 
 @php
-    $title = 'Privacy Policy | Uprise Travel';
-    $metaDescription = 'Privacy Policy for Uprise Travel — Ghana car hire and chauffeur service. How we collect, use and protect your personal information.';
+    $title = 'Uprise Travel Car Rentals | Privacy Policy';
+    $metaDescription = 'Privacy Policy for Uprise Travel Car Rentals — Ghana car hire and rental service. How we collect, use and protect your personal information.';
 @endphp
 
 @section('content')
@@ -29,7 +29,7 @@
         <div class="container-page">
             <div class="max-w-3xl mx-auto prose prose-stone prose-sm sm:prose">
 
-                <p>Uprise Travel ("we", "us", "our") operates the website <strong>uprisetravelgh.com</strong> and provides car hire and chauffeur services in Ghana. This Privacy Policy explains how we collect, use, and protect information you provide when using our website or booking services.</p>
+                <p>Uprise Travel ("we", "us", "our") operates the website <strong>uprisetravelgh.com</strong> and provides car hire and car rental services in Ghana. This Privacy Policy explains how we collect, use, and protect information you provide when using our website or booking services.</p>
 
                 <h2>1. Information We Collect</h2>
                 <p>We collect information you provide directly to us, including:</p>

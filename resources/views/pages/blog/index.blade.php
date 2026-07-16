@@ -1,9 +1,9 @@
 @extends('layouts.app')
 
 @php
-    $title = 'Uprise Car Rentals | Uprise Travel Blog';
+    $title = 'Uprise Travel Car Rentals | Blog';
     $metaDescription =
-        'Guides, tips and stories on chauffeur travel, airport transfers, safari trips and touring Ghana and West Africa with a professional driver.';
+        'Guides, tips and stories on car rentals, airport transfers, safari trips and touring Ghana and West Africa with a professional driver.';
 @endphp
 
 @push('head')
@@ -36,7 +36,7 @@
             <h1 data-reveal data-reveal-delay="80"
                 class="font-display font-bold text-white tracking-tight mb-4
                         text-[2rem] sm:text-[2.75rem] lg:text-[3.25rem]">
-                Travel & chauffeur insights.
+                Car rental & travel insights.
             </h1>
             <p data-reveal data-reveal-delay="160" class="text-stone-soft text-base max-w-xl leading-relaxed">
                 Guides, tips and stories on getting around Ghana and West Africa — airport transfers, safaris,

@@ -1,8 +1,8 @@
 @extends('layouts.app')
 
 @php
-    $title = 'Terms of Service | Uprise Travel';
-    $metaDescription = 'Terms of Service for Uprise Travel — Ghana car hire and chauffeur service. Booking conditions, cancellation policy, and service terms.';
+    $title = 'Uprise Travel Car Rentals | Terms of Service';
+    $metaDescription = 'Terms of Service for Uprise Travel Car Rentals — Ghana car hire and rental service. Booking conditions, cancellation policy, and service terms.';
 @endphp
 
 @section('content')
@@ -32,7 +32,7 @@
                 <p>By booking or using services provided by Uprise Travel ("we", "us", "our"), you agree to the following terms and conditions. Please read them carefully.</p>
 
                 <h2>1. Services</h2>
-                <p>Uprise Travel provides driver-included car hire and chauffeur services in Ghana and cross-border to neighbouring countries. <strong>All bookings include a professional driver — we do not offer self-drive rentals.</strong></p>
+                <p>Uprise Travel provides driver-included car hire and car rental services in Ghana and cross-border to neighbouring countries. <strong>All bookings include a professional driver — we do not offer self-drive rentals.</strong></p>
 
                 <h2>2. Bookings & Confirmation</h2>
                 <ul>

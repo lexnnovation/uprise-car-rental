@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @php
-    $title = 'Frequently Asked Questions | Uprise Travel';
+    $title = 'Uprise Travel Car Rentals | FAQ';
     $metaDescription =
         'Answers to common questions about car and driver hire in Ghana and West Africa — booking, pricing, coverage, driver policy, airport transfers and more.';
 @endphp
