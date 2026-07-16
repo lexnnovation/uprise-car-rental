@@ -34,7 +34,7 @@ class FleetPhotoScanner
                     $entries->push([
                         'category_slug' => $cat->slug,
                         'category_name' => $cat->name,
-                        'cover'         => asset("images/fleet/{$cat->slug}/{$group}/" . basename($images->first())),
+                        'cover'         => asset("images/fleet/{$cat->slug}/{$group}/" . rawurlencode(basename($images->first()))),
                         'item'          => $group,
                         'photo_count'   => $images->count(),
                     ]);
@@ -45,7 +45,7 @@ class FleetPhotoScanner
                     $entries->push([
                         'category_slug' => $cat->slug,
                         'category_name' => $cat->name,
-                        'cover'         => asset("images/fleet/{$cat->slug}/" . basename($image)),
+                        'cover'         => asset("images/fleet/{$cat->slug}/" . rawurlencode(basename($image))),
                         'item'          => pathinfo($image, PATHINFO_FILENAME),
                         'photo_count'   => 1,
                     ]);
