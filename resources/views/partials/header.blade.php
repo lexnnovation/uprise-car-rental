@@ -20,8 +20,8 @@
                 ['label' => 'Mole National Park Car Rentals', 'href' => route('services.show', 'mole-national-park')],
             ],
         ],
-        ['label' => 'About', 'href' => route('about')],
         ['label' => 'Blog', 'href' => route('blog.index')],
+        ['label' => 'About', 'href' => route('about')],
         ['label' => 'Contact', 'href' => route('contact')],
     ];
 

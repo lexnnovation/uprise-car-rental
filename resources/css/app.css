@@ -312,3 +312,12 @@
 [data-counter] {
     font-variant-numeric: tabular-nums;
 }
+
+/* =============================================================
+   Blog content — hide Trix's filename/size caption under images
+   uploaded via the rich editor's "attach files" feature. Left
+   visible in the admin editor itself, since it's useful there.
+   ============================================================= */
+.prose figcaption.attachment__caption {
+    display: none;
+}

@@ -59,11 +59,11 @@
             @else
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6" data-stagger data-stagger-delay="120">
                     @foreach ($posts as $post)
-                        <article
+                        <a href="{{ route('blog.show', $post) }}"
                             class="group bg-white rounded-md overflow-hidden shadow-card hover:shadow-card-hover
                                    hover:ring-1 hover:ring-accent/20 transition-all duration-300 flex flex-col">
 
-                            <a href="{{ route('blog.show', $post) }}" class="block overflow-hidden aspect-video bg-charcoal">
+                            <div class="overflow-hidden aspect-video bg-charcoal">
                                 @if ($post->hasMedia('featured'))
                                     <img src="{{ $post->getFirstMediaUrl('featured', 'card') }}" alt="{{ $post->title }}"
                                         class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
@@ -77,7 +77,7 @@
                                         </svg>
                                     </div>
                                 @endif
-                            </a>
+                            </div>
 
                             <div class="flex flex-col p-6 flex-1">
                                 <div class="flex items-center gap-2 text-xs text-stone mb-3">
@@ -92,26 +92,24 @@
 
                                 <h2 class="font-display font-bold text-ink text-lg leading-snug mb-3
                                             group-hover:text-accent transition-colors duration-200">
-                                    <a href="{{ route('blog.show', $post) }}" class="stretched-link">
-                                        {{ $post->title }}
-                                    </a>
+                                    {{ $post->title }}
                                 </h2>
 
                                 <p class="text-stone text-sm leading-relaxed flex-1">
                                     {{ $post->summary() }}
                                 </p>
 
-                                <div class="mt-5 inline-flex items-center gap-1.5 text-xs font-semibold text-accent
+                                <div class="mt-5 inline-flex items-center gap-2 text-sm font-bold text-accent
                                             group-hover:text-accent-soft transition-colors tracking-wide">
                                     Read more
-                                    <svg class="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" fill="none"
+                                    <svg class="w-4 h-4 group-hover:translate-x-0.5 transition-transform" fill="none"
                                         stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round"
                                             d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
                                     </svg>
                                 </div>
                             </div>
-                        </article>
+                        </a>
                     @endforeach
                 </div>
 
