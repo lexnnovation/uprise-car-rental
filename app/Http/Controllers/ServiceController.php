@@ -31,8 +31,7 @@ class ServiceController extends Controller
 
         $photos = collect(glob(public_path('images/lifestyle/*.{jpg,jpeg,png,webp}'), GLOB_BRACE))
             ->map(fn ($path) => asset('images/lifestyle/' . rawurlencode(basename($path))))
-            ->values()
-            ->take(4);
+            ->values();
 
         return view('pages.services.show', compact('service', 'related', 'whatsappUrl', 'photos'));
     }

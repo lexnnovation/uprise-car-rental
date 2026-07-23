@@ -28,8 +28,7 @@ class HomeController extends Controller
 
         $photos = collect(glob(public_path('images/lifestyle/*.{jpg,jpeg,png,webp}'), GLOB_BRACE))
             ->map(fn ($path) => asset('images/lifestyle/' . rawurlencode(basename($path))))
-            ->values()
-            ->take(4);
+            ->values();
 
         $heroBg = Setting::get(
             'home_hero_bg_url',
