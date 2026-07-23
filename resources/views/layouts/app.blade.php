@@ -48,48 +48,50 @@
     }
     </script>
 
-    {{-- JSON-LD: LocalBusiness --}}
+    {{-- JSON-LD: LocalBusiness (one entry per physical location) --}}
     <script type="application/ld+json">
     {
         "@@context": "https://schema.org",
-        "@@type": "LocalBusiness",
-        "name": "{{ config('uprise.brand.name') }}",
-        "description": "{{ config('uprise.brand.short_tagline') }}",
-        "url": "{{ config('app.url') }}",
-        "telephone": "{{ config('uprise.contact.phone_e164') }}",
-        "email": "{{ config('uprise.contact.email') }}",
-        "image": "{{ asset('images/og-default.jpg') }}",
-        "address": {
-            "@@type": "PostalAddress",
-            "streetAddress": "{{ config('uprise.contact.address.street') }}",
-            "addressLocality": "{{ config('uprise.contact.address.city') }}",
-            "addressRegion": "{{ config('uprise.contact.address.region') }}",
-            "addressCountry": "{{ config('uprise.contact.address.country_code') }}"
-        },
-        "geo": {
-            "@@type": "GeoCoordinates",
-            "latitude": "5.6037",
-            "longitude": "-0.1870"
-        },
-        "openingHours": "Mo-Su 00:00-24:00",
-        "areaServed": [
-            { "@@type": "City", "name": "Accra" },
-            { "@@type": "City", "name": "Tamale" },
-            { "@@type": "TouristAttraction", "name": "Mole National Park" },
-            { "@@type": "City", "name": "Cape Coast" },
-            { "@@type": "City", "name": "Kumasi" },
-            { "@@type": "Country", "name": "Ghana" }
-        ],
-        "priceRange": "$$",
-        "parentOrganization": {
-            "@@type": "Organization",
-            "name": "{{ config('uprise.brand.parent_name') }}",
-            "url": "{{ config('uprise.brand.parent_url') }}"
-        },
-        "sameAs": [
-            "{{ config('uprise.social.instagram') }}",
-            "{{ config('uprise.social.facebook') }}",
-            "{{ config('uprise.brand.parent_url') }}"
+        "@@graph": [
+            @foreach (config('uprise.contact.locations') as $key => $location)
+            {
+                "@@type": "LocalBusiness",
+                "@@id": "{{ config('app.url') }}/#{{ $key }}",
+                "name": "{{ config('uprise.brand.name') }} — {{ $location['label'] }}",
+                "description": "{{ config('uprise.brand.short_tagline') }}",
+                "url": "{{ config('app.url') }}",
+                "telephone": "{{ config('uprise.contact.phone_e164') }}",
+                "email": "{{ config('uprise.contact.email') }}",
+                "image": "{{ asset('images/og-default.jpg') }}",
+                "address": {
+                    "@@type": "PostalAddress",
+                    "streetAddress": "{{ $location['street'] }}",
+                    "addressLocality": "{{ $location['city'] }}",
+                    "addressRegion": "{{ $location['region'] }}",
+                    "addressCountry": "{{ $location['country_code'] }}"
+                },
+                "openingHours": "Mo-Su 00:00-24:00",
+                "areaServed": [
+                    { "@@type": "City", "name": "Accra" },
+                    { "@@type": "City", "name": "Tamale" },
+                    { "@@type": "TouristAttraction", "name": "Mole National Park" },
+                    { "@@type": "City", "name": "Cape Coast" },
+                    { "@@type": "City", "name": "Kumasi" },
+                    { "@@type": "Country", "name": "Ghana" }
+                ],
+                "priceRange": "$$",
+                "parentOrganization": {
+                    "@@type": "Organization",
+                    "name": "{{ config('uprise.brand.parent_name') }}",
+                    "url": "{{ config('uprise.brand.parent_url') }}"
+                },
+                "sameAs": [
+                    "{{ config('uprise.social.instagram') }}",
+                    "{{ config('uprise.social.facebook') }}",
+                    "{{ config('uprise.brand.parent_url') }}"
+                ]
+            }@if (!$loop->last),@endif
+            @endforeach
         ]
     }
     </script>

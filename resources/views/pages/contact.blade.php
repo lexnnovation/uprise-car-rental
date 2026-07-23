@@ -98,20 +98,22 @@
                             <span class="text-ink group-hover:text-accent transition-colors font-medium">{{ config('uprise.contact.email') }}</span>
                         </a>
 
-                        <div class="flex items-start gap-3 text-sm pt-4 border-t border-mist-soft">
-                            <svg class="w-4 h-4 text-accent shrink-0 mt-0.5" fill="none" stroke="currentColor"
-                                stroke-width="1.75" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round"
-                                    d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
-                                <path stroke-linecap="round" stroke-linejoin="round"
-                                    d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
-                            </svg>
-                            <div class="text-stone">
-                                <p>{{ config('uprise.contact.address.street') }}</p>
-                                <p>{{ config('uprise.contact.address.city') }},
-                                    {{ config('uprise.contact.address.country') }}</p>
+                        @foreach (config('uprise.contact.locations') as $location)
+                            <div class="flex items-start gap-3 text-sm pt-4 border-t border-mist-soft">
+                                <svg class="w-4 h-4 text-accent shrink-0 mt-0.5" fill="none" stroke="currentColor"
+                                    stroke-width="1.75" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
+                                </svg>
+                                <div class="text-stone">
+                                    <p class="text-ink font-medium mb-0.5">{{ $location['label'] }}</p>
+                                    <p>{{ $location['street'] }}</p>
+                                    <p>{{ $location['city'] }}, {{ $location['country'] }}</p>
+                                </div>
                             </div>
-                        </div>
+                        @endforeach
                     </div>
 
                     {{-- Driver notice --}}

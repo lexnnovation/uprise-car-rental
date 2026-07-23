@@ -81,7 +81,9 @@
                 <ul>
                     <li>Email: <a href="mailto:{{ config('uprise.contact.email') }}">{{ config('uprise.contact.email') }}</a></li>
                     <li>Phone: {{ config('uprise.contact.phone') }}</li>
-                    <li>Address: {{ config('uprise.contact.address.street') }}, {{ config('uprise.contact.address.city') }}, {{ config('uprise.contact.address.country') }}</li>
+                    @foreach (config('uprise.contact.locations') as $location)
+                        <li>{{ $location['label'] }}: {{ $location['street'] }}, {{ $location['city'] }}, {{ $location['country'] }}</li>
+                    @endforeach
                 </ul>
 
             </div>

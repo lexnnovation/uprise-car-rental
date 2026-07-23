@@ -126,10 +126,13 @@
                             {{ $contact['email'] }}
                         </a>
                     </li>
-                    <li class="leading-relaxed">
-                        {{ $contact['address']['street'] }}<br>
-                        {{ $contact['address']['city'] }}, {{ $contact['address']['country'] }}
-                    </li>
+                    @foreach ($contact['locations'] as $location)
+                        <li class="leading-relaxed">
+                            <span class="text-stone-soft text-xs tracking-wide">{{ $location['label'] }}</span><br>
+                            {{ $location['street'] }}<br>
+                            {{ $location['city'] }}, {{ $location['country'] }}
+                        </li>
+                    @endforeach
                     <li class="text-stone-soft">{{ $contact['hours'] }}</li>
                 </ul>
 
