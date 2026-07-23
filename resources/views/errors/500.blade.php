@@ -21,8 +21,8 @@
 
             <div class="flex flex-col sm:flex-row gap-4 justify-center">
                 <a href="{{ route('home') }}"
-                    class="inline-flex items-center justify-center gap-2 bg-accent text-white font-semibold
-                           text-sm px-6 py-3 rounded-sm hover:bg-accent-soft transition-colors tracking-wide">
+                    class="btn-shimmer inline-flex items-center justify-center gap-2 bg-white text-ink font-semibold
+                           text-sm px-6 py-3 rounded-lg hover:bg-ink hover:text-white transition-colors tracking-wide">
                     Go to Homepage
                 </a>
                 <a href="{{ 'https://wa.me/' . config('uprise.whatsapp.number') . '?text=' . urlencode(config('uprise.whatsapp.default_message')) }}"

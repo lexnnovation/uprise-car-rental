@@ -52,7 +52,7 @@
                     — {{ config('uprise.brand.parent_blurb') }}.
                 </p>
                 <a href="{{ $whatsappUrl }}" target="_blank" rel="noopener"
-                    class="inline-flex items-center gap-2 border border-white/30 text-white text-xs font-semibold px-4 py-2.5 rounded-sm hover:bg-white hover:text-ink transition-colors duration-200 tracking-wide">
+                    class="btn-shimmer inline-flex items-center gap-2 bg-white text-ink text-xs font-semibold px-4 py-2.5 rounded-lg hover:bg-ink hover:text-white transition-colors duration-200 tracking-wide">
                     Book via WhatsApp
                 </a>
             </div>

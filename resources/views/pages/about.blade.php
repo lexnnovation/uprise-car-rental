@@ -209,14 +209,14 @@
             </div>
             <div class="flex flex-col sm:flex-row items-center gap-3 shrink-0">
                 <a href="{{ route('contact') }}"
-                    class="inline-flex items-center gap-2 border border-white text-white font-semibold text-sm
-                          px-6 py-3 rounded-sm hover:bg-white hover:text-accent transition-colors tracking-wide">
+                    class="btn-shimmer inline-flex items-center gap-2 bg-white text-ink font-semibold text-sm
+                          px-6 py-3 rounded-lg hover:bg-ink hover:text-white transition-colors tracking-wide">
                     Send an Enquiry
                 </a>
                 <a href="{{ 'https://wa.me/' . config('uprise.whatsapp.number') . '?text=' . urlencode(config('uprise.whatsapp.default_message')) }}"
                     target="_blank" rel="noopener"
-                    class="inline-flex items-center gap-2 border border-white/40 text-white font-semibold text-sm
-                          px-6 py-3 rounded-sm hover:bg-white/10 transition-colors tracking-wide">
+                    class="btn-shimmer inline-flex items-center gap-2 bg-white text-ink font-semibold text-sm
+                          px-6 py-3 rounded-lg hover:bg-ink hover:text-white transition-colors tracking-wide">
                     WhatsApp Us
                 </a>
             </div>

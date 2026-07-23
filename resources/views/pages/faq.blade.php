@@ -48,7 +48,7 @@
                         <p class="font-display font-semibold text-ink text-lg mb-2">No FAQs yet.</p>
                         <p class="text-stone text-sm mb-6">Check back soon, or reach us directly.</p>
                         <a href="{{ route('contact') }}"
-                            class="inline-flex items-center gap-2 bg-accent text-white font-semibold text-sm px-6 py-3 rounded-sm hover:bg-accent-soft transition-colors">
+                            class="btn-shimmer inline-flex items-center gap-2 bg-accent text-white font-semibold text-sm px-6 py-3 rounded-lg hover:bg-accent-deep transition-colors">
                             Contact us
                         </a>
                     </div>
