@@ -265,7 +265,6 @@
         $catSlug = $vehicle->category->slug ?? null;
         $clip = match (true) {
             in_array($catSlug, ['coaster-bus', 'coach-bus', 'minivan-sprinter'], true) => ['name' => 'bus_inside', 'overlay' => false],
-            $catSlug === 'suv-4x4' => ['name' => 'suv', 'overlay' => true],
             default => null,
         };
     @endphp

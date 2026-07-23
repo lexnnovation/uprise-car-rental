@@ -22,9 +22,9 @@
         <div class="sm:hidden h-full" x-data="{
             current: 0,
             slides: [
-                { img: '/images/fleet/salon.jpg', eyebrow: 'Salon Car', title: 'Executive' },
-                { img: '/images/fleet/highlander.jpg', eyebrow: 'Toyota Highlander', title: 'Off-Road Safari' },
-                { img: '/images/fleet/landcruiser.jpg', eyebrow: 'Land Cruiser', title: 'City & Highway' },
+                { img: '/images/fleet/camry.jpg', eyebrow: 'Toyota Camry', title: 'Executive' },
+                { img: '/images/fleet/4runner.jpg', eyebrow: 'Toyota 4Runner', title: 'Off-Road Safari' },
+                { img: '/images/fleet/landcruiser.jpg', eyebrow: 'Toyota Tacoma', title: 'City & Highway' },
                 { img: '/images/fleet/minibus.jpg', eyebrow: 'Minibus', title: 'Group Travel' }
             ],
             touchStartX: 0,
@@ -68,34 +68,34 @@
         <div class="hidden sm:flex h-full divide-x divide-white/10">
 
             <div class="hero-panel-enter group relative flex-1 overflow-hidden">
-                <img src="/images/fleet/salon.jpg" alt="Executive Salon Car"
+                <img src="/images/fleet/camry.jpg" alt="Toyota Camry"
                     class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700"
                     fetchpriority="high" loading="eager">
                 <div class="absolute inset-0 bg-ink/30 group-hover:bg-ink/15 transition-colors duration-500"></div>
                 <div class="absolute bottom-0 inset-x-0 px-6 py-6 bg-linear-to-t from-ink/80 to-transparent">
-                    <p class="eyebrow text-accent mb-1">Salon Car</p>
+                    <p class="eyebrow text-accent mb-1">Toyota Camry</p>
                     <p class="font-display font-bold text-white text-xl">Executive</p>
                 </div>
             </div>
 
             <div class="hero-panel-enter group relative flex-1 overflow-hidden hidden md:block">
-                <img src="/images/fleet/highlander.jpg" alt="Toyota Highlander SUV"
+                <img src="/images/fleet/4runner.jpg" alt="Toyota 4Runner SUV"
                     class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700"
                     loading="lazy">
                 <div class="absolute inset-0 bg-ink/30 group-hover:bg-ink/15 transition-colors duration-500"></div>
                 <div class="absolute bottom-0 inset-x-0 px-6 py-6 bg-linear-to-t from-ink/80 to-transparent">
-                    <p class="eyebrow text-accent mb-1">Toyota Highlander</p>
+                    <p class="eyebrow text-accent mb-1">Toyota 4Runner</p>
                     <p class="font-display font-bold text-white text-xl">Off-Road Safari</p>
                 </div>
             </div>
 
             <div class="hero-panel-enter group relative flex-1 overflow-hidden hidden lg:block">
-                <img src="/images/fleet/landcruiser.jpg" alt="4WD Land Cruiser"
+                <img src="/images/fleet/landcruiser.jpg" alt="Toyota Tacoma"
                     class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700"
                     loading="lazy">
                 <div class="absolute inset-0 bg-ink/30 group-hover:bg-ink/15 transition-colors duration-500"></div>
                 <div class="absolute bottom-0 inset-x-0 px-6 py-6 bg-linear-to-t from-ink/80 to-transparent">
-                    <p class="eyebrow text-accent mb-1">Land Cruiser</p>
+                    <p class="eyebrow text-accent mb-1">Toyota Tacoma</p>
                     <p class="font-display font-bold text-white text-xl">City &amp; Highway</p>
                 </div>
             </div>
@@ -264,7 +264,7 @@
     </style>
     <section class="bg-charcoal border-y border-charcoal-soft overflow-hidden relative" style="height:48px;">
         <div class="uprise-ticker flex items-center whitespace-nowrap absolute left-0 top-0 h-full">
-            @php $tickerItems = ['Executive', 'Salon Car', 'Toyota Highlander', 'Off-Road Safari', 'Land Cruiser', 'City &amp; Highway', 'Minibus', 'Group Travel']; @endphp
+            @php $tickerItems = ['Executive', 'Toyota Camry', 'Toyota 4Runner', 'Off-Road Safari', 'Toyota Tacoma', 'City &amp; Highway', 'Minibus', 'Group Travel']; @endphp
             @foreach (array_merge($tickerItems, $tickerItems) as $item)
                 <span class="text-stone text-[11px] uppercase tracking-[0.25em] px-5">{{ $item }}</span>
                 <span class="text-charcoal-soft select-none">&middot;</span>
