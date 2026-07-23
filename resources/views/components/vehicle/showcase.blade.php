@@ -4,13 +4,45 @@
     'subtitle' => 'Every vehicle comes with a vetted, professional driver. Browse the fleet and book the one that fits your trip.',
     'limit' => 3,
     'bg' => 'bg-bone',
+    'categories' => null,
+    'cols' => 3,
+    'picks' => [],
 ])
 
 @php
-    $showcaseEntries = \App\Services\FleetPhotoScanner::entries()
-        ->unique('category_slug')
-        ->values()
-        ->take($limit);
+    $allEntries = \App\Services\FleetPhotoScanner::entries();
+
+    if ($categories) {
+        // Preserve the given category order, and honour a specific item
+        // pick per category (e.g. ['suv-4x4' => '2']) instead of always
+        // taking the first photo found for that category.
+        $showcaseEntries = collect($categories)
+            ->map(function ($slug) use ($allEntries, $picks) {
+                $matches = $allEntries->where('category_slug', $slug)->values();
+                if ($matches->isEmpty()) {
+                    return null;
+                }
+
+                if (isset($picks[$slug])) {
+                    $picked = $matches->firstWhere('item', $picks[$slug]);
+                    if ($picked) {
+                        return $picked;
+                    }
+                }
+
+                return $matches->first();
+            })
+            ->filter()
+            ->values();
+    } else {
+        $showcaseEntries = $allEntries->unique('category_slug')->values();
+    }
+
+    $showcaseEntries = $showcaseEntries->take($limit);
+
+    $gridClass = $cols === 4
+        ? 'grid-cols-1 sm:grid-cols-2 lg:grid-cols-4'
+        : 'grid-cols-1 sm:grid-cols-2 lg:grid-cols-3';
 @endphp
 
 @if ($showcaseEntries->isNotEmpty())
@@ -31,7 +63,7 @@
                 </a>
             </div>
 
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6" data-stagger data-stagger-delay="100">
+            <div class="grid {{ $gridClass }} gap-6" data-stagger data-stagger-delay="100">
                 @foreach ($showcaseEntries as $entry)
                     <a href="{{ route('fleet.group', ['category' => $entry['category_slug'], 'item' => $entry['item']]) }}"
                         class="group flex flex-col bg-white border border-mist rounded-md overflow-hidden hover:shadow-lg hover:border-accent/40 transition-all duration-200">

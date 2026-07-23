@@ -148,7 +148,10 @@
         </div>
     </section>
 
-    <x-ui.lifestyle-grid :photos="$photos" />
+    <x-vehicle.showcase bg="bg-white" eyebrow="The Fleet" title="A car for every journey"
+        subtitle="Every vehicle comes with a vetted, professional driver. Browse the fleet and book the one that fits your trip."
+        :categories="['safari-trucks', 'suv-4x4', 'minivan-sprinter', 'coaster-bus']" :picks="['suv-4x4' => '2']"
+        :limit="4" :cols="4" />
 
     {{-- ============================================================
      DESTINATIONS — Car rentals across Ghana (SEO + internal links)
@@ -218,6 +221,8 @@
             </div>
         </div>
     </section>
+
+    <x-ui.lifestyle-grid :photos="$photos" />
 
     {{-- ============================================================
      FEATURES — editorial dark 3-col with ghost numbers
