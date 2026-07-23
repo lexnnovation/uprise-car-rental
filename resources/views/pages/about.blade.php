@@ -8,10 +8,7 @@
 
 @section('content')
 
-    <x-seo.breadcrumb-jsonld :crumbs="[
-        ['name' => 'Home', 'url' => route('home')],
-        ['name' => 'About', 'url' => route('about')],
-    ]" />
+    <x-seo.breadcrumb-jsonld :crumbs="[['name' => 'Home', 'url' => route('home')], ['name' => 'About', 'url' => route('about')]]" />
 
     {{-- PAGE HEADER --}}
     <section class="bg-ink-deep border-b border-charcoal-soft">
@@ -25,11 +22,11 @@
             <h1 data-reveal data-reveal-delay="80"
                 class="font-display font-bold text-white tracking-tight mb-4
                         text-[2rem] sm:text-[2.75rem] lg:text-[3.25rem] max-w-2xl">
-                Ghana's premier car rental service with professional drivers.
+                Ghana's premier car rental service with professional drivers
             </h1>
             <p data-reveal data-reveal-delay="160" class="text-stone-soft text-base max-w-xl leading-relaxed">
-                Based in Accra — covering Accra, Cape Coast, Kumasi, Mole, Tamale, Bolgatanga, Wa and cross-border to Togo
-                &amp; Benin with professional drivers who know every road.
+                Based in Accra and Tamale, covering Accra, Cape Coast, Kumasi, Mole, Tamale, Bolgatanga, Wa and
+                cross-border to Togo &amp; Benin, with professional drivers who know every road.
             </p>
         </div>
     </section>
@@ -45,29 +42,34 @@
                     </h2>
                     <div class="space-y-4 text-stone text-sm leading-relaxed">
                         <p>
-                            Uprise Travel was built to solve a real problem — the difficulty of finding
-                            safe, reliable, and professional ground transportation in Ghana.
-                            Whether you're landing at Kotoka International Airport, planning a safari
-                            through Mole National Park, or need an executive car for a multi-day
+                            Uprise Car Rentals was built to solve a real problem; the difficulty of finding
+                            safe, reliable, and professional ground transportation in Ghana. Whether you're
+                            landing at Accra International Airport (formerly Kotoka), heading north for a
+                            safari through Mole National Park, or need an executive vehicle for a multi-day
                             corporate itinerary, we deliver without compromise.
                         </p>
                         <p>
-                            Every vehicle in our fleet comes with a vetted, professional driver.
-                            We do not offer self-drive rentals. That's not a limitation — it's our standard.
-                            Our clients travel with confidence because someone who knows the roads, the
+                            Every vehicle in our fleet comes with a vetted, professional driver. We do not
+                            offer self-drive rentals and that's not a limitation, it's our standard. Our
+                            clients travel with confidence because someone who knows the roads, the
                             checkpoints, and the local context is always behind the wheel.
                         </p>
                         <p>
-                            We serve diaspora visitors, corporate travellers, NGO and development sector
-                            professionals, tour groups, and anyone who wants to explore Ghana
-                            without the stress of navigating it alone.
+                            We serve diaspora visitors, corporate travellers, local travellers, NGO and development-sector
+                            professionals, tour groups, students and volunteers, and anyone who wants to
+                            explore Ghana comfortably without the stress of navigating it alone.
+                        </p>
+                        <p>
+                            Whether you're travelling from the northern part of Ghana to the south, or
+                            from the south to the north, our drivers know the route end to end, and the
+                            same reliability holds no matter which direction you're headed.
                         </p>
                     </div>
                 </div>
 
                 {{-- Stat cards --}}
                 <div class="grid grid-cols-2 gap-4" data-stagger data-stagger-delay="80">
-                    @foreach ([['num' => '7', 'label' => 'Destinations in Ghana', 'sub' => 'Accra · Cape Coast · Kumasi · Mole · Tamale · Bolgatanga · Wa'], ['num' => '100%', 'label' => 'Driver-included bookings', 'sub' => 'No self-drive — ever'], ['num' => '24 / 7', 'label' => 'WhatsApp availability', 'sub' => 'Reach us any time'], ['num' => '10+', 'label' => 'Years in Ghana travel', 'sub' => 'Experience you can rely on']] as $stat)
+                    @foreach ([['num' => '7+', 'label' => 'Regions in Ghana', 'sub' => 'Accra · Cape Coast · Kumasi · Mole · Tamale · Bolgatanga · Wa'], ['num' => '100%', 'label' => 'Driver-included bookings', 'sub' => 'No self-drive'], ['num' => '24 / 7', 'label' => 'WhatsApp availability', 'sub' => 'Reach us any time'], ['num' => '10+', 'label' => 'Years in Ghana travel', 'sub' => 'Experience you can rely on']] as $stat)
                         <div class="bg-white rounded-md p-5 shadow-card">
                             <p class="font-display font-bold text-accent text-3xl leading-none mb-2">{{ $stat['num'] }}</p>
                             <p class="font-semibold text-ink text-sm mb-1">{{ $stat['label'] }}</p>
@@ -90,7 +92,7 @@
             </div>
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 max-w-4xl mx-auto" data-stagger
                 data-stagger-delay="70">
-                @foreach ([['country' => 'Accra', 'cities' => 'Kotoka Airport · Osu · Airport Hills · East Legon'], ['country' => 'Cape Coast', 'cities' => 'Cape Coast Castle · Kakum · Elmina'], ['country' => 'Kumasi', 'cities' => 'Kumasi Central · Manhyia · Kejetia'], ['country' => 'Mole', 'cities' => 'Mole National Park · Larabanga'], ['country' => 'Tamale · Bolgatanga · Wa', 'cities' => 'Northern Region destinations'], ['country' => 'Cross-Border', 'cities' => 'Togo (Lomé) · Benin (Cotonou) — on request']] as $loc)
+                @foreach ([['country' => 'Accra', 'cities' => 'Accra International Airport · Independence Square · Labadi Beach · Osu · Kwame Nkrumah Memorial Park and more'], ['country' => 'Cape Coast', 'cities' => 'Cape Coast Castle · Kakum National Park · Elmina Castle · Assin Manso and more'], ['country' => 'Kumasi', 'cities' => 'Kumasi Central · Manhyia · Kejetia and more'], ['country' => 'Mole', 'cities' => 'Mole National Park · Larabanga and more'], ['country' => 'Tamale · Bolgatanga · Wa', 'cities' => 'Northern Region destinations and more'], ['country' => 'Cross-Border', 'cities' => 'Togo (Lomé) · Benin (Cotonou) and more, on request']] as $loc)
                     <div class="bg-charcoal rounded-md p-5 border border-charcoal-soft">
                         <p class="font-display font-semibold text-white text-base mb-2">{{ $loc['country'] }}</p>
                         <p class="text-stone-soft text-xs leading-relaxed">{{ $loc['cities'] }}</p>
@@ -146,7 +148,8 @@
                                 @for ($i = 1; $i <= 5; $i++)
                                     <svg class="w-4 h-4 {{ $i <= ($t->rating ?? 5) ? 'text-accent' : 'text-white/15' }}"
                                         fill="currentColor" viewBox="0 0 20 20">
-                                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                        <path
+                                            d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
                                     </svg>
                                 @endfor
                             </div>
@@ -155,12 +158,12 @@
                             </blockquote>
                             <footer class="flex items-center gap-2.5 pt-4 border-t border-white/8">
                                 @if ($t->hasMedia('avatar'))
-                                    <img src="{{ $t->getFirstMediaUrl('avatar', 'avatar') }}"
-                                        alt="{{ $t->author_name }}"
+                                    <img src="{{ $t->getFirstMediaUrl('avatar', 'avatar') }}" alt="{{ $t->author_name }}"
                                         class="w-8 h-8 rounded-full object-cover shrink-0" loading="lazy">
                                 @else
                                     <div class="w-8 h-8 rounded-full bg-charcoal flex items-center justify-center shrink-0">
-                                        <span class="text-stone-soft font-semibold text-xs">{{ substr($t->author_name, 0, 1) }}</span>
+                                        <span
+                                            class="text-stone-soft font-semibold text-xs">{{ substr($t->author_name, 0, 1) }}</span>
                                     </div>
                                 @endif
                                 <div>
