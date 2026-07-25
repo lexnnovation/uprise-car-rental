@@ -2,4 +2,4 @@ User-agent: *
 Disallow: /bo
 Disallow: /bo/
 
-Sitemap: https://uprisetravel.com/sitemap.xml
+Sitemap: https://uprisecarrentals.com/sitemap.xml

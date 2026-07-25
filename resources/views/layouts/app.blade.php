@@ -17,12 +17,19 @@
     {{-- Open Graph --}}
     @php
         $ogImage = $ogImage ?? (config('uprise.seo.default_og_image') ?? asset('images/og-default.jpg'));
+        $ogImageWidth = $ogImageWidth ?? 1200;
+        $ogImageHeight = $ogImageHeight ?? 630;
+        $ogImageType = $ogImageType ?? 'image/jpeg';
     @endphp
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="{{ config('app.name') }}">
     <meta property="og:title" content="{{ $title ?? config('app.name') }}">
     <meta property="og:url" content="{{ url()->current() }}">
     <meta property="og:image" content="{{ $ogImage }}">
+    <meta property="og:image:secure_url" content="{{ $ogImage }}">
+    <meta property="og:image:width" content="{{ $ogImageWidth }}">
+    <meta property="og:image:height" content="{{ $ogImageHeight }}">
+    <meta property="og:image:type" content="{{ $ogImageType }}">
     @isset($metaDescription)
         <meta property="og:description" content="{{ $metaDescription }}">
     @endisset
