@@ -123,4 +123,15 @@ return [
         'rate_limit_per_minute' => env('UPRISE_INQUIRY_RATE_LIMIT', 5),
     ],
 
+    /*
+    |--------------------------------------------------------------------------
+    | Analytics
+    |--------------------------------------------------------------------------
+    | Only rendered in production (see layouts/app.blade.php's @production block).
+    */
+    'analytics' => [
+        'ga4_id' => env('UPRISE_GA4_ID'),
+        'clarity_id' => env('UPRISE_CLARITY_ID'),
+    ],
+
 ];
