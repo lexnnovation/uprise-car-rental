@@ -129,6 +129,7 @@
                 })(window, document, "clarity", "script", "{{ config('uprise.analytics.clarity_id') }}");
             </script>
         @endif
+        <script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/6121051.js"></script>
     @endproduction
 
     @stack('head')
